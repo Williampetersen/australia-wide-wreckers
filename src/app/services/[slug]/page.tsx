@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 import { CtaBand } from "@/components/CtaBand";
@@ -66,13 +67,13 @@ export default async function ServiceDetailPage(
             </h3>
             <div className="mt-5 flex flex-col gap-3">
               {otherServices.map((s) => (
-                <a
+                <Link
                   key={s.slug}
                   href={`/services/${s.slug}`}
                   className="rounded-2xl border border-ink/8 bg-white px-4 py-3 text-sm font-semibold text-ink-soft transition-colors hover:border-brand hover:text-ink"
                 >
                   {s.name}
-                </a>
+                </Link>
               ))}
             </div>
           </aside>
