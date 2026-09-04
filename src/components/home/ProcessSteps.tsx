@@ -1,5 +1,7 @@
 import { Container } from "../Container";
 import { SectionHeading } from "../SectionHeading";
+import { FadeIn } from "../motion/FadeIn";
+import { Stagger, StaggerItem } from "../motion/Stagger";
 
 const steps = [
   {
@@ -30,28 +32,33 @@ const steps = [
 
 export function ProcessSteps() {
   return (
-    <section className="bg-ink py-20 sm:py-28">
+    <section className="bg-zinc-50 py-20 sm:py-28">
       <Container>
-        <SectionHeading
-          eyebrow="How It Works"
-          title="Cash in your hand in four easy steps"
-          align="center"
-        />
-        <div className="relative mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <FadeIn>
+          <SectionHeading
+            eyebrow="How It Works"
+            title="Cash in your hand in four easy steps"
+            align="center"
+          />
+        </FadeIn>
+        <Stagger className="relative mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step) => (
-            <div key={step.number} className="relative rounded-3xl border border-white/10 bg-white/5 p-7">
-              <span className="font-display text-4xl font-bold text-brand/40">
+            <StaggerItem
+              key={step.number}
+              className="relative rounded-3xl border border-ink/8 bg-white p-7 transition-transform hover:-translate-y-1"
+            >
+              <span className="font-display text-4xl font-bold text-brand-dark/50">
                 {step.number}
               </span>
-              <h3 className="font-display mt-4 text-lg font-bold text-white">
+              <h3 className="font-display mt-4 text-lg font-bold text-ink">
                 {step.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+              <p className="mt-2 text-sm leading-relaxed text-zinc-600">
                 {step.description}
               </p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </Container>
     </section>
   );

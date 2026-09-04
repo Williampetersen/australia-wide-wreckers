@@ -32,7 +32,7 @@ export const faqs: Faq[] = [
   {
     question: "Which areas do you service?",
     answer:
-      "We cover Sydney Metro (Western, Northern and Southern suburbs) as well as Newcastle, Maitland and the Port Stephens region. If you're unsure whether we cover your suburb, just give us a call.",
+      "We cover Newcastle, Lake Macquarie, Maitland and the Hunter Valley, Port Stephens, and the Central Coast. If you're unsure whether we cover your suburb, just give us a call.",
   },
   {
     question: "Do you buy trucks and commercial vehicles?",

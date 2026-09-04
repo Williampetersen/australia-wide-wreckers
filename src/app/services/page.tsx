@@ -3,6 +3,7 @@ import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 import { ServiceCard } from "@/components/ServiceCard";
 import { CtaBand } from "@/components/CtaBand";
+import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { services } from "@/lib/services";
 import { site } from "@/lib/site";
 
@@ -21,11 +22,13 @@ export default function ServicesPage() {
       />
       <section className="py-20 sm:py-28">
         <Container>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <Stagger className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
-              <ServiceCard key={service.slug} service={service} />
+              <StaggerItem key={service.slug} className="h-full">
+                <ServiceCard service={service} />
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </Container>
       </section>
       <CtaBand />

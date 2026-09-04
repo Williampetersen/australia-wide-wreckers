@@ -3,6 +3,7 @@ import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { CtaBand } from "@/components/CtaBand";
+import { FadeIn } from "@/components/motion/FadeIn";
 import { faqs } from "@/lib/faqs";
 import { site } from "@/lib/site";
 
@@ -21,7 +22,9 @@ export default function FaqPage() {
       />
       <section className="py-20 sm:py-28">
         <Container className="max-w-3xl">
-          <FaqAccordion items={faqs} />
+          <FadeIn>
+            <FaqAccordion items={faqs} />
+          </FadeIn>
         </Container>
       </section>
       <CtaBand />

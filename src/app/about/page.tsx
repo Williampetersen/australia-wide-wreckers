@@ -5,6 +5,8 @@ import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import { CtaBand } from "@/components/CtaBand";
 import { ShieldCheck, Truck, Recycle, BadgeDollarSign, MapPin } from "@/components/Icons";
+import { FadeIn } from "@/components/motion/FadeIn";
+import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -50,7 +52,7 @@ export default function AboutPage() {
 
       <section className="py-20 sm:py-28">
         <Container className="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:items-center">
-          <div>
+          <FadeIn>
             <SectionHeading
               eyebrow="Our Story"
               title="Making car removal simple and rewarding"
@@ -75,11 +77,11 @@ export default function AboutPage() {
                 impact on the environment.
               </p>
             </div>
-          </div>
+          </FadeIn>
 
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+          <Stagger className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             {values.map(({ icon: Icon, title, description }) => (
-              <div
+              <StaggerItem
                 key={title}
                 className="rounded-3xl border border-ink/8 bg-zinc-50 p-6"
               >
@@ -92,15 +94,15 @@ export default function AboutPage() {
                 <p className="mt-2 text-sm leading-relaxed text-zinc-600">
                   {description}
                 </p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </Container>
       </section>
 
       <section className="pb-20 sm:pb-28">
         <Container>
-          <div className="relative h-72 w-full overflow-hidden rounded-3xl sm:h-96">
+          <FadeIn className="relative h-72 w-full overflow-hidden rounded-3xl sm:h-96">
             <Image
               src="/images/gallery/tow-truck-loading.jpg"
               alt="Australia Wide Wreckers tow truck loading a vehicle for removal"
@@ -108,16 +110,18 @@ export default function AboutPage() {
               className="object-cover"
               sizes="(min-width: 1024px) 1024px, 100vw"
             />
-          </div>
+          </FadeIn>
         </Container>
       </section>
 
       <section className="bg-zinc-50 py-20 sm:py-28">
         <Container>
-          <SectionHeading eyebrow="Visit Us" title="Our depots" align="center" />
-          <div className="mx-auto mt-10 grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-2">
+          <FadeIn>
+            <SectionHeading eyebrow="Visit Us" title="Our depots" align="center" />
+          </FadeIn>
+          <Stagger className="mx-auto mt-10 grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-2">
             {site.depots.map((depot) => (
-              <div
+              <StaggerItem
                 key={depot.name}
                 className="rounded-3xl border border-ink/8 bg-white p-7 text-center"
               >
@@ -128,9 +132,9 @@ export default function AboutPage() {
                   {depot.name}
                 </h3>
                 <p className="mt-2 text-sm text-zinc-600">{depot.address}</p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </Container>
       </section>
 

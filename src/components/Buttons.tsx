@@ -43,11 +43,22 @@ export function GhostButton({ href, children, className = "" }: ButtonProps) {
   );
 }
 
-export function CallButton({ className = "" }: { className?: string }) {
+export function CallButton({
+  className = "",
+  variant = "onDark",
+}: {
+  className?: string;
+  variant?: "onDark" | "onLight";
+}) {
+  const variantClasses =
+    variant === "onDark"
+      ? "border-2 border-white/20 bg-white/10 text-white hover:bg-white/15"
+      : "bg-ink text-white hover:bg-ink-soft";
+
   return (
     <a
       href={site.phoneHref}
-      className={`inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/20 bg-white/10 px-6 py-3.5 text-base font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-white/15 active:translate-y-0 ${className}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-base font-bold transition-all hover:-translate-y-0.5 active:translate-y-0 ${variantClasses} ${className}`}
     >
       <PhoneCall className="h-5 w-5 text-brand" aria-hidden />
       Call {site.phoneDisplay}

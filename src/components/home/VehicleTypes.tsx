@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { Container } from "../Container";
 import { SectionHeading } from "../SectionHeading";
+import { FadeIn } from "../motion/FadeIn";
+import { Stagger, StaggerItem } from "../motion/Stagger";
 
 const vehicles = [
   {
@@ -29,17 +31,19 @@ export function VehicleTypes() {
   return (
     <section className="bg-white py-20 sm:py-28">
       <Container>
-        <SectionHeading
-          eyebrow="All Vehicle Types"
-          title="We buy all types of vehicles"
-          description="Cars, utes, motorbikes, pickups, vans and light trucks — running, damaged, old or scrap."
-          align="center"
-        />
-        <div className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-6 sm:grid-cols-4">
+        <FadeIn>
+          <SectionHeading
+            eyebrow="All Vehicle Types"
+            title="We buy all types of vehicles"
+            description="Cars, utes, motorbikes, pickups, vans and light trucks — running, damaged, old or scrap."
+            align="center"
+          />
+        </FadeIn>
+        <Stagger className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-6 sm:grid-cols-4">
           {vehicles.map((vehicle) => (
-            <div
+            <StaggerItem
               key={vehicle.name}
-              className="rounded-3xl border border-ink/8 bg-zinc-50 p-5 text-center"
+              className="rounded-3xl border border-ink/8 bg-zinc-50 p-5 text-center transition-transform hover:-translate-y-1"
             >
               <div className="relative mx-auto h-20 w-full">
                 <Image
@@ -56,9 +60,9 @@ export function VehicleTypes() {
               <p className="mt-1 text-xs leading-relaxed text-zinc-500">
                 {vehicle.description}
               </p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </Container>
     </section>
   );

@@ -1,6 +1,8 @@
 import { Container } from "../Container";
 import { SectionHeading } from "../SectionHeading";
 import { CheckCircle2 } from "../Icons";
+import { FadeIn } from "../motion/FadeIn";
+import { Stagger, StaggerItem } from "../motion/Stagger";
 
 const reasons = [
   {
@@ -27,16 +29,18 @@ const reasons = [
 
 export function WhyChooseUs() {
   return (
-    <section className="bg-zinc-50 py-20 sm:py-28">
+    <section className="bg-white py-20 sm:py-28">
       <Container className="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:items-center">
-        <SectionHeading
-          eyebrow="Why Choose Us"
-          title="Straightforward car removal, done right"
-          description="We've built our process around what actually matters to you: a fair price, a fast pickup, and cash in your hand without the runaround."
-        />
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <FadeIn>
+          <SectionHeading
+            eyebrow="Why Choose Us"
+            title="Straightforward car removal, done right"
+            description="We've built our process around what actually matters to you: a fair price, a fast pickup, and cash in your hand without the runaround."
+          />
+        </FadeIn>
+        <Stagger className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {reasons.map((reason) => (
-            <div key={reason.title} className="flex gap-3">
+            <StaggerItem key={reason.title} className="flex gap-3">
               <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-cash/15 text-cash-dark">
                 <CheckCircle2 className="h-4.5 w-4.5" aria-hidden />
               </span>
@@ -48,9 +52,9 @@ export function WhyChooseUs() {
                   {reason.description}
                 </p>
               </div>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </Container>
     </section>
   );

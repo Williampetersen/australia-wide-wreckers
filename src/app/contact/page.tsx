@@ -3,6 +3,8 @@ import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 import { ContactForm } from "@/components/ContactForm";
 import { PhoneCall, Mail, Clock, MapPin } from "@/components/Icons";
+import { FadeIn } from "@/components/motion/FadeIn";
+import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -21,7 +23,7 @@ export default function ContactPage() {
 
       <section className="py-20 sm:py-28">
         <Container className="grid grid-cols-1 gap-14 lg:grid-cols-5">
-          <div className="rounded-3xl border border-ink/8 bg-zinc-50 p-7 sm:p-10 lg:col-span-3">
+          <FadeIn className="rounded-3xl border border-ink/8 bg-zinc-50 p-7 sm:p-10 lg:col-span-3">
             <h2 className="font-display text-2xl font-bold text-ink">
               Get Cash Offer Now
             </h2>
@@ -32,10 +34,10 @@ export default function ContactPage() {
             <div className="mt-8">
               <ContactForm />
             </div>
-          </div>
+          </FadeIn>
 
-          <div className="space-y-5 lg:col-span-2">
-            <div className="rounded-3xl border border-ink/8 bg-white p-7">
+          <Stagger className="space-y-5 lg:col-span-2">
+            <StaggerItem className="rounded-3xl border border-ink/8 bg-white p-7">
               <span className="flex h-11 w-11 items-center justify-center rounded-full bg-ink text-brand">
                 <PhoneCall className="h-5 w-5" aria-hidden />
               </span>
@@ -53,9 +55,9 @@ export default function ContactPage() {
                   {site.landlineDisplay}
                 </a>
               </div>
-            </div>
+            </StaggerItem>
 
-            <div className="rounded-3xl border border-ink/8 bg-white p-7">
+            <StaggerItem className="rounded-3xl border border-ink/8 bg-white p-7">
               <span className="flex h-11 w-11 items-center justify-center rounded-full bg-ink text-brand">
                 <Mail className="h-5 w-5" aria-hidden />
               </span>
@@ -68,9 +70,9 @@ export default function ContactPage() {
               >
                 {site.email}
               </a>
-            </div>
+            </StaggerItem>
 
-            <div className="rounded-3xl border border-ink/8 bg-white p-7">
+            <StaggerItem className="rounded-3xl border border-ink/8 bg-white p-7">
               <span className="flex h-11 w-11 items-center justify-center rounded-full bg-ink text-brand">
                 <Clock className="h-5 w-5" aria-hidden />
               </span>
@@ -84,9 +86,9 @@ export default function ContactPage() {
                   </p>
                 ))}
               </div>
-            </div>
+            </StaggerItem>
 
-            <div className="rounded-3xl border border-ink/8 bg-white p-7">
+            <StaggerItem className="rounded-3xl border border-ink/8 bg-white p-7">
               <span className="flex h-11 w-11 items-center justify-center rounded-full bg-ink text-brand">
                 <MapPin className="h-5 w-5" aria-hidden />
               </span>
@@ -94,9 +96,9 @@ export default function ContactPage() {
                 Service area
               </h3>
               <p className="mt-2 text-sm text-zinc-600">{site.areasSummary}</p>
-            </div>
+            </StaggerItem>
 
-            <div className="rounded-3xl border border-ink/8 bg-white p-7">
+            <StaggerItem className="rounded-3xl border border-ink/8 bg-white p-7">
               <h3 className="font-display text-lg font-bold text-ink">
                 Our depots
               </h3>
@@ -108,8 +110,8 @@ export default function ContactPage() {
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
+            </StaggerItem>
+          </Stagger>
         </Container>
       </section>
     </>
