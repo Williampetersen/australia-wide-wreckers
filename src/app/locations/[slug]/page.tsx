@@ -42,6 +42,7 @@ export default async function LocationDetailPage(
         eyebrow={location.region}
         title={`Cash For Cars in ${location.name}`}
         description={`Get a free quote and same-day, no-cost vehicle removal in ${location.name} and surrounding suburbs. Any make, model or condition.`}
+        image={location.heroImage}
       >
         <div className="mt-8 flex flex-col gap-4 sm:flex-row">
           <PrimaryButton href="/contact">Get Your Free Quote</PrimaryButton>

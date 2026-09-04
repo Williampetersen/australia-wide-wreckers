@@ -2,6 +2,7 @@ export type Location = {
   slug: string;
   name: string;
   region: string;
+  heroImage?: string;
 };
 
 export type Region = {
@@ -40,9 +41,27 @@ export const regions: Region[] = [
       "Trusted cash-for-cars and car removal for Newcastle, Maitland and the Port Stephens coastline.",
     locations: [
       { slug: "newcastle", name: "Newcastle", region: "Hunter" },
+      {
+        slug: "mayfield",
+        name: "Mayfield",
+        region: "Hunter",
+        heroImage: "/images/locations/cash-for-cars-mayfield.webp",
+      },
       { slug: "maitland", name: "Maitland", region: "Hunter" },
       { slug: "waratah", name: "Waratah", region: "Hunter" },
       { slug: "swansea", name: "Swansea", region: "Lake Macquarie" },
+      {
+        slug: "cameron-park",
+        name: "Cameron Park",
+        region: "Lake Macquarie",
+        heroImage: "/images/locations/cash-for-cars-cameron-park.webp",
+      },
+      {
+        slug: "edgeworth",
+        name: "Edgeworth",
+        region: "Lake Macquarie",
+        heroImage: "/images/locations/cash-for-cars-edgeworth.webp",
+      },
       { slug: "nelson-bay", name: "Nelson Bay", region: "Port Stephens" },
       { slug: "anna-bay", name: "Anna Bay", region: "Port Stephens" },
       { slug: "tanilba-bay", name: "Tanilba Bay", region: "Port Stephens" },

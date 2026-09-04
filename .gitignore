@@ -42,3 +42,7 @@ next-env.d.ts
 
 .vercel
 .env*
+
+# raw WordPress export dumps - not site assets, don't ship these
+/public/04/
+/public/Divi/

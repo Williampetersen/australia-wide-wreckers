@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 import { CtaBand } from "@/components/CtaBand";
@@ -40,14 +41,27 @@ export default function LocationsPage() {
                   <Link
                     key={loc.slug}
                     href={`/locations/${loc.slug}`}
-                    className="group rounded-2xl border border-ink/8 bg-zinc-50 p-5 transition-colors hover:border-brand"
+                    className="group overflow-hidden rounded-2xl border border-ink/8 bg-zinc-50 transition-colors hover:border-brand"
                   >
-                    <p className="font-display font-bold text-ink">
-                      {loc.name}
-                    </p>
-                    <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-zinc-500">
-                      {loc.region}
-                    </p>
+                    {loc.heroImage && (
+                      <div className="relative h-24 w-full overflow-hidden bg-zinc-100">
+                        <Image
+                          src={loc.heroImage}
+                          alt=""
+                          fill
+                          className="object-cover object-[50%_20%] transition-transform group-hover:scale-105"
+                          sizes="240px"
+                        />
+                      </div>
+                    )}
+                    <div className="p-5">
+                      <p className="font-display font-bold text-ink">
+                        {loc.name}
+                      </p>
+                      <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-zinc-500">
+                        {loc.region}
+                      </p>
+                    </div>
                   </Link>
                 ))}
               </div>
