@@ -23,11 +23,11 @@ export default function ContactPage() {
         <Container className="grid grid-cols-1 gap-14 lg:grid-cols-5">
           <div className="rounded-3xl border border-ink/8 bg-zinc-50 p-7 sm:p-10 lg:col-span-3">
             <h2 className="font-display text-2xl font-bold text-ink">
-              Request a quote
+              Get Cash Offer Now
             </h2>
             <p className="mt-2 text-sm text-zinc-600">
-              Fill in your details below and we&apos;ll get back to you as
-              soon as possible.
+              Fill in your vehicle and contact details below and we&apos;ll
+              get back to you with a cash offer as soon as possible.
             </p>
             <div className="mt-8">
               <ContactForm />

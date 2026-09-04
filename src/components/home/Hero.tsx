@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Container } from "../Container";
 import { PrimaryButton, CallButton } from "../Buttons";
 import { CheckCircle2 } from "../Icons";
@@ -56,37 +57,29 @@ export function Hero() {
             </ul>
           </div>
 
-          <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-            <div className="relative rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-sm">
-              <p className="text-sm font-semibold uppercase tracking-wider text-zinc-400">
+          <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
+              <Image
+                src="/images/gallery/tow-truck-loading.jpg"
+                alt="Australia Wide Wreckers tow truck loading a car for free removal"
+                fill
+                priority
+                className="object-cover"
+                sizes="(min-width: 1024px) 560px, 100vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/0 to-transparent" />
+            </div>
+
+            <div className="absolute -bottom-6 left-6 right-6 rounded-2xl border border-white/10 bg-ink/80 p-5 shadow-xl backdrop-blur-md sm:left-8 sm:right-auto sm:w-72">
+              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">
                 Instant Estimate
               </p>
-              <p className="font-display mt-2 text-5xl font-bold text-white">
-                Up to{" "}
-                <span className="text-brand">{site.cashOfferMax}</span>
+              <p className="font-display mt-1 text-3xl font-bold text-white">
+                Up to <span className="text-brand">{site.cashOfferMax}</span>
               </p>
-              <p className="mt-2 text-sm text-zinc-400">
-                Based on make, model, condition and current scrap metal &amp;
-                parts value.
+              <p className="mt-1 text-xs text-zinc-400">
+                Based on make, model and condition
               </p>
-              <div className="mt-8 grid grid-cols-2 gap-4">
-                {[
-                  ["No Runner", "Still Accepted"],
-                  ["Any Age", "No Problem"],
-                  ["Same Day", "Pickup"],
-                  ["No Fees", "Ever"],
-                ].map(([a, b]) => (
-                  <div
-                    key={a}
-                    className="rounded-2xl bg-white/5 p-4 text-center"
-                  >
-                    <p className="font-display text-lg font-bold text-brand">
-                      {a}
-                    </p>
-                    <p className="text-xs text-zinc-400">{b}</p>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>
