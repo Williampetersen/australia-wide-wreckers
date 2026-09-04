@@ -1,0 +1,46 @@
+import {
+  BadgeDollarSign,
+  Car,
+  Clock,
+  Phone,
+  Recycle,
+  ShieldCheck,
+  Truck,
+  Wrench,
+  MapPin,
+  CheckCircle2,
+  PhoneCall,
+  Mail,
+  Menu,
+  X,
+  ChevronRight,
+  Star,
+} from "lucide-react";
+
+export const ServiceIcons = {
+  cash: BadgeDollarSign,
+  tow: Truck,
+  recycle: Recycle,
+  truck: Truck,
+  wrench: Wrench,
+  car: Car,
+};
+
+export {
+  BadgeDollarSign,
+  Car,
+  Clock,
+  Phone,
+  Recycle,
+  ShieldCheck,
+  Truck,
+  Wrench,
+  MapPin,
+  CheckCircle2,
+  PhoneCall,
+  Mail,
+  Menu,
+  X,
+  ChevronRight,
+  Star,
+};
