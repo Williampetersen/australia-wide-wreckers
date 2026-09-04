@@ -9,7 +9,7 @@ export function MobileNav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="lg:hidden">
+    <div className="xl:hidden">
       <button
         type="button"
         onClick={() => setOpen(true)}

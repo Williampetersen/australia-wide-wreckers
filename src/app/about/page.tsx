@@ -125,13 +125,22 @@ export default function AboutPage() {
                 key={depot.name}
                 className="rounded-3xl border border-ink/8 bg-white p-7 text-center"
               >
-                <span className="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-ink text-brand">
-                  <MapPin className="h-5 w-5" aria-hidden />
-                </span>
+                <div className="relative mx-auto h-11 w-28">
+                  <Image
+                    src={depot.logo}
+                    alt={depot.name}
+                    fill
+                    className="object-contain"
+                    sizes="112px"
+                  />
+                </div>
                 <h3 className="font-display mt-4 text-lg font-bold text-ink">
                   {depot.name}
                 </h3>
-                <p className="mt-2 text-sm text-zinc-600">{depot.address}</p>
+                <p className="mt-2 flex items-center justify-center gap-1.5 text-sm text-zinc-600">
+                  <MapPin className="h-4 w-4 shrink-0 text-brand-dark" aria-hidden />
+                  {depot.address}
+                </p>
               </StaggerItem>
             ))}
           </Stagger>

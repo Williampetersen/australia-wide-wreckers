@@ -32,7 +32,12 @@ export const regions: Region[] = [
         region: "Newcastle",
         heroImage: "/images/locations/cash-for-cars-hamilton.webp",
       },
-      { slug: "hamilton-north", name: "Hamilton North", region: "Newcastle" },
+      {
+        slug: "hamilton-north",
+        name: "Hamilton North",
+        region: "Newcastle",
+        heroImage: "/images/locations/cash-for-cars-hamilton-north.webp",
+      },
       { slug: "wallsend", name: "Wallsend", region: "Newcastle" },
       {
         slug: "wallsend-south",
@@ -63,7 +68,12 @@ export const regions: Region[] = [
       { slug: "kotara-south", name: "Kotara South", region: "Newcastle" },
       { slug: "kotara-heights", name: "Kotara Heights", region: "Newcastle" },
       { slug: "fletcher", name: "Fletcher", region: "Newcastle" },
-      { slug: "lambton", name: "Lambton", region: "Newcastle" },
+      {
+        slug: "lambton",
+        name: "Lambton",
+        region: "Newcastle",
+        heroImage: "/images/locations/cash-for-car-lambton.jpg",
+      },
     ],
   },
   {
@@ -91,7 +101,12 @@ export const regions: Region[] = [
         region: "Lake Macquarie",
         heroImage: "/images/locations/cash-for-cars-belmont-north.webp",
       },
-      { slug: "charlestown", name: "Charlestown", region: "Lake Macquarie" },
+      {
+        slug: "charlestown",
+        name: "Charlestown",
+        region: "Lake Macquarie",
+        heroImage: "/images/locations/cash-for-cars-charlestown.jpg",
+      },
       { slug: "glendale", name: "Glendale", region: "Lake Macquarie" },
       {
         slug: "cameron-park",
@@ -115,14 +130,29 @@ export const regions: Region[] = [
     blurb:
       "Fast, free removal across Maitland, Cessnock and the wider Hunter Valley.",
     locations: [
-      { slug: "maitland", name: "Maitland", region: "Maitland" },
+      {
+        slug: "maitland",
+        name: "Maitland",
+        region: "Maitland",
+        heroImage: "/images/locations/cash-for-cars-maitland.jpg",
+      },
       { slug: "maitland-vale", name: "Maitland Vale", region: "Maitland" },
-      { slug: "thornton", name: "Thornton", region: "Maitland" },
+      {
+        slug: "thornton",
+        name: "Thornton",
+        region: "Maitland",
+        heroImage: "/images/locations/cash-for-cars-thornton.jpg",
+      },
       { slug: "branxton", name: "Branxton", region: "Hunter Valley" },
       { slug: "greta", name: "Greta", region: "Hunter Valley" },
       { slug: "kurri-kurri", name: "Kurri Kurri", region: "Hunter Valley" },
       { slug: "singleton", name: "Singleton", region: "Hunter Valley" },
-      { slug: "cessnock", name: "Cessnock", region: "Hunter Valley" },
+      {
+        slug: "cessnock",
+        name: "Cessnock",
+        region: "Hunter Valley",
+        heroImage: "/images/locations/cash-for-cars-cessnock.jpg",
+      },
       { slug: "muswellbrook", name: "Muswellbrook", region: "Upper Hunter" },
     ],
   },

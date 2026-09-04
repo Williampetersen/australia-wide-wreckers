@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 import { ContactForm } from "@/components/ContactForm";
@@ -19,6 +20,7 @@ export default function ContactPage() {
         eyebrow="Contact Us"
         title="Get your free, no-obligation quote"
         description="Tell us about your vehicle and we'll get back to you with a fair cash offer, or call us directly for an instant quote."
+        image="/images/gallery/cash-in-hand.png"
       />
 
       <section className="py-20 sm:py-28">
@@ -102,11 +104,22 @@ export default function ContactPage() {
               <h3 className="font-display text-lg font-bold text-ink">
                 Our depots
               </h3>
-              <div className="mt-3 space-y-3">
+              <div className="mt-4 space-y-4">
                 {site.depots.map((depot) => (
-                  <div key={depot.name}>
-                    <p className="text-sm font-semibold text-ink">{depot.name}</p>
-                    <p className="text-sm text-zinc-600">{depot.address}</p>
+                  <div key={depot.name} className="flex items-center gap-3">
+                    <div className="relative h-8 w-20 shrink-0">
+                      <Image
+                        src={depot.logo}
+                        alt={depot.name}
+                        fill
+                        className="object-contain object-left"
+                        sizes="80px"
+                      />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-ink">{depot.name}</p>
+                      <p className="text-sm text-zinc-600">{depot.address}</p>
+                    </div>
                   </div>
                 ))}
               </div>

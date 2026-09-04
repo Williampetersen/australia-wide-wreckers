@@ -23,11 +23,13 @@ export const site = {
       name: "Australia Wide Wreckers",
       address: "9 Common Rd, Muswellbrook NSW 2333",
       mapQuery: "9+Common+Rd+Muswellbrook+NSW+2333",
+      logo: "/images/logo/logo-black.png",
     },
     {
       name: "M1 Car Removal",
       address: "139 Moira Park Rd, Morisset NSW 2264",
       mapQuery: "139+Moira+Park+Rd+Morisset+NSW+2264",
+      logo: "/images/logo/m1-logo.png",
     },
   ],
 } as const;

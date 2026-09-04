@@ -11,6 +11,7 @@ export type Service = {
     | "truck"
     | "wrench"
     | "car";
+  image: string;
 };
 
 export const services: Service[] = [
@@ -28,6 +29,7 @@ export const services: Service[] = [
       "No obligation, no pressure",
     ],
     icon: "cash",
+    image: "/images/gallery/handing-over-keys.jpg",
   },
   {
     slug: "free-car-removal",
@@ -43,6 +45,7 @@ export const services: Service[] = [
       "Driveway, roadside or workplace pickup",
     ],
     icon: "tow",
+    image: "/images/gallery/tow-truck-loading.jpg",
   },
   {
     slug: "scrap-car-removal",
@@ -58,6 +61,7 @@ export const services: Service[] = [
       "Fast, no-fuss quotes",
     ],
     icon: "recycle",
+    image: "/images/gallery/crashed-blue-car.png",
   },
   {
     slug: "truck-and-van-removal",
@@ -73,6 +77,7 @@ export const services: Service[] = [
       "Fleet and bulk vehicle quotes",
     ],
     icon: "truck",
+    image: "/images/misc/vehicle-van.png",
   },
   {
     slug: "4x4-and-suv-removal",
@@ -88,6 +93,7 @@ export const services: Service[] = [
       "Prompt statewide pickup",
     ],
     icon: "car",
+    image: "/images/gallery/crashed-suvs.png",
   },
   {
     slug: "car-wrecking",
@@ -103,6 +109,7 @@ export const services: Service[] = [
       "Supports a circular auto parts market",
     ],
     icon: "wrench",
+    image: "/images/gallery/documenting-damage.jpg",
   },
 ];
 

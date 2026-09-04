@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 import { CtaBand } from "@/components/CtaBand";
@@ -39,6 +40,20 @@ export default async function ServiceDetailPage(
   return (
     <>
       <PageHero eyebrow="Service" title={service.name} description={service.description} />
+
+      <section className="pt-20 sm:pt-28">
+        <Container>
+          <FadeIn className="relative h-64 w-full overflow-hidden rounded-3xl bg-zinc-50 sm:h-80">
+            <Image
+              src={service.image}
+              alt={service.name}
+              fill
+              className="object-contain p-6"
+              sizes="(min-width: 1024px) 1024px, 100vw"
+            />
+          </FadeIn>
+        </Container>
+      </section>
 
       <section className="py-20 sm:py-28">
         <Container className="grid grid-cols-1 gap-14 lg:grid-cols-3">

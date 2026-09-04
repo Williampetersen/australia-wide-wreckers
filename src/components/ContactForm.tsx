@@ -3,14 +3,16 @@
 import { FormEvent, useState } from "react";
 import { site } from "@/lib/site";
 
-const fieldClasses =
-  "w-full rounded-xl border border-ink/12 bg-white px-4 py-3 text-sm text-ink placeholder:text-zinc-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30";
-
 const currentYear = new Date().getFullYear();
 const carYears = Array.from({ length: currentYear - 1989 }, (_, i) => currentYear - i);
 
-export function ContactForm() {
+export function ContactForm({
+  variant = "light",
+}: {
+  variant?: "light" | "glass";
+}) {
   const [status, setStatus] = useState<"idle" | "sent">("idle");
+  const isGlass = variant === "glass";
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -35,100 +37,123 @@ export function ContactForm() {
     setStatus("sent");
   }
 
-  return (
-    <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-      <div className="sm:col-span-1">
-        <label htmlFor="your-name" className="text-sm font-semibold text-ink-soft">
-          Your name
-        </label>
+  const fieldClasses = isGlass
+    ? "w-full rounded-xl border border-white/25 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/60 backdrop-blur-sm transition-colors focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/40"
+    : "w-full rounded-xl border border-ink/12 bg-white px-4 py-3 text-sm text-ink placeholder:text-zinc-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30";
+
+  const labelClasses = isGlass
+    ? "sr-only"
+    : "text-sm font-semibold text-ink-soft";
+
+  const gridClasses = isGlass
+    ? "grid grid-cols-1 gap-3"
+    : "grid grid-cols-1 gap-5 sm:grid-cols-2";
+
+  const fields: Array<{
+    id: string;
+    label: string;
+    span?: boolean;
+    node: React.ReactNode;
+  }> = [
+    {
+      id: "your-name",
+      label: "Your name",
+      node: (
         <input
           id="your-name"
           name="your-name"
           type="text"
           required
-          className={`mt-2 ${fieldClasses}`}
-          placeholder="Jane Smith"
+          className={fieldClasses}
+          placeholder="Your Name"
         />
-      </div>
-      <div className="sm:col-span-1">
-        <label htmlFor="your-phone" className="text-sm font-semibold text-ink-soft">
-          Your phone number
-        </label>
+      ),
+    },
+    {
+      id: "your-phone",
+      label: "Your phone number",
+      node: (
         <input
           id="your-phone"
           name="your-phone"
           type="tel"
           required
-          className={`mt-2 ${fieldClasses}`}
-          placeholder="04xx xxx xxx"
+          className={fieldClasses}
+          placeholder="Your Phone Number"
         />
-      </div>
-      <div className="sm:col-span-2">
-        <label htmlFor="your-email" className="text-sm font-semibold text-ink-soft">
-          Email address
-        </label>
+      ),
+    },
+    {
+      id: "your-email",
+      label: "Email address",
+      span: true,
+      node: (
         <input
           id="your-email"
           name="your-email"
           type="email"
           required
-          className={`mt-2 ${fieldClasses}`}
-          placeholder="you@example.com"
+          className={fieldClasses}
+          placeholder="Email Address"
         />
-      </div>
-      <div className="sm:col-span-1">
-        <label htmlFor="suburb" className="text-sm font-semibold text-ink-soft">
-          Suburb
-        </label>
+      ),
+    },
+    {
+      id: "suburb",
+      label: "Suburb",
+      node: (
         <input
           id="suburb"
           name="suburb"
           type="text"
           required
-          className={`mt-2 ${fieldClasses}`}
-          placeholder="e.g. Mayfield"
+          className={fieldClasses}
+          placeholder="Suburb"
         />
-      </div>
-      <div className="sm:col-span-1">
-        <label htmlFor="postal-code" className="text-sm font-semibold text-ink-soft">
-          Postal code
-        </label>
+      ),
+    },
+    {
+      id: "postal-code",
+      label: "Postal code",
+      node: (
         <input
           id="postal-code"
           name="postal-code"
           type="text"
           required
           inputMode="numeric"
-          className={`mt-2 ${fieldClasses}`}
-          placeholder="e.g. 2304"
+          className={fieldClasses}
+          placeholder="Postal Code"
         />
-      </div>
-      <div className="sm:col-span-1">
-        <label htmlFor="car-model" className="text-sm font-semibold text-ink-soft">
-          Car brand / model
-        </label>
+      ),
+    },
+    {
+      id: "car-model",
+      label: "Car brand / model",
+      node: (
         <input
           id="car-model"
           name="car-model"
           type="text"
           required
-          className={`mt-2 ${fieldClasses}`}
-          placeholder="e.g. Toyota Corolla"
+          className={fieldClasses}
+          placeholder="Car Brand / Model"
         />
-      </div>
-      <div className="sm:col-span-1">
-        <label htmlFor="car-year" className="text-sm font-semibold text-ink-soft">
-          Car year
-        </label>
+      ),
+    },
+    {
+      id: "car-year",
+      label: "Car year",
+      node: (
         <select
           id="car-year"
           name="car-year"
           required
           defaultValue=""
-          className={`mt-2 ${fieldClasses}`}
+          className={`${fieldClasses} ${isGlass ? "[&>option]:text-ink" : ""}`}
         >
           <option value="" disabled>
-            Select year
+            Car Year
           </option>
           {carYears.map((year) => (
             <option key={year} value={year}>
@@ -136,28 +161,46 @@ export function ContactForm() {
             </option>
           ))}
         </select>
-      </div>
-      <div className="sm:col-span-2">
-        <label htmlFor="your-note" className="text-sm font-semibold text-ink-soft">
-          Extra details
-        </label>
+      ),
+    },
+    {
+      id: "your-note",
+      label: "Extra details",
+      span: true,
+      node: (
         <textarea
           id="your-note"
           name="your-note"
-          rows={4}
-          className={`mt-2 ${fieldClasses}`}
-          placeholder="Condition, location notes, special requests"
+          rows={isGlass ? 2 : 4}
+          className={fieldClasses}
+          placeholder="Extra details (condition, location notes, special requests)"
         />
-      </div>
-      <div className="sm:col-span-2">
+      ),
+    },
+  ];
+
+  return (
+    <form onSubmit={handleSubmit} className={gridClasses}>
+      {fields.map((field) => (
+        <div key={field.id} className={!isGlass && field.span ? "sm:col-span-2" : undefined}>
+          <label htmlFor={field.id} className={labelClasses}>
+            {field.label}
+          </label>
+          <div className={isGlass ? undefined : "mt-2"}>{field.node}</div>
+        </div>
+      ))}
+
+      <div className={isGlass ? undefined : "sm:col-span-2"}>
         <button
           type="submit"
-          className="w-full rounded-full bg-brand px-6 py-3.5 text-base font-bold text-ink transition-all hover:-translate-y-0.5 hover:bg-brand-dark sm:w-auto"
+          className={`rounded-full bg-brand px-6 py-3.5 text-base font-bold text-ink transition-all hover:-translate-y-0.5 hover:bg-brand-dark ${isGlass ? "w-full" : "w-full sm:w-auto"}`}
         >
           Get Cash Offer Now
         </button>
         {status === "sent" && (
-          <p className="mt-3 text-sm font-medium text-cash-dark">
+          <p
+            className={`mt-3 text-sm font-medium ${isGlass ? "text-white" : "text-cash-dark"}`}
+          >
             Your email app should now open with your details pre-filled. Prefer
             to skip that step? Just call us instead — it&apos;s the fastest way
             to get your quote.
