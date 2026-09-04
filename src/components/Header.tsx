@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "./Container";
 import { MobileNav } from "./MobileNav";
 import { PhoneCall } from "./Icons";
@@ -8,13 +9,15 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-ink/5 bg-white/90 backdrop-blur-md">
       <Container className="flex h-20 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="font-display text-xl font-extrabold tracking-tight text-ink sm:text-2xl">
-            Australia Wide
-            <span className="ml-1.5 rounded-md bg-brand px-1.5 py-0.5 text-ink">
-              Wreckers
-            </span>
-          </span>
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/images/logo/logo-black.png"
+            alt={site.name}
+            width={796}
+            height={313}
+            priority
+            className="h-9 w-auto sm:h-11"
+          />
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">

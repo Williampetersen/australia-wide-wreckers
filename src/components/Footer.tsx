@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "./Container";
 import { Mail, PhoneCall, MapPin, Clock } from "./Icons";
 import { site } from "@/lib/site";
@@ -12,12 +13,13 @@ export function Footer() {
     <footer className="bg-ink text-zinc-300">
       <Container className="grid grid-cols-1 gap-10 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <span className="font-display text-xl font-extrabold text-white">
-            Australia Wide
-            <span className="ml-1.5 rounded-md bg-brand px-1.5 py-0.5 text-ink">
-              Wreckers
-            </span>
-          </span>
+          <Image
+            src="/images/logo/logo-white.png"
+            alt={site.name}
+            width={796}
+            height={313}
+            className="h-9 w-auto"
+          />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-zinc-400">
             {site.description}
           </p>

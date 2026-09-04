@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -93,6 +94,20 @@ export default function AboutPage() {
                 </p>
               </div>
             ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="pb-20 sm:pb-28">
+        <Container>
+          <div className="relative h-72 w-full overflow-hidden rounded-3xl sm:h-96">
+            <Image
+              src="/images/gallery/tow-truck-loading.jpg"
+              alt="Australia Wide Wreckers tow truck loading a vehicle for removal"
+              fill
+              className="object-cover"
+              sizes="(min-width: 1024px) 1024px, 100vw"
+            />
           </div>
         </Container>
       </section>
