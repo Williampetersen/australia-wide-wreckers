@@ -3,38 +3,38 @@ import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import { CtaBand } from "@/components/CtaBand";
-import { ShieldCheck, Truck, Recycle, BadgeDollarSign } from "@/components/Icons";
+import { ShieldCheck, Truck, Recycle, BadgeDollarSign, MapPin } from "@/components/Icons";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: `Learn about ${site.name}, your trusted local car removal and cash-for-cars service across Sydney, Newcastle and Port Stephens.`,
+  description: `Learn about ${site.name}, your trusted local car removal and cash-for-cars service across Newcastle, Lake Macquarie, Maitland and the Hunter region.`,
 };
 
 const values = [
   {
     icon: BadgeDollarSign,
-    title: "Fair Pricing",
+    title: "Top Cash Offers",
     description:
-      "We assess every vehicle honestly based on its real value in parts, metal and market demand.",
+      "We offer competitive prices for scrap, damaged or unwanted cars, based on an honest read of make, model and condition.",
   },
   {
     icon: Truck,
-    title: "Reliable Service",
+    title: "Fast, Free Removal",
     description:
-      "When we book a pickup time, we show up. No missed windows, no chasing us for updates.",
+      "Free towing across our whole service area, with same-day pickup available in most cases.",
   },
   {
     icon: Recycle,
-    title: "Responsible Recycling",
+    title: "Environmentally Friendly",
     description:
-      "End-of-life vehicles are dismantled and recycled at a licensed facility, minimising environmental impact.",
+      "We recycle and dispose of vehicles responsibly, minimising the impact on the local environment.",
   },
   {
     icon: ShieldCheck,
-    title: "Full Transparency",
+    title: "Reliable Service",
     description:
-      "No hidden fees, no surprise deductions. The price we quote is the price you're paid.",
+      "No lengthy paperwork and no delays — just prompt service and instant payment on the spot.",
   },
 ];
 
@@ -44,7 +44,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About Us"
         title="Local car removal, done the right way"
-        description="Australia Wide Wreckers helps everyday people and businesses across NSW turn unwanted vehicles into cash, quickly and without hassle."
+        description="Australia Wide Wreckers helps people across the Hunter, Lake Macquarie and Central Coast turn unwanted vehicles into cash, quickly and without hassle."
       />
 
       <section className="py-20 sm:py-28">
@@ -52,26 +52,26 @@ export default function AboutPage() {
           <div>
             <SectionHeading
               eyebrow="Our Story"
-              title="Built around a simple idea: make car removal easy"
+              title="Making car removal simple and rewarding"
             />
             <div className="mt-6 space-y-4 text-base leading-relaxed text-zinc-600">
               <p>
-                Getting rid of an old, damaged or unwanted vehicle shouldn&apos;t
-                mean weeks of back-and-forth, unreliable buyers or paying to
-                have it towed away. We set out to fix that by offering fast,
-                fair quotes and free removal, backed by a team that actually
-                turns up when it says it will.
+                We specialise in fast, reliable and hassle-free car removal,
+                with years of experience helping locals turn old, unwanted or
+                damaged vehicles into top cash — up to {site.cashOfferMax}{" "}
+                depending on your vehicle.
               </p>
               <p>
-                From single passenger cars to commercial trucks and 4x4s, we
-                buy vehicles in any condition, running or not, and take care
-                of the entire process from quote to pickup to responsible
-                recycling.
+                We accept all vehicle types, including cars, utes, vans,
+                motorbikes, light trucks, SUVs and 4x4s, regardless of
+                condition. Whether your car is running, damaged, old or
+                simply unwanted, our goal is to make selling it straightforward
+                and worthwhile.
               </p>
               <p>
-                Today we service Sydney Metro along with Newcastle, Maitland
-                and the Port Stephens region, with a growing team dedicated to
-                making car removal as simple as a single phone call.
+                Every vehicle we take off your hands is recycled and disposed
+                of responsibly, so you get a fair price while minimising the
+                impact on the environment.
               </p>
             </div>
           </div>
@@ -91,6 +91,28 @@ export default function AboutPage() {
                 <p className="mt-2 text-sm leading-relaxed text-zinc-600">
                   {description}
                 </p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-zinc-50 py-20 sm:py-28">
+        <Container>
+          <SectionHeading eyebrow="Visit Us" title="Our depots" align="center" />
+          <div className="mx-auto mt-10 grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-2">
+            {site.depots.map((depot) => (
+              <div
+                key={depot.name}
+                className="rounded-3xl border border-ink/8 bg-white p-7 text-center"
+              >
+                <span className="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-ink text-brand">
+                  <MapPin className="h-5 w-5" aria-hidden />
+                </span>
+                <h3 className="font-display mt-4 text-lg font-bold text-ink">
+                  {depot.name}
+                </h3>
+                <p className="mt-2 text-sm text-zinc-600">{depot.address}</p>
               </div>
             ))}
           </div>

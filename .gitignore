@@ -46,3 +46,6 @@ next-env.d.ts
 # raw WordPress export dumps - not site assets, don't ship these
 /public/04/
 /public/Divi/
+/public/*.xml
+/wp-data/
+/wp-import/

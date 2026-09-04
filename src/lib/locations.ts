@@ -14,42 +14,50 @@ export type Region = {
 
 export const regions: Region[] = [
   {
-    slug: "sydney-metro",
-    name: "Sydney Metro",
+    slug: "newcastle",
+    name: "Newcastle",
     blurb:
-      "Free car removal and top cash offers across Western, Northern and Southern Sydney.",
+      "Free car removal and top cash offers across Newcastle and its inner suburbs.",
     locations: [
-      { slug: "parramatta", name: "Parramatta", region: "Western Sydney" },
-      { slug: "blacktown", name: "Blacktown", region: "Western Sydney" },
-      { slug: "penrith", name: "Penrith", region: "Western Sydney" },
-      { slug: "chatswood", name: "Chatswood", region: "Northern Suburbs" },
-      { slug: "ryde", name: "Ryde", region: "Northern Suburbs" },
-      { slug: "hornsby", name: "Hornsby", region: "Northern Suburbs" },
-      {
-        slug: "sutherland-shire",
-        name: "Sutherland Shire",
-        region: "Southern Sydney",
-      },
-      { slug: "kogarah", name: "Kogarah", region: "Southern Sydney" },
-      { slug: "hurstville", name: "Hurstville", region: "Southern Sydney" },
-    ],
-  },
-  {
-    slug: "hunter-port-stephens",
-    name: "Hunter & Port Stephens",
-    blurb:
-      "Trusted cash-for-cars and car removal for Newcastle, Maitland and the Port Stephens coastline.",
-    locations: [
-      { slug: "newcastle", name: "Newcastle", region: "Hunter" },
+      { slug: "newcastle", name: "Newcastle", region: "Newcastle" },
       {
         slug: "mayfield",
         name: "Mayfield",
-        region: "Hunter",
+        region: "Newcastle",
         heroImage: "/images/locations/cash-for-cars-mayfield.webp",
       },
-      { slug: "maitland", name: "Maitland", region: "Hunter" },
-      { slug: "waratah", name: "Waratah", region: "Hunter" },
+      { slug: "hamilton", name: "Hamilton", region: "Newcastle" },
+      { slug: "hamilton-north", name: "Hamilton North", region: "Newcastle" },
+      { slug: "wallsend", name: "Wallsend", region: "Newcastle" },
+      { slug: "wallsend-south", name: "Wallsend South", region: "Newcastle" },
+      { slug: "waratah", name: "Waratah", region: "Newcastle" },
+      { slug: "waratah-west", name: "Waratah West", region: "Newcastle" },
+      { slug: "islington", name: "Islington", region: "Newcastle" },
+      { slug: "sandgate", name: "Sandgate", region: "Newcastle" },
+      { slug: "stockton", name: "Stockton", region: "Newcastle" },
+      { slug: "georgetown", name: "Georgetown", region: "Newcastle" },
+      { slug: "adamstown-heights", name: "Adamstown Heights", region: "Newcastle" },
+      { slug: "elermore-vale", name: "Elermore Vale", region: "Newcastle" },
+      { slug: "merewether", name: "Merewether", region: "Newcastle" },
+      { slug: "kotara", name: "Kotara", region: "Newcastle" },
+      { slug: "kotara-south", name: "Kotara South", region: "Newcastle" },
+      { slug: "kotara-heights", name: "Kotara Heights", region: "Newcastle" },
+      { slug: "fletcher", name: "Fletcher", region: "Newcastle" },
+      { slug: "lambton", name: "Lambton", region: "Newcastle" },
+    ],
+  },
+  {
+    slug: "lake-macquarie",
+    name: "Lake Macquarie",
+    blurb:
+      "Trusted cash-for-cars and car removal all around Lake Macquarie, from Cardiff to Swansea.",
+    locations: [
+      { slug: "cardiff", name: "Cardiff", region: "Lake Macquarie" },
       { slug: "swansea", name: "Swansea", region: "Lake Macquarie" },
+      { slug: "belmont", name: "Belmont", region: "Lake Macquarie" },
+      { slug: "belmont-north", name: "Belmont North", region: "Lake Macquarie" },
+      { slug: "charlestown", name: "Charlestown", region: "Lake Macquarie" },
+      { slug: "glendale", name: "Glendale", region: "Lake Macquarie" },
       {
         slug: "cameron-park",
         name: "Cameron Park",
@@ -62,9 +70,48 @@ export const regions: Region[] = [
         region: "Lake Macquarie",
         heroImage: "/images/locations/cash-for-cars-edgeworth.webp",
       },
+      { slug: "warners-bay", name: "Warners Bay", region: "Lake Macquarie" },
+      { slug: "morisset", name: "Morisset", region: "Lake Macquarie" },
+    ],
+  },
+  {
+    slug: "maitland-hunter-valley",
+    name: "Maitland & Hunter Valley",
+    blurb:
+      "Fast, free removal across Maitland, Cessnock and the wider Hunter Valley.",
+    locations: [
+      { slug: "maitland", name: "Maitland", region: "Maitland" },
+      { slug: "maitland-vale", name: "Maitland Vale", region: "Maitland" },
+      { slug: "thornton", name: "Thornton", region: "Maitland" },
+      { slug: "branxton", name: "Branxton", region: "Hunter Valley" },
+      { slug: "greta", name: "Greta", region: "Hunter Valley" },
+      { slug: "kurri-kurri", name: "Kurri Kurri", region: "Hunter Valley" },
+      { slug: "singleton", name: "Singleton", region: "Hunter Valley" },
+      { slug: "cessnock", name: "Cessnock", region: "Hunter Valley" },
+      { slug: "muswellbrook", name: "Muswellbrook", region: "Upper Hunter" },
+    ],
+  },
+  {
+    slug: "port-stephens",
+    name: "Port Stephens",
+    blurb:
+      "Servicing the whole Port Stephens coastline, from Raymond Terrace to Tea Gardens.",
+    locations: [
+      { slug: "raymond-terrace", name: "Raymond Terrace", region: "Port Stephens" },
+      { slug: "medowie", name: "Medowie", region: "Port Stephens" },
+      { slug: "karuah", name: "Karuah", region: "Port Stephens" },
       { slug: "nelson-bay", name: "Nelson Bay", region: "Port Stephens" },
       { slug: "anna-bay", name: "Anna Bay", region: "Port Stephens" },
       { slug: "tanilba-bay", name: "Tanilba Bay", region: "Port Stephens" },
+      { slug: "tea-gardens", name: "Tea Gardens", region: "Port Stephens" },
+    ],
+  },
+  {
+    slug: "central-coast",
+    name: "Central Coast",
+    blurb: "Free pickup and top cash offers across the Central Coast.",
+    locations: [
+      { slug: "central-coast", name: "Central Coast", region: "Central Coast" },
     ],
   },
 ];

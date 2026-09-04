@@ -31,7 +31,7 @@ export function Hero() {
             </span>
             <h1 className="font-display text-balance mt-6 text-4xl font-bold leading-[1.05] text-white sm:text-5xl lg:text-6xl">
               Top Cash For Your Car,{" "}
-              <span className="text-brand">Up To $10,000</span>
+              <span className="text-brand">Up To {site.cashOfferMax}</span>
             </h1>
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-zinc-300">
               {site.description} Get a free quote now and have it picked up
@@ -63,7 +63,7 @@ export function Hero() {
               </p>
               <p className="font-display mt-2 text-5xl font-bold text-white">
                 Up to{" "}
-                <span className="text-brand">$10,000</span>
+                <span className="text-brand">{site.cashOfferMax}</span>
               </p>
               <p className="mt-2 text-sm text-zinc-400">
                 Based on make, model, condition and current scrap metal &amp;

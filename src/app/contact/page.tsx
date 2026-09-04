@@ -49,6 +49,9 @@ export default function ContactPage() {
                 <a href={site.phoneHrefSecondary} className="block font-semibold text-ink hover:text-brand-dark">
                   {site.phoneDisplaySecondary}
                 </a>
+                <a href={site.landlineHref} className="block font-semibold text-ink hover:text-brand-dark">
+                  {site.landlineDisplay}
+                </a>
               </div>
             </div>
 
@@ -91,6 +94,20 @@ export default function ContactPage() {
                 Service area
               </h3>
               <p className="mt-2 text-sm text-zinc-600">{site.areasSummary}</p>
+            </div>
+
+            <div className="rounded-3xl border border-ink/8 bg-white p-7">
+              <h3 className="font-display text-lg font-bold text-ink">
+                Our depots
+              </h3>
+              <div className="mt-3 space-y-3">
+                {site.depots.map((depot) => (
+                  <div key={depot.name}>
+                    <p className="text-sm font-semibold text-ink">{depot.name}</p>
+                    <p className="text-sm text-zinc-600">{depot.address}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </Container>

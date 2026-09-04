@@ -1,20 +1,35 @@
 export const site = {
   name: "Australia Wide Wreckers",
   shortName: "AW Wreckers",
-  tagline: "Top Cash For Cars, Free Removal Across NSW",
+  tagline: "Up To $9,999 Instant Cash For Your Car",
+  cashOfferMax: "$9,999",
   description:
-    "Australia Wide Wreckers pays top cash for cars, utes, vans, trucks and 4x4s in any condition. Free same-day removal across Sydney, Newcastle and Port Stephens.",
+    "Australia Wide Wreckers pays top cash for cars, utes, vans, trucks, motorbikes and 4x4s in any condition. Free same-day removal across Newcastle, Lake Macquarie, Maitland, Cessnock, Port Stephens and the Central Coast.",
   phoneDisplay: "0456 009 004",
   phoneHref: "tel:+61456009004",
   phoneDisplaySecondary: "0456 009 003",
   phoneHrefSecondary: "tel:+61456009003",
+  landlineDisplay: "(02) 6541 1711",
+  landlineHref: "tel:+61265411711",
   email: "info@australiawidewreckers.com.au",
   hours: [
-    { days: "Monday – Friday", time: "7:00 AM – 7:00 PM" },
-    { days: "Saturday – Sunday", time: "8:00 AM – 5:00 PM" },
+    { days: "Monday – Saturday", time: "9:00 AM – 5:00 PM" },
+    { days: "Sunday", time: "Closed" },
   ],
-  areasSummary: "Sydney Metro, Newcastle & Port Stephens",
+  areasSummary: "Newcastle, Lake Macquarie, Maitland, Cessnock, Port Stephens & Central Coast",
   url: "https://australiawidewreckers.com.au",
+  depots: [
+    {
+      name: "Australia Wide Wreckers",
+      address: "9 Common Rd, Muswellbrook NSW 2333",
+      mapQuery: "9+Common+Rd+Muswellbrook+NSW+2333",
+    },
+    {
+      name: "M1 Car Removal",
+      address: "139 Moira Park Rd, Morisset NSW 2264",
+      mapQuery: "139+Moira+Park+Rd+Morisset+NSW+2264",
+    },
+  ],
 } as const;
 
 export const NAV_LINKS = [
