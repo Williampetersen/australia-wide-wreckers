@@ -9,7 +9,9 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { CheckCircle2, ServiceIcons } from "@/components/Icons";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
+import { JsonLd } from "@/components/JsonLd";
 import { services, getServiceBySlug } from "@/lib/services";
+import { serviceSchema } from "@/lib/schema";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
@@ -39,6 +41,7 @@ export default async function ServiceDetailPage(
 
   return (
     <>
+      <JsonLd data={serviceSchema(service)} />
       <PageHero eyebrow="Service" title={service.name} description={service.description} />
 
       <section className="pt-20 sm:pt-28">

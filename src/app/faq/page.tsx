@@ -4,8 +4,10 @@ import { Container } from "@/components/Container";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { CtaBand } from "@/components/CtaBand";
 import { FadeIn } from "@/components/motion/FadeIn";
+import { JsonLd } from "@/components/JsonLd";
 import { faqs } from "@/lib/faqs";
 import { site } from "@/lib/site";
+import { faqSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions",
@@ -15,6 +17,7 @@ export const metadata: Metadata = {
 export default function FaqPage() {
   return (
     <>
+      <JsonLd data={faqSchema(faqs)} />
       <PageHero
         eyebrow="FAQ"
         title="Frequently asked questions"

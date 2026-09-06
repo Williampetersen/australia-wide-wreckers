@@ -18,6 +18,14 @@ export const site = {
   ],
   areasSummary: "Newcastle, Lake Macquarie, Maitland, Cessnock, Port Stephens & Central Coast",
   url: "https://australiawidewreckers.com.au",
+  // ABN not sourced from the WordPress export — add the real one before publishing the legal pages.
+  abn: "Add your ABN here",
+  // Real rating/count aren't available yet; leave null rather than guessing so the
+  // reviews badge shows a generic "read our reviews" link instead of invented numbers.
+  googleRating: null as number | null,
+  googleReviewCount: null as number | null,
+  googleReviewsUrl:
+    "https://www.google.com/maps/search/?api=1&query=Australia+Wide+Wreckers+reviews",
   depots: [
     {
       name: "Australia Wide Wreckers",

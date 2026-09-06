@@ -9,9 +9,11 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { CheckCircle2 } from "@/components/Icons";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
+import { JsonLd } from "@/components/JsonLd";
 import { allLocations, getLocationBySlug } from "@/lib/locations";
 import { services } from "@/lib/services";
 import { site } from "@/lib/site";
+import { locationSchema } from "@/lib/schema";
 
 export function generateStaticParams() {
   return allLocations.map((loc) => ({ slug: loc.slug }));
@@ -40,6 +42,7 @@ export default async function LocationDetailPage(
 
   return (
     <>
+      <JsonLd data={locationSchema(location)} />
       <PageHero
         eyebrow={location.region}
         title={`Cash For Cars in ${location.name}`}

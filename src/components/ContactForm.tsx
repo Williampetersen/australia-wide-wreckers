@@ -11,30 +11,50 @@ export function ContactForm({
 }: {
   variant?: "light" | "glass";
 }) {
-  const [status, setStatus] = useState<"idle" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
+    "idle"
+  );
   const isGlass = variant === "glass";
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const form = new FormData(event.currentTarget);
-    const name = String(form.get("your-name") ?? "");
-    const phone = String(form.get("your-phone") ?? "");
-    const email = String(form.get("your-email") ?? "");
-    const suburb = String(form.get("suburb") ?? "");
-    const postalCode = String(form.get("postal-code") ?? "");
-    const carModel = String(form.get("car-model") ?? "");
-    const carYear = String(form.get("car-year") ?? "");
-    const note = String(form.get("your-note") ?? "");
+    const currentForm = event.currentTarget;
+    const form = new FormData(currentForm);
 
-    const subject = encodeURIComponent(
-      `New Quote — ${name} – ${carModel} – ${carYear}`
-    );
-    const body = encodeURIComponent(
-      `Car Brand / Model: ${carModel}\nCar Year: ${carYear}\nSuburb: ${suburb}\nPostal Code: ${postalCode}\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nExtra details:\n${note}`
-    );
+    // Honeypot: real visitors never see or fill this field.
+    if (String(form.get("company") ?? "").trim()) {
+      setStatus("sent");
+      currentForm.reset();
+      return;
+    }
 
-    window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
-    setStatus("sent");
+    setStatus("sending");
+
+    const payload = {
+      name: String(form.get("your-name") ?? ""),
+      phone: String(form.get("your-phone") ?? ""),
+      email: String(form.get("your-email") ?? ""),
+      suburb: String(form.get("suburb") ?? ""),
+      postalCode: String(form.get("postal-code") ?? ""),
+      carModel: String(form.get("car-model") ?? ""),
+      carYear: String(form.get("car-year") ?? ""),
+      note: String(form.get("your-note") ?? ""),
+    };
+
+    try {
+      const response = await fetch("/api/quote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) throw new Error("Request failed");
+
+      setStatus("sent");
+      currentForm.reset();
+    } catch {
+      setStatus("error");
+    }
   }
 
   const fieldClasses = isGlass
@@ -190,20 +210,46 @@ export function ContactForm({
         </div>
       ))}
 
+      <div className="hidden" aria-hidden="true">
+        <label htmlFor="company">Leave this field empty</label>
+        <input
+          id="company"
+          name="company"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
       <div className={isGlass ? undefined : "sm:col-span-2"}>
         <button
           type="submit"
-          className={`rounded-full bg-brand px-6 py-3.5 text-base font-bold text-ink transition-all hover:-translate-y-0.5 hover:bg-brand-dark ${isGlass ? "w-full" : "w-full sm:w-auto"}`}
+          disabled={status === "sending"}
+          className={`rounded-full bg-brand px-6 py-3.5 text-base font-bold text-ink transition-all hover:-translate-y-0.5 hover:bg-brand-dark disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 ${isGlass ? "w-full" : "w-full sm:w-auto"}`}
         >
-          Get Cash Offer Now
+          {status === "sending" ? "Sending…" : "Get Cash Offer Now"}
         </button>
         {status === "sent" && (
           <p
             className={`mt-3 text-sm font-medium ${isGlass ? "text-white" : "text-cash-dark"}`}
           >
-            Your email app should now open with your details pre-filled. Prefer
-            to skip that step? Just call us instead — it&apos;s the fastest way
-            to get your quote.
+            Thanks — your request is in. We&apos;ll call or email you back
+            with a cash offer shortly.
+          </p>
+        )}
+        {status === "error" && (
+          <p
+            className={`mt-3 text-sm font-medium ${isGlass ? "text-white" : "text-red-600"}`}
+          >
+            Something went wrong sending your request. Please call{" "}
+            <a href={site.phoneHref} className="underline">
+              {site.phoneDisplay}
+            </a>{" "}
+            or email{" "}
+            <a href={`mailto:${site.email}`} className="underline">
+              {site.email}
+            </a>{" "}
+            instead.
           </p>
         )}
       </div>

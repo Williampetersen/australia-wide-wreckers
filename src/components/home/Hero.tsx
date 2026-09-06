@@ -4,19 +4,17 @@ import { HeroContent } from "./HeroContent";
 
 export function Hero() {
   return (
-    <section className="relative isolate flex min-h-[640px] items-center overflow-hidden bg-ink sm:min-h-[720px]">
+    <section className="relative isolate flex min-h-[520px] flex-col overflow-hidden bg-white sm:min-h-[640px]">
       <Image
-        src="/images/gallery/handing-over-keys.jpg"
-        alt="Handing over car keys after a cash sale"
+        src="/images/hero/hero.jpg"
+        alt="Australia Wide Wreckers tow truck removing a car"
         fill
         priority
         className="object-cover"
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/40" />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent" />
 
-      <Container className="relative py-20 sm:py-28 lg:py-32">
+      <Container className="relative flex flex-1 flex-col py-8 sm:py-10">
         <HeroContent />
       </Container>
     </section>
