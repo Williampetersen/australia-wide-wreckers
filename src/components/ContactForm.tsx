@@ -11,9 +11,7 @@ export function ContactForm({
 }: {
   variant?: "light" | "glass";
 }) {
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
-    "idle"
-  );
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const isGlass = variant === "glass";
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -58,119 +56,74 @@ export function ContactForm({
   }
 
   const fieldClasses = isGlass
-    ? "w-full rounded-xl border border-white/25 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/60 backdrop-blur-sm transition-colors focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/40"
-    : "w-full rounded-xl border border-ink/12 bg-white px-4 py-3 text-sm text-ink placeholder:text-zinc-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30";
+    ? "w-full rounded-xl border border-white/25 bg-white/10 px-4 py-3.5 text-sm text-white placeholder:text-white/60 backdrop-blur-md transition-colors focus:border-white/50 focus:outline-none"
+    : "w-full rounded-xl border border-transparent bg-field px-4 py-3.5 text-sm text-ink placeholder:text-ink-soft/50 transition-colors focus:border-brand focus:bg-white focus:outline-none";
 
-  const labelClasses = isGlass
-    ? "sr-only"
-    : "text-sm font-semibold text-ink-soft";
+  const selectClasses = isGlass
+    ? "w-full rounded-xl border border-white/40 bg-white px-4 py-3.5 text-sm text-ink transition-colors focus:border-brand focus:outline-none [&>option]:text-ink"
+    : fieldClasses;
 
-  const gridClasses = isGlass
-    ? "grid grid-cols-1 gap-3"
-    : "grid grid-cols-1 gap-5 sm:grid-cols-2";
+  return (
+    <div
+      className={
+        isGlass
+          ? "shadow-soft-lg rounded-2xl border border-white/20 bg-ink/45 p-7 backdrop-blur-xl sm:p-8"
+          : "shadow-soft-lg rounded-2xl bg-white p-7 sm:p-9"
+      }
+    >
+      <h3 className={`font-display text-2xl ${isGlass ? "text-white" : "text-ink"}`}>
+        Get Cash Offer Now
+      </h3>
 
-  const fields: Array<{
-    id: string;
-    label: string;
-    span?: boolean;
-    node: React.ReactNode;
-  }> = [
-    {
-      id: "your-name",
-      label: "Your name",
-      node: (
+      <form onSubmit={handleSubmit} className="mt-5 flex flex-col gap-3.5">
         <input
-          id="your-name"
           name="your-name"
           type="text"
           required
-          className={fieldClasses}
           placeholder="Your Name"
+          className={fieldClasses}
         />
-      ),
-    },
-    {
-      id: "your-phone",
-      label: "Your phone number",
-      node: (
         <input
-          id="your-phone"
           name="your-phone"
           type="tel"
           required
-          className={fieldClasses}
           placeholder="Your Phone Number"
+          className={fieldClasses}
         />
-      ),
-    },
-    {
-      id: "your-email",
-      label: "Email address",
-      span: true,
-      node: (
         <input
-          id="your-email"
           name="your-email"
           type="email"
           required
+          placeholder="Email address"
           className={fieldClasses}
-          placeholder="Email Address"
         />
-      ),
-    },
-    {
-      id: "suburb",
-      label: "Suburb",
-      node: (
         <input
-          id="suburb"
           name="suburb"
           type="text"
           required
-          className={fieldClasses}
           placeholder="Suburb"
+          className={fieldClasses}
         />
-      ),
-    },
-    {
-      id: "postal-code",
-      label: "Postal code",
-      node: (
         <input
-          id="postal-code"
           name="postal-code"
           type="text"
           required
           inputMode="numeric"
-          className={fieldClasses}
           placeholder="Postal Code"
+          className={fieldClasses}
         />
-      ),
-    },
-    {
-      id: "car-model",
-      label: "Car brand / model",
-      node: (
         <input
-          id="car-model"
           name="car-model"
           type="text"
           required
-          className={fieldClasses}
           placeholder="Car Brand / Model"
+          className={fieldClasses}
         />
-      ),
-    },
-    {
-      id: "car-year",
-      label: "Car year",
-      node: (
         <select
-          id="car-year"
           name="car-year"
           required
           defaultValue=""
-          className={`${fieldClasses} ${isGlass ? "[&>option]:text-ink" : ""}`}
+          className={selectClasses}
         >
           <option value="" disabled>
             Car Year
@@ -181,66 +134,40 @@ export function ContactForm({
             </option>
           ))}
         </select>
-      ),
-    },
-    {
-      id: "your-note",
-      label: "Extra details",
-      span: true,
-      node: (
         <textarea
-          id="your-note"
           name="your-note"
-          rows={isGlass ? 2 : 4}
-          className={fieldClasses}
+          rows={3}
           placeholder="Extra details (condition, location notes, special requests)"
+          className={fieldClasses}
         />
-      ),
-    },
-  ];
 
-  return (
-    <form onSubmit={handleSubmit} className={gridClasses}>
-      {fields.map((field) => (
-        <div key={field.id} className={!isGlass && field.span ? "sm:col-span-2" : undefined}>
-          <label htmlFor={field.id} className={labelClasses}>
-            {field.label}
-          </label>
-          <div className={isGlass ? undefined : "mt-2"}>{field.node}</div>
+        <div className="hidden" aria-hidden="true">
+          <label htmlFor="company">Leave this field empty</label>
+          <input
+            id="company"
+            name="company"
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+          />
         </div>
-      ))}
 
-      <div className="hidden" aria-hidden="true">
-        <label htmlFor="company">Leave this field empty</label>
-        <input
-          id="company"
-          name="company"
-          type="text"
-          tabIndex={-1}
-          autoComplete="off"
-        />
-      </div>
-
-      <div className={isGlass ? undefined : "sm:col-span-2"}>
         <button
           type="submit"
           disabled={status === "sending"}
-          className={`rounded-full bg-brand px-6 py-3.5 text-base font-bold text-ink transition-all hover:-translate-y-0.5 hover:bg-brand-dark disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 ${isGlass ? "w-full" : "w-full sm:w-auto"}`}
+          className="mt-1 flex w-full items-center justify-center rounded-full bg-brand px-6 py-4 text-base font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-brand-dark disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
         >
           {status === "sending" ? "Sending…" : "Get Cash Offer Now"}
         </button>
+
         {status === "sent" && (
-          <p
-            className={`mt-3 text-sm font-medium ${isGlass ? "text-white" : "text-cash-dark"}`}
-          >
+          <p className={`text-sm font-medium ${isGlass ? "text-white" : "text-success"}`}>
             Thanks — your request is in. We&apos;ll call or email you back
             with a cash offer shortly.
           </p>
         )}
         {status === "error" && (
-          <p
-            className={`mt-3 text-sm font-medium ${isGlass ? "text-white" : "text-red-600"}`}
-          >
+          <p className={`text-sm font-medium ${isGlass ? "text-white" : "text-red-600"}`}>
             Something went wrong sending your request. Please call{" "}
             <a href={site.phoneHref} className="underline">
               {site.phoneDisplay}
@@ -252,7 +179,7 @@ export function ContactForm({
             instead.
           </p>
         )}
-      </div>
-    </form>
+      </form>
+    </div>
   );
 }

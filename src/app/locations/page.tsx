@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
+import { DepotLocations } from "@/components/DepotLocations";
 import { CtaBand } from "@/components/CtaBand";
 import { MapPin } from "@/components/Icons";
 import { regions } from "@/lib/locations";
@@ -69,6 +70,7 @@ export default function LocationsPage() {
           ))}
         </Container>
       </section>
+      <DepotLocations className="bg-paper-mesh" />
       <CtaBand />
     </>
   );

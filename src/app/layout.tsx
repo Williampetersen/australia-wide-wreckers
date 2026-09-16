@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Manrope, DM_Sans } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
@@ -10,15 +10,15 @@ import { MetaPixel } from "@/components/MetaPixel";
 import { site } from "@/lib/site";
 import { organizationSchema } from "@/lib/schema";
 
-const inter = Inter({
-  variable: "--font-inter",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -49,7 +49,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en-AU"
-      className={`${inter.variable} ${spaceGrotesk.variable} h-full antialiased`}
+      className={`${dmSans.variable} ${manrope.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-white text-ink">
         <JsonLd data={organizationSchema()} />

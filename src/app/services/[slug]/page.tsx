@@ -70,7 +70,7 @@ export default async function ServiceDetailPage(
             <ul className="mt-6 space-y-4">
               {service.bullets.map((bullet) => (
                 <li key={bullet} className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-cash-dark" aria-hidden />
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand" aria-hidden />
                   <span className="text-base leading-relaxed text-zinc-700">
                     {bullet}
                   </span>

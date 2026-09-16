@@ -9,7 +9,7 @@ import { MapPin } from "../Icons";
 
 export function ServiceAreas() {
   return (
-    <section className="bg-zinc-50 py-20 sm:py-28">
+    <section className="bg-paper-mesh py-20 sm:py-28">
       <Container>
         <FadeIn className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-end">
           <SectionHeading
@@ -26,23 +26,21 @@ export function ServiceAreas() {
           {regions.map((region) => (
             <StaggerItem
               key={region.slug}
-              className="rounded-3xl border border-ink/8 bg-white p-7"
+              className="rounded-2xl border border-ink/8 bg-white p-7 transition-all hover:-translate-y-1 hover:shadow-soft"
             >
               <div id={region.slug} className="flex items-center gap-3 scroll-mt-28">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-ink text-brand">
+                <span className="bg-brand-soft flex h-10 w-10 items-center justify-center rounded-full text-brand">
                   <MapPin className="h-5 w-5" aria-hidden />
                 </span>
-                <h3 className="font-display text-xl font-bold text-ink">
-                  {region.name}
-                </h3>
+                <h3 className="font-display text-xl text-ink">{region.name}</h3>
               </div>
-              <p className="mt-3 text-sm text-zinc-600">{region.blurb}</p>
+              <p className="text-ink-soft mt-3 text-sm">{region.blurb}</p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {region.locations.map((loc) => (
                   <Link
                     key={loc.slug}
                     href={`/locations/${loc.slug}`}
-                    className="rounded-full border border-ink/10 bg-zinc-50 px-3.5 py-1.5 text-xs font-semibold text-ink-soft transition-colors hover:border-brand hover:text-ink"
+                    className="bg-field text-ink-soft rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors hover:bg-brand-soft hover:text-brand"
                   >
                     {loc.name}
                   </Link>

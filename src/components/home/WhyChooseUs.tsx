@@ -41,14 +41,14 @@ export function WhyChooseUs() {
         <Stagger className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {reasons.map((reason) => (
             <StaggerItem key={reason.title} className="flex gap-3">
-              <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-cash/15 text-cash-dark">
+              <span className="bg-brand-soft mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-brand">
                 <CheckCircle2 className="h-4.5 w-4.5" aria-hidden />
               </span>
               <div>
-                <h3 className="font-display text-base font-bold text-ink">
+                <h3 className="font-display text-base text-ink">
                   {reason.title}
                 </h3>
-                <p className="mt-1 text-sm leading-relaxed text-zinc-600">
+                <p className="text-ink-soft mt-1 text-sm leading-relaxed">
                   {reason.description}
                 </p>
               </div>

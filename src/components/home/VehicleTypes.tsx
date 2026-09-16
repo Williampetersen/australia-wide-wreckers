@@ -43,7 +43,7 @@ export function VehicleTypes() {
           {vehicles.map((vehicle) => (
             <StaggerItem
               key={vehicle.name}
-              className="rounded-3xl border border-ink/8 bg-zinc-50 p-5 text-center transition-transform hover:-translate-y-1"
+              className="rounded-2xl border border-ink/8 bg-white p-5 text-center transition-all hover:-translate-y-1 hover:shadow-soft"
             >
               <div className="relative mx-auto h-20 w-full">
                 <Image
@@ -54,10 +54,10 @@ export function VehicleTypes() {
                   sizes="160px"
                 />
               </div>
-              <h3 className="font-display mt-4 text-sm font-bold text-ink">
+              <h3 className="font-display mt-4 text-sm text-ink">
                 {vehicle.name}
               </h3>
-              <p className="mt-1 text-xs leading-relaxed text-zinc-500">
+              <p className="text-ink-soft mt-1 text-xs leading-relaxed">
                 {vehicle.description}
               </p>
             </StaggerItem>

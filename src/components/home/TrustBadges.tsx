@@ -3,23 +3,23 @@ import { ShieldCheck, Clock, Truck, BadgeDollarSign } from "../Icons";
 import { Stagger, StaggerItem } from "../motion/Stagger";
 
 const badges = [
-  { icon: Truck, label: "Free Same-Day Towing" },
-  { icon: BadgeDollarSign, label: "Cash On The Spot" },
-  { icon: ShieldCheck, label: "Licensed & Insured" },
-  { icon: Clock, label: "7 Days A Week" },
+  { icon: Truck, label: "Free same-day towing" },
+  { icon: BadgeDollarSign, label: "Cash on the spot" },
+  { icon: ShieldCheck, label: "Licensed & insured" },
+  { icon: Clock, label: "7 days a week" },
 ];
 
 export function TrustBadges() {
   return (
-    <section className="border-b border-ink/5 bg-white py-10">
+    <section className="border-b border-ink/8 bg-white py-8">
       <Container>
-        <Stagger className="grid grid-cols-2 gap-6 sm:grid-cols-4">
+        <Stagger className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-4">
           {badges.map(({ icon: Icon, label }) => (
-            <StaggerItem key={label} className="flex items-center gap-3">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand/15 text-ink">
-                <Icon className="h-5 w-5" aria-hidden />
+            <StaggerItem key={label} className="flex items-center gap-2.5">
+              <span className="bg-brand-soft flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-brand">
+                <Icon className="h-4 w-4" aria-hidden />
               </span>
-              <span className="text-sm font-bold text-ink-soft">{label}</span>
+              <span className="text-sm font-semibold text-ink">{label}</span>
             </StaggerItem>
           ))}
         </Stagger>

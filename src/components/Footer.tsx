@@ -10,7 +10,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-ink text-zinc-300">
+    <footer className="bg-ink-glow text-white/60">
       <Container className="grid grid-cols-1 gap-10 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <Image
@@ -20,10 +20,10 @@ export function Footer() {
             height={313}
             className="h-9 w-auto"
           />
-          <p className="mt-4 max-w-xs text-sm leading-relaxed text-zinc-400">
+          <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">
             {site.description}
           </p>
-          <div className="mt-6 flex items-center gap-2 text-sm text-zinc-400">
+          <div className="mt-6 flex items-center gap-2 text-sm text-white/60">
             <Clock className="h-4 w-4 shrink-0 text-brand" aria-hidden />
             <div>
               {site.hours.map((h) => (
@@ -36,7 +36,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="font-display text-sm font-bold uppercase tracking-wider text-white">
+          <h3 className="text-xs font-bold tracking-wide text-white/40 uppercase">
             Services
           </h3>
           <ul className="mt-4 space-y-3 text-sm">
@@ -44,7 +44,7 @@ export function Footer() {
               <li key={s.slug}>
                 <Link
                   href={`/services/${s.slug}`}
-                  className="text-zinc-400 transition-colors hover:text-brand"
+                  className="text-white/60 transition-colors hover:text-brand"
                 >
                   {s.name}
                 </Link>
@@ -54,7 +54,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="font-display text-sm font-bold uppercase tracking-wider text-white">
+          <h3 className="text-xs font-bold tracking-wide text-white/40 uppercase">
             Service Areas
           </h3>
           <ul className="mt-4 space-y-3 text-sm">
@@ -62,7 +62,7 @@ export function Footer() {
               <li key={r.slug}>
                 <Link
                   href={`/locations#${r.slug}`}
-                  className="text-zinc-400 transition-colors hover:text-brand"
+                  className="text-white/60 transition-colors hover:text-brand"
                 >
                   {r.name}
                 </Link>
@@ -80,14 +80,14 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="font-display text-sm font-bold uppercase tracking-wider text-white">
+          <h3 className="text-xs font-bold tracking-wide text-white/40 uppercase">
             Get In Touch
           </h3>
           <ul className="mt-4 space-y-3 text-sm">
             <li>
               <a
                 href={site.phoneHref}
-                className="flex items-center gap-2 text-zinc-400 transition-colors hover:text-brand"
+                className="flex items-center gap-2 text-white/60 transition-colors hover:text-brand"
               >
                 <PhoneCall className="h-4 w-4 shrink-0" aria-hidden />
                 {site.phoneDisplay}
@@ -96,7 +96,7 @@ export function Footer() {
             <li>
               <a
                 href={site.phoneHrefSecondary}
-                className="flex items-center gap-2 text-zinc-400 transition-colors hover:text-brand"
+                className="flex items-center gap-2 text-white/60 transition-colors hover:text-brand"
               >
                 <PhoneCall className="h-4 w-4 shrink-0" aria-hidden />
                 {site.phoneDisplaySecondary}
@@ -105,13 +105,13 @@ export function Footer() {
             <li>
               <a
                 href={`mailto:${site.email}`}
-                className="flex items-center gap-2 text-zinc-400 transition-colors hover:text-brand"
+                className="flex items-center gap-2 text-white/60 transition-colors hover:text-brand"
               >
                 <Mail className="h-4 w-4 shrink-0" aria-hidden />
                 {site.email}
               </a>
             </li>
-            <li className="flex items-start gap-2 text-zinc-400">
+            <li className="flex items-start gap-2 text-white/60">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
               {site.areasSummary}
             </li>
@@ -120,21 +120,21 @@ export function Footer() {
       </Container>
 
       <div className="border-t border-white/10 py-6">
-        <Container className="flex flex-col items-center justify-between gap-3 text-xs text-zinc-500 sm:flex-row">
+        <Container className="flex flex-col items-center justify-between gap-3 text-xs text-white/40 sm:flex-row">
           <p>
             © {year} {site.name}. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <Link href="/faq" className="hover:text-zinc-300">
+            <Link href="/faq" className="hover:text-white/80">
               FAQ
             </Link>
-            <Link href="/contact" className="hover:text-zinc-300">
+            <Link href="/contact" className="hover:text-white/80">
               Contact
             </Link>
-            <Link href="/privacy-policy" className="hover:text-zinc-300">
+            <Link href="/privacy-policy" className="hover:text-white/80">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="hover:text-zinc-300">
+            <Link href="/terms" className="hover:text-white/80">
               Terms
             </Link>
           </div>

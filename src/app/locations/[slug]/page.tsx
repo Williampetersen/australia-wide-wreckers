@@ -76,7 +76,7 @@ export default async function LocationDetailPage(
                 "All makes, models and conditions accepted",
               ].map((point) => (
                 <li key={point} className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-cash-dark" aria-hidden />
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand" aria-hidden />
                   <span className="text-base text-zinc-700">{point}</span>
                 </li>
               ))}
