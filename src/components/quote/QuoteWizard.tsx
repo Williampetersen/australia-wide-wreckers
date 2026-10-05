@@ -205,7 +205,11 @@ export function QuoteWizard({ initialVehicleType }: { initialVehicleType?: Vehic
                     key={type.id}
                     type="button"
                     aria-pressed={selected}
-                    onClick={() => update("vehicleType", type.id)}
+                    onClick={() => {
+                      update("vehicleType", type.id);
+                      setError(null);
+                      setStep(1);
+                    }}
                     className={`group flex flex-col items-center gap-3 rounded-2xl border bg-white p-5 text-center transition hover:-translate-y-0.5 hover:border-blue ${
                       selected ? "border-blue ring-2 ring-blue/25" : "border-[#d9e3ee]"
                     }`}
@@ -232,7 +236,11 @@ export function QuoteWizard({ initialVehicleType }: { initialVehicleType?: Vehic
                     key={item.id}
                     type="button"
                     aria-pressed={selected}
-                    onClick={() => update("condition", item.id)}
+                    onClick={() => {
+                      update("condition", item.id);
+                      setError(null);
+                      setStep(2);
+                    }}
                     className={`flex items-center justify-between gap-4 rounded-2xl border bg-white px-5 py-4 text-left transition hover:border-blue ${
                       selected ? "border-blue ring-2 ring-blue/25" : "border-[#d9e3ee]"
                     }`}
