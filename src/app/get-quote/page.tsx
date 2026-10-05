@@ -24,21 +24,21 @@ export default async function GetQuotePage(props: PageProps<"/get-quote">) {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-background py-14 sm:py-20">
+    <section className="relative overflow-hidden bg-background py-4 sm:py-20">
       <div className="pointer-events-none absolute -top-40 -left-40 h-96 w-96 rounded-full bg-blue/15 blur-3xl" aria-hidden />
-      <Container className="relative grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,22rem)] lg:items-start">
+      <Container className="relative grid grid-cols-1 gap-6 sm:gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,22rem)] lg:items-start">
         <div>
-          <span className="inline-flex items-center rounded-full bg-navy px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white">
+          <span className="hidden items-center rounded-full bg-navy px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white sm:inline-flex">
             Free cash offer
           </span>
-          <h1 className="font-display mt-5 text-balance text-4xl font-bold leading-[1.1] text-ink sm:text-5xl">
+          <h1 className="font-display mt-5 hidden text-balance text-4xl font-bold leading-[1.1] text-ink sm:block sm:text-5xl">
             Sell your car in under 2 minutes
           </h1>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-zinc-600">
+          <p className="mt-4 hidden max-w-2xl text-lg leading-relaxed text-zinc-600 sm:block">
             Answer a few quick questions and we&apos;ll call you with a cash offer. The final price is confirmed when
             we inspect the vehicle.
           </p>
-          <div className="mt-10">
+          <div className="sm:mt-10">
             <QuoteWizard initialVehicleType={initialType} />
           </div>
         </div>

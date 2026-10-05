@@ -166,7 +166,19 @@ export function QuoteWizard({ initialVehicleType }: { initialVehicleType?: Vehic
 
   return (
     <Card>
-      <ol className="flex flex-wrap items-center gap-2" aria-label="Quote progress">
+      <div className="sm:hidden">
+        <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider">
+          <span className="text-blue">Step {step + 1} of {steps.length}</span>
+          <span className="text-zinc-500">{steps[step]}</span>
+        </div>
+        <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-zinc-100">
+          <div
+            className="h-full rounded-full bg-gradient-to-r from-brand to-brand-dark transition-all"
+            style={{ width: `${((step + 1) / steps.length) * 100}%` }}
+          />
+        </div>
+      </div>
+      <ol className="hidden flex-wrap items-center gap-2 sm:flex" aria-label="Quote progress">
         {steps.map((label, index) => {
           const done = index < step;
           const current = index === step;
@@ -191,13 +203,13 @@ export function QuoteWizard({ initialVehicleType }: { initialVehicleType?: Vehic
         })}
       </ol>
 
-      <form onSubmit={isLast ? submit : (event) => event.preventDefault()} className="mt-8" noValidate>
+      <form onSubmit={isLast ? submit : (event) => event.preventDefault()} className="mt-5 sm:mt-8" noValidate>
         {step === 0 && (
           <StepHeading
             title="We buy all types of vehicles"
             description="Start by telling us what you want to sell."
           >
-            <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
+            <div className="mt-4 grid grid-cols-2 gap-2.5 sm:mt-6 sm:grid-cols-3 sm:gap-3">
               {vehicleTypes.map((type) => {
                 const selected = form.vehicleType === type.id;
                 return (
@@ -210,7 +222,7 @@ export function QuoteWizard({ initialVehicleType }: { initialVehicleType?: Vehic
                       setError(null);
                       setStep(1);
                     }}
-                    className={`group flex flex-col items-center gap-3 rounded-2xl border bg-white p-5 text-center transition hover:-translate-y-0.5 hover:border-blue ${
+                    className={`group flex flex-col items-center gap-2 rounded-2xl border bg-white p-3 text-center sm:gap-3 sm:p-5 transition hover:-translate-y-0.5 hover:border-blue ${
                       selected ? "border-blue ring-2 ring-blue/25" : "border-[#d9e3ee]"
                     }`}
                   >
@@ -218,7 +230,7 @@ export function QuoteWizard({ initialVehicleType }: { initialVehicleType?: Vehic
                       <Image src={type.image} alt="" fill sizes="160px" className="object-contain" />
                     </span>
                     <span className="text-sm font-bold text-ink">{type.label}</span>
-                    <span className="text-xs leading-snug text-zinc-500">{type.description}</span>
+                    <span className="hidden text-xs leading-snug text-zinc-500 sm:block">{type.description}</span>
                   </button>
                 );
               })}
@@ -411,7 +423,7 @@ export function QuoteWizard({ initialVehicleType }: { initialVehicleType?: Vehic
 
 function Card({ children }: { children: ReactNode }) {
   return (
-    <div className="flex flex-col rounded-3xl border border-[#d9e3ee] bg-white p-6 shadow-[0_24px_80px_rgba(0,35,80,0.12)] sm:p-9">
+    <div className="flex flex-col rounded-3xl border border-[#d9e3ee] bg-white p-4 shadow-[0_24px_80px_rgba(0,35,80,0.12)] sm:p-9">
       {children}
     </div>
   );
@@ -420,8 +432,8 @@ function Card({ children }: { children: ReactNode }) {
 function StepHeading({ title, description, children }: { title: string; description: string; children: ReactNode }) {
   return (
     <div>
-      <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">{title}</h2>
-      <p className="mt-2 text-base text-zinc-600">{description}</p>
+      <h2 className="font-display text-xl font-bold text-ink sm:text-3xl">{title}</h2>
+      <p className="mt-1 text-sm text-zinc-600 sm:mt-2 sm:text-base">{description}</p>
       {children}
     </div>
   );
