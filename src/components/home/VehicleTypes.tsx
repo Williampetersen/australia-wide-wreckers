@@ -6,24 +6,34 @@ import { Stagger, StaggerItem } from "../motion/Stagger";
 
 const vehicles = [
   {
+    name: "Cars",
+    description: "Sedans, hatchbacks, SUVs and 4x4s",
+    image: "/images/vehicles/car.png",
+  },
+  {
     name: "Utes",
     description: "Single cab, dual cab and all work utes",
-    image: "/images/misc/vehicle-ute.png",
-  },
-  {
-    name: "Vans",
-    description: "Delivery vans, minibuses and commercial transport vans",
-    image: "/images/misc/vehicle-van.png",
-  },
-  {
-    name: "Pickup Trucks",
-    description: "4x4 pickups, large utility vehicles and heavy-duty models",
-    image: "/images/misc/vehicle-pickup.png",
+    image: "/images/vehicles/ute.png",
   },
   {
     name: "Motorbikes",
     description: "Used, damaged, unregistered or unwanted bikes",
-    image: "/images/misc/vehicle-motorbike.png",
+    image: "/images/vehicles/motorbike.png",
+  },
+  {
+    name: "Pickup Trucks",
+    description: "4x4 pickups, large utility vehicles and heavy-duty models",
+    image: "/images/vehicles/pickup.png",
+  },
+  {
+    name: "Vans",
+    description: "Delivery vans, minibuses and commercial transport vans",
+    image: "/images/vehicles/van.png",
+  },
+  {
+    name: "Light Trucks",
+    description: "Tray trucks and light commercial trucks",
+    image: "/images/vehicles/light-truck.png",
   },
 ];
 
@@ -39,7 +49,7 @@ export function VehicleTypes() {
             align="center"
           />
         </FadeIn>
-        <Stagger className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-6 sm:grid-cols-4">
+        <Stagger className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-6 sm:grid-cols-3">
           {vehicles.map((vehicle) => (
             <StaggerItem
               key={vehicle.name}
