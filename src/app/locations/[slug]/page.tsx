@@ -10,10 +10,14 @@ import { CheckCircle2 } from "@/components/Icons";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { JsonLd } from "@/components/JsonLd";
-import { allLocations, getLocationBySlug } from "@/lib/locations";
+import {
+  allLocations,
+  getLocationBySlug,
+  getRegionByLocationSlug,
+} from "@/lib/locations";
 import { services } from "@/lib/services";
 import { site } from "@/lib/site";
-import { locationSchema } from "@/lib/schema";
+import { locationSchema, breadcrumbSchema } from "@/lib/schema";
 
 export function generateStaticParams() {
   return allLocations.map((loc) => ({ slug: loc.slug }));
@@ -27,7 +31,10 @@ export async function generateMetadata(
   if (!location) return {};
   return {
     title: `Cash For Cars ${location.name}`,
-    description: `Free car removal and top cash offers in ${location.name}. Same-day pickup available across ${location.region}.`,
+    description: `Sell your car for cash in ${location.name}, ${location.region}. Free same-day towing, no-obligation quotes, and cash paid on pickup, no matter the condition.`,
+    alternates: {
+      canonical: `${site.url}/locations/${slug}`,
+    },
   };
 }
 
@@ -39,15 +46,31 @@ export default async function LocationDetailPage(
   if (!location) notFound();
 
   const featuredServices = services.slice(0, 3);
+  const region = getRegionByLocationSlug(location.slug);
+  const siblingLocations = region
+    ? region.locations.filter((l) => l.slug !== location.slug)
+    : [];
+  const siblingNames = siblingLocations.slice(0, 3).map((l) => l.name);
+
+  const breadcrumbItems = [
+    { name: "Home", path: "/" },
+    { name: "Locations", path: "/locations" },
+    ...(region
+      ? [{ name: region.name, path: `/locations#${region.slug}` }]
+      : []),
+    { name: location.name, path: `/locations/${location.slug}` },
+  ];
 
   return (
     <>
       <JsonLd data={locationSchema(location)} />
+      <JsonLd data={breadcrumbSchema(breadcrumbItems)} />
       <PageHero
         eyebrow={location.region}
         title={`Cash For Cars in ${location.name}`}
         description={`Get a free quote and same-day, no-cost vehicle removal in ${location.name} and surrounding suburbs. Any make, model or condition.`}
         image={location.heroImage}
+        imageAlt={`${site.name} tow truck servicing ${location.name}`}
       >
         <div className="mt-8 flex flex-col gap-4 sm:flex-row">
           <PrimaryButton href="/contact">Get Your Free Quote</PrimaryButton>
@@ -68,6 +91,21 @@ export default async function LocationDetailPage(
               pickup time that suits you and get paid cash the moment we
               arrive.
             </p>
+            {region && (
+              <p className="mt-4 text-base leading-relaxed text-zinc-600">
+                {region.blurb}
+                {siblingNames.length > 0 && (
+                  <>
+                    {" "}
+                    We also regularly service nearby {siblingNames.join(", ")}
+                    {siblingLocations.length > siblingNames.length
+                      ? " and surrounding suburbs"
+                      : ""}
+                    .
+                  </>
+                )}
+              </p>
+            )}
             <ul className="mt-6 space-y-3">
               {[
                 `Free towing anywhere in ${location.name}`,
@@ -76,7 +114,7 @@ export default async function LocationDetailPage(
                 "All makes, models and conditions accepted",
               ].map((point) => (
                 <li key={point} className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand" aria-hidden />
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-cash-dark" aria-hidden />
                   <span className="text-base text-zinc-700">{point}</span>
                 </li>
               ))}
@@ -88,8 +126,7 @@ export default async function LocationDetailPage(
               Other nearby areas
             </h3>
             <div className="mt-5 flex flex-wrap gap-2">
-              {allLocations
-                .filter((l) => l.slug !== location.slug && l.region === location.region)
+              {siblingLocations
                 .map((l) => (
                   <Link
                     key={l.slug}

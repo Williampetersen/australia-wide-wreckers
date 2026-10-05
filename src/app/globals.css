@@ -2,16 +2,17 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #142d41;
+  --foreground: #0a0a0c;
 
-  --brand: #205de0;
-  --brand-dark: #1748b8;
-  --brand-soft: #e6eefd;
-  --ink: #142d41;
-  --ink-soft: #5b6b7a;
-  --paper: #f5f7fa;
-  --field: #eef1f6;
-  --success: #1d9a5b;
+  /* Palette matched to the Eluxus booking design: navy surfaces, blue accents, yellow CTAs */
+  --brand: #feba02;
+  --brand-dark: #f5a800;
+  --navy: #003580;
+  --blue: #0071c2;
+  --ink: #0b1f3f;
+  --ink-soft: #1e3a5f;
+  --cash: #10b981;
+  --cash-dark: #059669;
 }
 
 @theme inline {
@@ -19,53 +20,35 @@
   --color-foreground: var(--foreground);
   --color-brand: var(--brand);
   --color-brand-dark: var(--brand-dark);
-  --color-brand-soft: var(--brand-soft);
+  --color-navy: var(--navy);
+  --color-blue: var(--blue);
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
-  --color-paper: var(--paper);
-  --color-field: var(--field);
-  --color-success: var(--success);
-  --font-sans: var(--font-dm-sans);
-  --font-display: var(--font-manrope);
+  --color-cash: var(--cash);
+  --color-cash-dark: var(--cash-dark);
+  --font-sans: var(--font-lexend);
+  --font-display: var(--font-lexend);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), "Segoe UI", Arial, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
 .font-display {
   font-family: var(--font-display), var(--font-sans), sans-serif;
-  letter-spacing: -0.02em;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
 .text-balance {
   text-wrap: balance;
-}
-
-/* Soft, diffuse shadows for floating cards — no hard offsets */
-.shadow-soft {
-  box-shadow: 0 20px 50px -18px rgba(20, 45, 65, 0.22);
-}
-.shadow-soft-lg {
-  box-shadow: 0 32px 80px -24px rgba(20, 45, 65, 0.28);
-}
-
-/* Subtle radial tint for light sections, replaces flat paper/zinc backgrounds */
-.bg-paper-mesh {
-  background-color: var(--paper);
-  background-image:
-    radial-gradient(ellipse 45% 55% at 100% 0%, rgba(32, 93, 224, 0.06), transparent 60%),
-    radial-gradient(ellipse 40% 40% at 0% 100%, rgba(20, 45, 65, 0.04), transparent 55%);
-}
-
-/* Deep navy section background, used sparingly for contrast rhythm */
-.bg-ink-glow {
-  background-color: var(--ink);
-  background-image:
-    radial-gradient(ellipse 55% 60% at 100% 0%, rgba(32, 93, 224, 0.35), transparent 60%),
-    radial-gradient(ellipse 40% 40% at 0% 100%, rgba(32, 93, 224, 0.12), transparent 55%);
 }
 
 @keyframes brand-scroll {

@@ -1,4 +1,5 @@
 import { Hero } from "@/components/home/Hero";
+import { VehiclePicker } from "@/components/home/VehiclePicker";
 import { TrustBadges } from "@/components/home/TrustBadges";
 import { GoogleReviews } from "@/components/home/GoogleReviews";
 import { BrandStrip } from "@/components/home/BrandStrip";
@@ -7,22 +8,21 @@ import { VehicleTypes } from "@/components/home/VehicleTypes";
 import { ProcessSteps } from "@/components/home/ProcessSteps";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { ServiceAreas } from "@/components/home/ServiceAreas";
-import { DepotLocations } from "@/components/DepotLocations";
 import { CtaBand } from "@/components/CtaBand";
 
 export default function Home() {
   return (
     <>
       <Hero />
+      <VehiclePicker />
       <TrustBadges />
       <GoogleReviews />
       <BrandStrip />
-      <VehicleTypes />
       <ServicesSection />
+      <VehicleTypes />
       <ProcessSteps />
       <WhyChooseUs />
       <ServiceAreas />
-      <DepotLocations />
       <CtaBand />
     </>
   );

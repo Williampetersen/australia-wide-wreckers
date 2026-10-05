@@ -6,6 +6,9 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: `How ${site.name} collects, uses and protects your personal information.`,
+  alternates: {
+    canonical: `${site.url}/privacy-policy`,
+  },
 };
 
 const lastUpdated = "6 September 2026";

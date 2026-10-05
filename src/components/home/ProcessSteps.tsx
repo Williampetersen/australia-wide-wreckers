@@ -1,4 +1,5 @@
 import { Container } from "../Container";
+import { SectionHeading } from "../SectionHeading";
 import { FadeIn } from "../motion/FadeIn";
 import { Stagger, StaggerItem } from "../motion/Stagger";
 
@@ -31,29 +32,28 @@ const steps = [
 
 export function ProcessSteps() {
   return (
-    <section className="bg-ink-glow relative py-20 sm:py-28">
-      <Container className="relative">
+    <section className="bg-zinc-50 py-20 sm:py-28">
+      <Container>
         <FadeIn>
-          <span className="mx-auto flex w-fit items-center justify-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-xs font-bold text-white">
-            How it works
-          </span>
-          <h2 className="font-display text-balance mx-auto mt-4 max-w-2xl text-center text-4xl leading-[1.05] tracking-tight text-white sm:text-5xl">
-            Cash in your hand in four easy steps
-          </h2>
+          <SectionHeading
+            eyebrow="How It Works"
+            title="Cash in your hand in four easy steps"
+            align="center"
+          />
         </FadeIn>
-        <Stagger className="relative mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <Stagger className="relative mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step) => (
             <StaggerItem
               key={step.number}
-              className="relative rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition-all hover:-translate-y-1 hover:bg-white/[0.08]"
+              className="relative rounded-3xl border border-ink/8 bg-white p-7 transition-transform hover:-translate-y-1"
             >
-              <span className="font-display text-brand text-3xl">
+              <span className="font-display text-4xl font-bold text-brand-dark/50">
                 {step.number}
               </span>
-              <h3 className="font-display mt-4 text-lg text-white">
+              <h3 className="font-display mt-4 text-lg font-bold text-ink">
                 {step.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-white/60">
+              <p className="mt-2 text-sm leading-relaxed text-zinc-600">
                 {step.description}
               </p>
             </StaggerItem>

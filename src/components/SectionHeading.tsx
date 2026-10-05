@@ -1,5 +1,3 @@
-import { CheckCircle2 } from "./Icons";
-
 export function SectionHeading({
   eyebrow,
   title,
@@ -16,18 +14,15 @@ export function SectionHeading({
       className={`max-w-2xl ${align === "center" ? "mx-auto text-center" : ""}`}
     >
       {eyebrow && (
-        <span
-          className={`bg-brand-soft inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold text-brand-dark ${align === "center" ? "justify-center" : ""}`}
-        >
-          <CheckCircle2 className="h-3.5 w-3.5" aria-hidden />
+        <span className="inline-flex items-center rounded-full bg-brand/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-ink-soft">
           {eyebrow}
         </span>
       )}
-      <h2 className="font-display text-balance mt-4 text-4xl leading-[1.05] tracking-tight text-ink sm:text-5xl">
+      <h2 className="font-display text-balance mt-4 text-3xl font-bold text-ink sm:text-4xl">
         {title}
       </h2>
       {description && (
-        <p className="mt-5 text-lg leading-relaxed text-ink-soft">
+        <p className="mt-4 text-lg leading-relaxed text-zinc-600">
           {description}
         </p>
       )}

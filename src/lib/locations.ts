@@ -186,3 +186,9 @@ export const allLocations: Location[] = regions.flatMap((r) => r.locations);
 export function getLocationBySlug(slug: string) {
   return allLocations.find((l) => l.slug === slug);
 }
+
+export function getRegionByLocationSlug(slug: string) {
+  return regions.find((region) =>
+    region.locations.some((location) => location.slug === slug)
+  );
+}

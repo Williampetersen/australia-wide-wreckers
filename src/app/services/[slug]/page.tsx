@@ -11,7 +11,8 @@ import { FadeIn } from "@/components/motion/FadeIn";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { JsonLd } from "@/components/JsonLd";
 import { services, getServiceBySlug } from "@/lib/services";
-import { serviceSchema } from "@/lib/schema";
+import { serviceSchema, breadcrumbSchema } from "@/lib/schema";
+import { site } from "@/lib/site";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
@@ -26,6 +27,9 @@ export async function generateMetadata(
   return {
     title: service.name,
     description: service.description,
+    alternates: {
+      canonical: `${site.url}/services/${slug}`,
+    },
   };
 }
 
@@ -38,10 +42,16 @@ export default async function ServiceDetailPage(
 
   const Icon = ServiceIcons[service.icon];
   const otherServices = services.filter((s) => s.slug !== service.slug).slice(0, 3);
+  const breadcrumbItems = [
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+    { name: service.name, path: `/services/${service.slug}` },
+  ];
 
   return (
     <>
       <JsonLd data={serviceSchema(service)} />
+      <JsonLd data={breadcrumbSchema(breadcrumbItems)} />
       <PageHero eyebrow="Service" title={service.name} description={service.description} />
 
       <section className="pt-20 sm:pt-28">
@@ -70,13 +80,22 @@ export default async function ServiceDetailPage(
             <ul className="mt-6 space-y-4">
               {service.bullets.map((bullet) => (
                 <li key={bullet} className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand" aria-hidden />
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-cash-dark" aria-hidden />
                   <span className="text-base leading-relaxed text-zinc-700">
                     {bullet}
                   </span>
                 </li>
               ))}
             </ul>
+            <p className="mt-8 text-base leading-relaxed text-zinc-600">
+              {service.name} is available across {site.areasSummary}.{" "}
+              <Link
+                href="/locations"
+                className="font-semibold text-brand-dark hover:underline"
+              >
+                See all service areas →
+              </Link>
+            </p>
           </FadeIn>
 
           <aside className="rounded-3xl border border-ink/8 bg-zinc-50 p-7 lg:sticky lg:top-28 lg:h-fit">

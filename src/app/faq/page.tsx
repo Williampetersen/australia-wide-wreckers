@@ -12,6 +12,9 @@ import { faqSchema } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Frequently Asked Questions",
   description: `Answers to common questions about ${site.name}'s cash-for-cars and free car removal service.`,
+  alternates: {
+    canonical: `${site.url}/faq`,
+  },
 };
 
 export default function FaqPage() {

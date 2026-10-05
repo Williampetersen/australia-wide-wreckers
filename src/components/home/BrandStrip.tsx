@@ -6,9 +6,9 @@ const brands = Array.from({ length: BRAND_COUNT }, (_, i) => `/images/brands/bra
 
 export function BrandStrip() {
   return (
-    <section className="border-y border-ink/10 bg-paper-mesh py-10">
+    <section className="border-y border-ink/8 bg-zinc-50 py-10">
       <Container>
-        <p className="text-ink-soft/70 text-center text-xs font-bold tracking-wide uppercase">
+        <p className="text-center text-xs font-bold uppercase tracking-wider text-zinc-500">
           We buy all makes and models
         </p>
       </Container>

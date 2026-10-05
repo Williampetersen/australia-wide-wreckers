@@ -6,34 +6,24 @@ import { Stagger, StaggerItem } from "../motion/Stagger";
 
 const vehicles = [
   {
-    name: "Cars",
-    description: "Sedans, hatchbacks, SUVs and 4x4s",
-    image: "/images/vehicles/car.png",
-  },
-  {
     name: "Utes",
     description: "Single cab, dual cab and all work utes",
-    image: "/images/vehicles/ute.png",
-  },
-  {
-    name: "Motorbikes",
-    description: "Used, damaged, unregistered or unwanted bikes",
-    image: "/images/vehicles/motorbike.png",
-  },
-  {
-    name: "Pickup Trucks",
-    description: "4x4 pickups, large utility vehicles and heavy-duty models",
-    image: "/images/vehicles/pickup.png",
+    image: "/images/misc/vehicle-ute.png",
   },
   {
     name: "Vans",
     description: "Delivery vans, minibuses and commercial transport vans",
-    image: "/images/vehicles/van.png",
+    image: "/images/misc/vehicle-van.png",
   },
   {
-    name: "Light Trucks",
-    description: "Tray trucks and light commercial trucks",
-    image: "/images/vehicles/light-truck.png",
+    name: "Pickup Trucks",
+    description: "4x4 pickups, large utility vehicles and heavy-duty models",
+    image: "/images/misc/vehicle-pickup.png",
+  },
+  {
+    name: "Motorbikes",
+    description: "Used, damaged, unregistered or unwanted bikes",
+    image: "/images/misc/vehicle-motorbike.png",
   },
 ];
 
@@ -49,11 +39,11 @@ export function VehicleTypes() {
             align="center"
           />
         </FadeIn>
-        <Stagger className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-6 sm:grid-cols-3">
+        <Stagger className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-6 sm:grid-cols-4">
           {vehicles.map((vehicle) => (
             <StaggerItem
               key={vehicle.name}
-              className="rounded-2xl border border-ink/8 bg-white p-5 text-center transition-all hover:-translate-y-1 hover:shadow-soft"
+              className="rounded-3xl border border-ink/8 bg-zinc-50 p-5 text-center transition-transform hover:-translate-y-1"
             >
               <div className="relative mx-auto h-20 w-full">
                 <Image
@@ -64,10 +54,10 @@ export function VehicleTypes() {
                   sizes="160px"
                 />
               </div>
-              <h3 className="font-display mt-4 text-sm text-ink">
+              <h3 className="font-display mt-4 text-sm font-bold text-ink">
                 {vehicle.name}
               </h3>
-              <p className="text-ink-soft mt-1 text-xs leading-relaxed">
+              <p className="mt-1 text-xs leading-relaxed text-zinc-500">
                 {vehicle.description}
               </p>
             </StaggerItem>

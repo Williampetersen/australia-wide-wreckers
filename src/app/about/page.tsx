@@ -12,6 +12,9 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About Us",
   description: `Learn about ${site.name}, your trusted local car removal and cash-for-cars service across Newcastle, Lake Macquarie, Maitland and the Hunter region.`,
+  alternates: {
+    canonical: `${site.url}/about`,
+  },
 };
 
 const values = [

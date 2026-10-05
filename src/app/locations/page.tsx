@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
-import { DepotLocations } from "@/components/DepotLocations";
 import { CtaBand } from "@/components/CtaBand";
 import { MapPin } from "@/components/Icons";
 import { regions } from "@/lib/locations";
@@ -12,6 +11,9 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Service Locations",
   description: `${site.name} provides free car removal and top cash offers across ${site.areasSummary}.`,
+  alternates: {
+    canonical: `${site.url}/locations`,
+  },
 };
 
 export default function LocationsPage() {
@@ -48,7 +50,7 @@ export default function LocationsPage() {
                       <div className="relative h-24 w-full overflow-hidden bg-zinc-100">
                         <Image
                           src={loc.heroImage}
-                          alt=""
+                          alt={`Cash for cars ${loc.name}`}
                           fill
                           className="object-cover object-[50%_20%] transition-transform group-hover:scale-105"
                           sizes="240px"
@@ -70,7 +72,6 @@ export default function LocationsPage() {
           ))}
         </Container>
       </section>
-      <DepotLocations className="bg-paper-mesh" />
       <CtaBand />
     </>
   );

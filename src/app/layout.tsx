@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope, DM_Sans } from "next/font/google";
+import { Lexend } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
@@ -10,15 +10,10 @@ import { MetaPixel } from "@/components/MetaPixel";
 import { site } from "@/lib/site";
 import { organizationSchema } from "@/lib/schema";
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+const lexend = Lexend({
+  variable: "--font-lexend",
   subsets: ["latin"],
-});
-
-const manrope = Manrope({
-  variable: "--font-manrope",
-  subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -28,6 +23,9 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description: site.description,
+  alternates: {
+    canonical: site.url,
+  },
   openGraph: {
     title: `${site.name} | ${site.tagline}`,
     description: site.description,
@@ -49,7 +47,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en-AU"
-      className={`${dmSans.variable} ${manrope.variable} h-full antialiased`}
+      className={`${lexend.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-white text-ink">
         <JsonLd data={organizationSchema()} />

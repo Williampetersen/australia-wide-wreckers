@@ -38,17 +38,20 @@ export function WhyChooseUs() {
             description="We've built our process around what actually matters to you: a fair price, a fast pickup, and cash in your hand without the runaround."
           />
         </FadeIn>
-        <Stagger className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <Stagger className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {reasons.map((reason) => (
-            <StaggerItem key={reason.title} className="flex gap-3">
-              <span className="bg-brand-soft mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-brand">
-                <CheckCircle2 className="h-4.5 w-4.5" aria-hidden />
+            <StaggerItem
+              key={reason.title}
+              className="flex gap-3 rounded-2xl border border-ink/8 bg-zinc-50 p-5 transition-transform hover:-translate-y-1"
+            >
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cash/15 text-cash-dark">
+                <CheckCircle2 className="h-5 w-5" aria-hidden />
               </span>
               <div>
-                <h3 className="font-display text-base text-ink">
+                <h3 className="font-display text-base font-bold text-ink">
                   {reason.title}
                 </h3>
-                <p className="text-ink-soft mt-1 text-sm leading-relaxed">
+                <p className="mt-1 text-sm leading-relaxed text-zinc-600">
                   {reason.description}
                 </p>
               </div>

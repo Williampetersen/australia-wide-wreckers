@@ -7,7 +7,7 @@ import { services } from "@/lib/services";
 
 export function ServicesSection() {
   return (
-    <section className="bg-paper-mesh py-20 sm:py-28">
+    <section className="bg-zinc-50 py-20 sm:py-28">
       <Container>
         <FadeIn>
           <SectionHeading
