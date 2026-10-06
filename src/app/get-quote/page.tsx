@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { PhoneCall, MapPin, Clock, Truck, BadgeDollarSign } from "@/components/Icons";
 import { Container } from "@/components/Container";
-import { QuoteWizard } from "@/components/quote/QuoteWizard";
+import { QuoteForm } from "@/components/quote/QuoteForm";
 import { getVehicleType, type VehicleTypeId } from "@/lib/quote";
 import { site } from "@/lib/site";
 
@@ -42,7 +42,7 @@ export default async function GetQuotePage(props: PageProps<"/get-quote">) {
             we inspect the vehicle.
           </p>
           <div className="sm:mt-10">
-            <QuoteWizard initialVehicleType={initialType} />
+            <QuoteForm initialVehicleType={initialType} />
           </div>
         </div>
 
