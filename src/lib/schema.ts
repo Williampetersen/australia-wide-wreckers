@@ -2,6 +2,7 @@ import { site } from "./site";
 import type { Location } from "./locations";
 import type { Service } from "./services";
 import type { Faq } from "./faqs";
+import type { Guide } from "./guides";
 
 const DAY_NAMES = [
   "Sunday",
@@ -134,6 +135,25 @@ export function breadcrumbSchema(items: { name: string; path: string }[]) {
       name: item.name,
       item: `${site.url}${item.path}`,
     })),
+  };
+}
+
+export function articleSchema(guide: Guide) {
+  const url = `${site.url}/guides/${guide.slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: guide.title,
+    description: guide.description,
+    keywords: guide.keywords.join(", "),
+    inLanguage: "en-AU",
+    dateModified: guide.updated,
+    datePublished: guide.updated,
+    mainEntityOfPage: url,
+    url,
+    audience: { "@type": "Audience", audienceType: guide.audience },
+    author: { "@id": `${site.url}/#organization` },
+    publisher: { "@id": `${site.url}/#organization` },
   };
 }
 

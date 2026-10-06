@@ -4,6 +4,7 @@ import { Container } from "./Container";
 import { Mail, PhoneCall, MapPin, Clock } from "./Icons";
 import { site } from "@/lib/site";
 import { services } from "@/lib/services";
+import { guides } from "@/lib/guides";
 import { regions } from "@/lib/locations";
 
 export function Footer() {
@@ -11,7 +12,7 @@ export function Footer() {
 
   return (
     <footer className="bg-ink text-zinc-300">
-      <Container className="grid grid-cols-1 gap-10 py-16 sm:grid-cols-2 lg:grid-cols-4">
+      <Container className="grid grid-cols-1 gap-10 py-16 sm:grid-cols-2 lg:grid-cols-5">
         <div>
           <Image
             src="/images/logo/logo-white.png"
@@ -47,6 +48,24 @@ export function Footer() {
                   className="text-zinc-400 transition-colors hover:text-brand"
                 >
                   {s.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="font-display text-sm font-bold uppercase tracking-wider text-white">
+            Guides
+          </h3>
+          <ul className="mt-4 space-y-3 text-sm">
+            {guides.map((g) => (
+              <li key={g.slug}>
+                <Link
+                  href={`/guides/${g.slug}`}
+                  className="text-zinc-400 transition-colors hover:text-brand"
+                >
+                  {g.metaTitle}
                 </Link>
               </li>
             ))}
