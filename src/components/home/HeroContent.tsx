@@ -1,12 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { PrimaryButton } from "../Buttons";
 import { QuoteForm } from "../quote/QuoteForm";
 import { site } from "@/lib/site";
-
-const words = ["cars", "utes", "vans", "trucks", "motorbikes"] as const;
 
 const easing = [0.22, 1, 0.36, 1] as const;
 
@@ -21,14 +18,6 @@ const item = {
 };
 
 export function HeroContent() {
-  const [wordIndex, setWordIndex] = useState(0);
-
-  // Cycle the word so the hero feels live. Starts after mount, so server HTML stays stable.
-  useEffect(() => {
-    const timer = setInterval(() => setWordIndex((index) => (index + 1) % words.length), 2200);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <motion.div
       variants={container}
@@ -57,21 +46,9 @@ export function HeroContent() {
 
         <motion.p
           variants={item}
-          className="mt-3 text-base font-semibold text-ink [text-shadow:0_1px_10px_rgba(255,255,255,0.9)] sm:text-lg"
+          className="mt-3 font-display text-base font-semibold text-navy sm:text-lg"
         >
-          We buy your{" "}
-          <span className="relative inline-flex align-middle">
-            <motion.span
-              key={words[wordIndex]}
-              initial={{ opacity: 0, y: 12, filter: "blur(4px)" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{ duration: 0.45, ease: easing }}
-              className="inline-block rounded-lg bg-white/90 px-2 text-navy shadow-sm"
-            >
-              {words[wordIndex]}
-            </motion.span>
-          </span>{" "}
-          in any condition
+          The biggest car buyers across Newcastle, Lake Macquarie &amp; the Hunter
         </motion.p>
 
         <motion.div variants={item} className="mt-6">
