@@ -9,6 +9,7 @@ import { ProcessSteps } from "@/components/home/ProcessSteps";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { ServiceAreas } from "@/components/home/ServiceAreas";
 import { CtaBand } from "@/components/CtaBand";
+import { VisitUs } from "@/components/VisitUs";
 
 export default function Home() {
   return (
@@ -23,6 +24,9 @@ export default function Home() {
       <ProcessSteps />
       <WhyChooseUs />
       <ServiceAreas />
+      <div id="locations">
+        <VisitUs />
+      </div>
       <CtaBand />
     </>
   );

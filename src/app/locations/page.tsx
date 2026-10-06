@@ -4,6 +4,7 @@ import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 import { CtaBand } from "@/components/CtaBand";
+import { VisitUs } from "@/components/VisitUs";
 import { MapPin } from "@/components/Icons";
 import { regions } from "@/lib/locations";
 import { cities } from "@/lib/cities";
@@ -22,9 +23,10 @@ export default function LocationsPage() {
     <>
       <PageHero
         eyebrow="Service Locations"
-        title="Find your nearest car removal service"
-        description="We service a wide area across NSW. Select your region below, or call us to check if we cover your suburb."
+        title="Visit us or we come to you"
+        description="Visit one of our two depots, or we come to you. We cover a wide area across NSW, so select your region below or call to check your suburb."
       />
+      <VisitUs />
       <section className="py-20 sm:py-28">
         <Container className="space-y-14">
           <div>
