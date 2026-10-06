@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { PrimaryButton } from "../Buttons";
 import { QuoteForm } from "../quote/QuoteForm";
+import { TypedArea } from "./TypedArea";
 import { site } from "@/lib/site";
 
 const easing = [0.22, 1, 0.36, 1] as const;
@@ -48,7 +49,7 @@ export function HeroContent() {
           variants={item}
           className="mt-3 font-display text-base font-semibold text-navy sm:text-lg"
         >
-          The biggest car buyers across Newcastle, Lake Macquarie &amp; the Hunter
+          <TypedArea />
         </motion.p>
 
         <motion.div variants={item} className="mt-6">
