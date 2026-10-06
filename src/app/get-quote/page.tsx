@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PhoneCall, MapPin, Clock, Truck, BadgeDollarSign } from "@/components/Icons";
 import { Container } from "@/components/Container";
 import { QuoteWizard } from "@/components/quote/QuoteWizard";
@@ -24,17 +25,19 @@ export default async function GetQuotePage(props: PageProps<"/get-quote">) {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-background py-4 sm:py-20">
-      <div className="pointer-events-none absolute -top-40 -left-40 h-96 w-96 rounded-full bg-blue/15 blur-3xl" aria-hidden />
+    <section className="relative isolate overflow-hidden py-4 sm:py-20">
+      <Image src="/images/hero/hero.jpg" alt="" fill priority sizes="100vw" className="-z-10 object-cover scale-110 blur-md" aria-hidden />
+      <div className="absolute inset-0 -z-10 bg-navy/60" aria-hidden />
+      
       <Container className="relative grid grid-cols-1 gap-6 sm:gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,22rem)] lg:items-start">
         <div>
           <span className="hidden items-center rounded-full bg-navy px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white sm:inline-flex">
             Free cash offer
           </span>
-          <h1 className="font-display mt-5 hidden text-balance text-4xl font-bold leading-[1.1] text-ink sm:block sm:text-5xl">
+          <h1 className="font-display mt-5 hidden text-balance text-4xl font-bold leading-[1.1] text-white sm:block sm:text-5xl">
             Sell your car in under 2 minutes
           </h1>
-          <p className="mt-4 hidden max-w-2xl text-lg leading-relaxed text-zinc-600 sm:block">
+          <p className="mt-4 hidden max-w-2xl text-lg leading-relaxed text-white/85 sm:block">
             Answer a few quick questions and we&apos;ll call you with a cash offer. The final price is confirmed when
             we inspect the vehicle.
           </p>
@@ -60,13 +63,13 @@ export default async function GetQuotePage(props: PageProps<"/get-quote">) {
           </div>
 
           {panel.map(({ icon: Icon, title, text }) => (
-            <div key={title} className="flex gap-4 rounded-3xl border border-[#d9e3ee] bg-white p-6 shadow-[0_8px_32px_rgba(0,35,80,0.06)]">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-blue/10 text-navy">
+            <div key={title} className="flex gap-4 rounded-3xl border border-white/25 bg-white/10 p-6 text-white shadow-[0_8px_32px_rgba(0,0,0,0.2)] backdrop-blur-xl">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white/15 text-white">
                 <Icon className="h-5 w-5" aria-hidden />
               </span>
               <div>
-                <h2 className="font-display font-bold text-ink">{title}</h2>
-                <p className="mt-1 text-sm leading-relaxed text-zinc-600">{text}</p>
+                <h2 className="font-display font-bold text-white">{title}</h2>
+                <p className="mt-1 text-sm leading-relaxed text-white/75">{text}</p>
               </div>
             </div>
           ))}

@@ -49,8 +49,8 @@ const emptyForm: FormState = {
 };
 
 const inputClass =
-  "mt-2 w-full rounded-xl border border-[#d9e3ee] bg-white px-4 py-3 text-base text-ink placeholder:text-zinc-400 focus:border-blue focus:outline-none focus:ring-4 focus:ring-blue/15";
-const labelClass = "block text-sm font-semibold text-ink";
+  "mt-2 w-full rounded-xl border border-white/30 bg-white/15 px-4 py-3 text-base text-white placeholder:text-white/60 backdrop-blur-sm focus:border-sky-300 focus:bg-white/20 focus:outline-none focus:ring-4 focus:ring-sky-300/25";
+const labelClass = "block text-sm font-semibold text-white/90";
 
 function validate(step: number, form: FormState): string | null {
   if (step === 0 && !form.vehicleType) return "Choose the type of vehicle you want to sell.";
@@ -144,11 +144,11 @@ export function QuoteWizard({ initialVehicleType }: { initialVehicleType?: Vehic
         <span className="flex h-14 w-14 items-center justify-center rounded-full bg-cash/15 text-cash-dark">
           <Check className="h-7 w-7" aria-hidden />
         </span>
-        <h2 className="font-display mt-5 text-2xl font-bold text-ink sm:text-3xl">
+        <h2 className="font-display mt-5 text-2xl font-bold text-white sm:text-3xl">
           Thanks {form.name.split(" ")[0]}, your request is in
         </h2>
-        <p className="mt-3 max-w-xl text-base leading-relaxed text-zinc-600">
-          We&apos;ll call you on <strong className="text-ink">{form.phone}</strong> to confirm your cash offer
+        <p className="mt-3 max-w-xl text-base leading-relaxed text-white/80">
+          We&apos;ll call you on <strong className="text-white">{form.phone}</strong> to confirm your cash offer
           for your {form.year} {form.make} {form.model}. Want it sooner? Call us now.
         </p>
         <a
@@ -167,13 +167,13 @@ export function QuoteWizard({ initialVehicleType }: { initialVehicleType?: Vehic
   return (
     <Card>
       <div className="sm:hidden">
-        <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider">
-          <span className="text-blue">Step {step + 1} of {steps.length}</span>
-          <span className="text-zinc-500">{steps[step]}</span>
+        <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-white">
+          <span className="text-sky-200">Step {step + 1} of {steps.length}</span>
+          <span className="text-white/70">{steps[step]}</span>
         </div>
-        <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-zinc-100">
+        <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-white/20">
           <div
-            className="h-full rounded-full bg-gradient-to-r from-brand to-brand-dark transition-all"
+            className="h-full rounded-full bg-gradient-to-r from-sky-300 to-sky-500 transition-all"
             style={{ width: `${((step + 1) / steps.length) * 100}%` }}
           />
         </div>
@@ -189,8 +189,8 @@ export function QuoteWizard({ initialVehicleType }: { initialVehicleType?: Vehic
                 current
                   ? "bg-navy text-white"
                   : done
-                    ? "bg-blue/10 text-navy"
-                    : "bg-zinc-100 text-zinc-500"
+                    ? "bg-white/25 text-white"
+                    : "bg-white/15 text-white/80"
               }`}
               aria-current={current ? "step" : undefined}
             >
@@ -222,15 +222,15 @@ export function QuoteWizard({ initialVehicleType }: { initialVehicleType?: Vehic
                       setError(null);
                       setStep(1);
                     }}
-                    className={`group flex flex-col items-center gap-2 rounded-2xl border bg-white p-3 text-center sm:gap-3 sm:p-5 transition hover:-translate-y-0.5 hover:border-blue ${
-                      selected ? "border-blue ring-2 ring-blue/25" : "border-[#d9e3ee]"
+                    className={`group flex flex-col items-center gap-2 rounded-2xl border border-white/20 bg-white/10 p-3 text-center sm:gap-3 sm:p-5 transition hover:-translate-y-0.5 hover:border-sky-300 ${
+                      selected ? "border-sky-300 ring-2 ring-sky-300/40" : "border-[#d9e3ee]"
                     }`}
                   >
                     <span className="relative block h-16 w-full">
                       <Image src={type.image} alt="" fill sizes="160px" className="object-contain" />
                     </span>
-                    <span className="text-sm font-bold text-ink">{type.label}</span>
-                    <span className="hidden text-xs leading-snug text-zinc-500 sm:block">{type.description}</span>
+                    <span className="text-sm font-bold text-white">{type.label}</span>
+                    <span className="hidden text-xs leading-snug text-white/65 sm:block">{type.description}</span>
                   </button>
                 );
               })}
@@ -253,13 +253,13 @@ export function QuoteWizard({ initialVehicleType }: { initialVehicleType?: Vehic
                       setError(null);
                       setStep(2);
                     }}
-                    className={`flex items-center justify-between gap-4 rounded-2xl border bg-white px-5 py-4 text-left transition hover:border-blue ${
-                      selected ? "border-blue ring-2 ring-blue/25" : "border-[#d9e3ee]"
+                    className={`flex items-center justify-between gap-4 rounded-2xl border border-white/20 bg-white/10 px-5 py-4 text-left transition hover:border-sky-300 ${
+                      selected ? "border-sky-300 ring-2 ring-sky-300/40" : "border-[#d9e3ee]"
                     }`}
                   >
                     <span>
-                      <span className="block font-bold text-ink">{item.label}</span>
-                      <span className="block text-sm text-zinc-500">{item.description}</span>
+                      <span className="block font-bold text-white">{item.label}</span>
+                      <span className="block text-sm text-white/65">{item.description}</span>
                     </span>
                     <span
                       className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 ${
@@ -345,16 +345,16 @@ export function QuoteWizard({ initialVehicleType }: { initialVehicleType?: Vehic
               </label>
             </div>
 
-            <label className="mt-5 flex items-start gap-3 text-sm text-zinc-600">
+            <label className="mt-5 flex items-start gap-3 text-sm text-white/80">
               <input
                 type="checkbox"
                 checked={form.consent}
                 onChange={(e) => update("consent", e.target.checked)}
-                className="mt-1 h-4 w-4 accent-blue"
+                className="mt-1 h-4 w-4 accent-sky-400"
               />
               <span>
                 I agree to be contacted about this request and have read the{" "}
-                <a href="/privacy-policy" className="font-semibold text-blue underline">
+                <a href="/privacy-policy" className="font-semibold text-sky-200 underline">
                   privacy policy
                 </a>
                 .
@@ -370,12 +370,12 @@ export function QuoteWizard({ initialVehicleType }: { initialVehicleType?: Vehic
         )}
 
         {error && (
-          <p role="alert" className="mt-5 rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
+          <p role="alert" className="mt-5 rounded-xl bg-red-500/25 px-4 py-3 text-sm font-medium text-white">
             {error}
           </p>
         )}
         {status === "error" && (
-          <p role="alert" className="mt-5 rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
+          <p role="alert" className="mt-5 rounded-xl bg-red-500/25 px-4 py-3 text-sm font-medium text-white">
             We couldn&apos;t send your request. Please call{" "}
             <a href={site.landlineHref} className="underline">
               {site.landlineDisplay}
@@ -384,12 +384,12 @@ export function QuoteWizard({ initialVehicleType }: { initialVehicleType?: Vehic
           </p>
         )}
 
-        <div className="mt-8 flex items-center justify-between gap-4 border-t border-[#e6edf5] pt-6">
+        <div className="mt-8 flex items-center justify-between gap-4 border-t border-white/15 pt-6">
           {step > 0 ? (
             <button
               type="button"
               onClick={goBack}
-              className="inline-flex items-center gap-1.5 rounded-full px-4 py-2.5 text-sm font-semibold text-navy transition hover:bg-blue/10"
+              className="inline-flex items-center gap-1.5 rounded-full px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-white/15"
             >
               <ChevronLeft className="h-4 w-4" aria-hidden />
               Back
@@ -402,7 +402,7 @@ export function QuoteWizard({ initialVehicleType }: { initialVehicleType?: Vehic
             <button
               type="submit"
               disabled={status === "sending"}
-              className="rounded-full bg-gradient-to-r from-brand to-brand-dark px-7 py-3.5 text-base font-bold text-navy shadow-[0_14px_34px_rgba(254,186,2,0.35)] transition hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-60"
+              className="rounded-full bg-gradient-to-r from-[#38bdf8] to-[#0284c7] px-7 py-3.5 text-base font-bold text-white shadow-[0_14px_34px_rgba(14,165,233,0.45)] transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
             >
               {status === "sending" ? "Sending…" : "Get my cash offer"}
             </button>
@@ -410,7 +410,7 @@ export function QuoteWizard({ initialVehicleType }: { initialVehicleType?: Vehic
             <button
               type="button"
               onClick={goNext}
-              className="rounded-full bg-gradient-to-r from-brand to-brand-dark px-7 py-3.5 text-base font-bold text-navy shadow-[0_14px_34px_rgba(254,186,2,0.35)] transition hover:brightness-105"
+              className="rounded-full bg-gradient-to-r from-[#38bdf8] to-[#0284c7] px-7 py-3.5 text-base font-bold text-white shadow-[0_14px_34px_rgba(14,165,233,0.45)] transition hover:brightness-110"
             >
               Continue
             </button>
@@ -423,7 +423,7 @@ export function QuoteWizard({ initialVehicleType }: { initialVehicleType?: Vehic
 
 function Card({ children }: { children: ReactNode }) {
   return (
-    <div className="flex flex-col rounded-3xl border border-[#d9e3ee] bg-white p-4 shadow-[0_24px_80px_rgba(0,35,80,0.12)] sm:p-9">
+    <div className="flex flex-col rounded-3xl border border-white/25 bg-white/10 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.25)] backdrop-blur-xl sm:p-9">
       {children}
     </div>
   );
@@ -432,8 +432,8 @@ function Card({ children }: { children: ReactNode }) {
 function StepHeading({ title, description, children }: { title: string; description: string; children: ReactNode }) {
   return (
     <div>
-      <h2 className="font-display text-xl font-bold text-ink sm:text-3xl">{title}</h2>
-      <p className="mt-1 text-sm text-zinc-600 sm:mt-2 sm:text-base">{description}</p>
+      <h2 className="font-display text-xl font-bold text-white sm:text-3xl">{title}</h2>
+      <p className="mt-1 text-sm text-white/75 sm:mt-2 sm:text-base">{description}</p>
       {children}
     </div>
   );
