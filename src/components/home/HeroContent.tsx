@@ -1,8 +1,12 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { PrimaryButton } from "../Buttons";
+import { OpenNow } from "../OpenNow";
 import { site } from "@/lib/site";
+
+const words = ["cars", "utes", "vans", "trucks", "motorbikes"] as const;
 
 const easing = [0.22, 1, 0.36, 1] as const;
 
@@ -17,6 +21,14 @@ const item = {
 };
 
 export function HeroContent() {
+  const [wordIndex, setWordIndex] = useState(0);
+
+  // Cycle the word so the hero feels live. Starts after mount, so server HTML stays stable.
+  useEffect(() => {
+    const timer = setInterval(() => setWordIndex((index) => (index + 1) % words.length), 2200);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <motion.div
       variants={container}
@@ -34,7 +46,7 @@ export function HeroContent() {
 
         <motion.h1
           variants={item}
-          className="font-display text-balance mt-3 max-w-xl text-2xl font-extrabold leading-tight text-ink [text-shadow:0_2px_14px_rgba(255,255,255,0.9)] sm:text-3xl lg:text-4xl"
+          className="font-display text-balance mt-3 max-w-xl text-2xl font-extrabold leading-[1.05] tracking-tight text-ink [text-shadow:0_2px_14px_rgba(255,255,255,0.9)] sm:text-4xl lg:text-5xl"
         >
           Top Cash For Your Car,{" "}
           <span className="whitespace-nowrap rounded-lg bg-brand px-1.5 text-ink">
@@ -42,9 +54,32 @@ export function HeroContent() {
           </span>
           !
         </motion.h1>
+
+        <motion.p
+          variants={item}
+          className="mt-3 text-base font-semibold text-ink [text-shadow:0_1px_10px_rgba(255,255,255,0.9)] sm:text-lg"
+        >
+          We buy your{" "}
+          <span className="relative inline-flex align-middle">
+            <motion.span
+              key={words[wordIndex]}
+              initial={{ opacity: 0, y: 12, filter: "blur(4px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.45, ease: easing }}
+              className="inline-block rounded-lg bg-white/90 px-2 text-navy shadow-sm"
+            >
+              {words[wordIndex]}
+            </motion.span>
+          </span>{" "}
+          in any condition
+        </motion.p>
+
+        <motion.div variants={item} className="mt-4">
+          <OpenNow />
+        </motion.div>
       </div>
 
-      <motion.div variants={item}>
+      <motion.div variants={item} className="mt-6">
         <PrimaryButton href="/get-quote">Get Your Cash Offer</PrimaryButton>
       </motion.div>
     </motion.div>

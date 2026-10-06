@@ -43,7 +43,7 @@ export function Header() {
           </a>
           <Link
             href="/get-quote"
-            className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-gradient-to-r from-brand to-brand-dark px-4 py-2.5 text-xs font-bold text-navy shadow-[0_14px_34px_rgba(254,186,2,0.35)] transition hover:brightness-110 sm:px-5 sm:text-sm"
+            className="cta-alive inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-gradient-to-r from-brand to-brand-dark px-4 py-2.5 text-xs font-bold text-navy shadow-[0_14px_34px_rgba(254,186,2,0.35)] transition hover:brightness-110 sm:px-5 sm:text-sm"
           >
             Get a Cash Offer
             <ChevronRight className="h-3.5 w-3.5" aria-hidden />

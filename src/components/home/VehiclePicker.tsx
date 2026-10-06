@@ -38,7 +38,7 @@ export function VehiclePicker() {
             <p className="text-sm text-zinc-500">Running, damaged, old or scrap. We take it all.</p>
             <Link
               href="/get-quote"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand to-brand-dark px-6 py-3 text-sm font-bold text-navy shadow-[0_14px_34px_rgba(254,186,2,0.35)] transition hover:brightness-105"
+              className="cta-alive inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand to-brand-dark px-6 py-3 text-sm font-bold text-navy shadow-[0_14px_34px_rgba(254,186,2,0.35)] transition hover:brightness-105"
             >
               Start my cash offer
               <ArrowRight className="h-4 w-4" aria-hidden />

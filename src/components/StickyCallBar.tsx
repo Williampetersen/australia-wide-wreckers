@@ -14,7 +14,7 @@ export function StickyCallBar() {
       </a>
       <Link
         href="/get-quote"
-        className="flex flex-1 items-center justify-center gap-2 bg-brand py-3.5 text-sm font-bold text-ink"
+        className="cta-alive flex flex-1 items-center justify-center gap-2 bg-brand py-3.5 text-sm font-bold text-ink"
       >
         <BadgeDollarSign className="h-4 w-4" aria-hidden />
         Free Quote
