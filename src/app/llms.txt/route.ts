@@ -1,6 +1,7 @@
 import { site } from "@/lib/site";
 import { services } from "@/lib/services";
 import { guides } from "@/lib/guides";
+import { cities } from "@/lib/cities";
 
 export const dynamic = "force-static";
 
@@ -26,6 +27,9 @@ export function GET() {
     "",
     "## Guides",
     ...guides.map((g) => `- [${g.title}](${site.url}/guides/${g.slug}): ${g.description}`),
+    "",
+    "## Cash for cars by city",
+    ...cities.map((c) => `- [Cash for cars ${c.name}](${site.url}/cash-for-cars/${c.slug}): ${c.description}`),
     "",
     "## Services",
     ...services.map((s) => `- [${s.name}](${site.url}/services/${s.slug}): ${s.shortDescription}`),

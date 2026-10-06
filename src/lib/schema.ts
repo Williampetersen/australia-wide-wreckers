@@ -3,6 +3,7 @@ import type { Location } from "./locations";
 import type { Service } from "./services";
 import type { Faq } from "./faqs";
 import type { Guide } from "./guides";
+import type { City } from "./cities";
 
 const DAY_NAMES = [
   "Sunday",
@@ -154,6 +155,23 @@ export function articleSchema(guide: Guide) {
     audience: { "@type": "Audience", audienceType: guide.audience },
     author: { "@id": `${site.url}/#organization` },
     publisher: { "@id": `${site.url}/#organization` },
+  };
+}
+
+export function cityServiceSchema(city: City) {
+  const url = `${site.url}/cash-for-cars/${city.slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Cash for cars and free car removal",
+    name: `Cash for Cars ${city.name} | ${site.name}`,
+    description: city.description,
+    url,
+    areaServed: [
+      { "@type": "City", name: city.name, containedInPlace: { "@type": "State", name: "New South Wales" } },
+      ...city.suburbs.map((suburb) => ({ "@type": "Place", name: suburb })),
+    ],
+    provider: { "@id": `${site.url}/#organization` },
   };
 }
 

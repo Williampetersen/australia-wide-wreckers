@@ -6,6 +6,7 @@ import { Container } from "@/components/Container";
 import { CtaBand } from "@/components/CtaBand";
 import { MapPin } from "@/components/Icons";
 import { regions } from "@/lib/locations";
+import { cities } from "@/lib/cities";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -26,6 +27,20 @@ export default function LocationsPage() {
       />
       <section className="py-20 sm:py-28">
         <Container className="space-y-14">
+          <div>
+            <h2 className="font-display text-2xl font-bold text-ink">Cash for cars by city</h2>
+            <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+              {cities.map((c) => (
+                <Link
+                  key={c.slug}
+                  href={`/cash-for-cars/${c.slug}`}
+                  className="rounded-2xl border border-ink/8 bg-zinc-50 p-5 font-bold text-ink transition-colors hover:border-brand"
+                >
+                  Cash for cars {c.name}
+                </Link>
+              ))}
+            </div>
+          </div>
           {regions.map((region) => (
             <div key={region.slug} id={region.slug}>
               <div className="flex items-center gap-3">

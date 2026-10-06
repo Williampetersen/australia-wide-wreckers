@@ -5,6 +5,7 @@ import { Mail, PhoneCall, MapPin, Clock } from "./Icons";
 import { site } from "@/lib/site";
 import { services } from "@/lib/services";
 import { guides } from "@/lib/guides";
+import { cities } from "@/lib/cities";
 import { regions } from "@/lib/locations";
 
 export function Footer() {
@@ -84,6 +85,16 @@ export function Footer() {
                   className="text-zinc-400 transition-colors hover:text-brand"
                 >
                   {r.name}
+                </Link>
+              </li>
+            ))}
+            {cities.map((c) => (
+              <li key={c.slug}>
+                <Link
+                  href={`/cash-for-cars/${c.slug}`}
+                  className="text-zinc-400 transition-colors hover:text-brand"
+                >
+                  Cash for cars {c.name}
                 </Link>
               </li>
             ))}

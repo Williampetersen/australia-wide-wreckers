@@ -3,6 +3,7 @@ import { site } from "@/lib/site";
 import { services } from "@/lib/services";
 import { allLocations } from "@/lib/locations";
 import { guides } from "@/lib/guides";
+import { cities } from "@/lib/cities";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
@@ -43,5 +44,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
-  return [...staticRoutes, ...serviceRoutes, ...locationRoutes, ...guideRoutes];
+  const cityRoutes: MetadataRoute.Sitemap = cities.map((c) => ({
+    url: `${site.url}/cash-for-cars/${c.slug}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.9,
+    lastModified,
+  }));
+
+  return [...staticRoutes, ...serviceRoutes, ...locationRoutes, ...guideRoutes, ...cityRoutes];
 }
