@@ -44,10 +44,10 @@ export function TypedArea() {
 
   return (
     <>
-      The biggest car buyers in{" "}
-      <span className="font-bold text-navy">{text}</span>
-      <span aria-hidden className="ml-0.5 inline-block w-[2px] animate-pulse bg-navy align-middle">
-        &nbsp;
+      <span className="block">The biggest car buyers in</span>
+      <span className="mt-1 block font-bold text-navy">
+        {text}
+        <span aria-hidden className="ml-0.5 inline-block h-[1em] w-[2px] animate-pulse bg-navy align-middle" />
       </span>
     </>
   );
