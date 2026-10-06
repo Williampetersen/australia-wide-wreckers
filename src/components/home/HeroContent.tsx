@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { PrimaryButton } from "../Buttons";
-import { OpenNow } from "../OpenNow";
 import { QuoteForm } from "../quote/QuoteForm";
 import { site } from "@/lib/site";
 
@@ -74,10 +73,6 @@ export function HeroContent() {
           </span>{" "}
           in any condition
         </motion.p>
-
-        <motion.div variants={item} className="mt-4">
-          <OpenNow />
-        </motion.div>
 
         <motion.div variants={item} className="mt-6">
           <PrimaryButton href="/get-quote">Get Your Cash Offer</PrimaryButton>
