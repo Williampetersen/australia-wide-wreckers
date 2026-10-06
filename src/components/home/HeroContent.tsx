@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { PrimaryButton } from "../Buttons";
 import { OpenNow } from "../OpenNow";
+import { QuoteForm } from "../quote/QuoteForm";
 import { site } from "@/lib/site";
 
 const words = ["cars", "utes", "vans", "trucks", "motorbikes"] as const;
@@ -34,9 +35,9 @@ export function HeroContent() {
       variants={container}
       initial="hidden"
       animate="show"
-      className="flex flex-1 flex-col items-center justify-between text-center"
+      className="grid flex-1 items-center gap-8 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-12 xl:grid-cols-[minmax(0,1fr)_24rem]"
     >
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center rounded-3xl bg-white/80 p-6 text-center shadow-[0_20px_60px_rgba(0,35,80,0.2)] backdrop-blur-md sm:p-8">
         <motion.span
           variants={item}
           className="inline-flex items-center rounded-full bg-white/90 px-3.5 py-1 text-[11px] font-bold uppercase tracking-wider text-ink-soft shadow-sm"
@@ -77,10 +78,14 @@ export function HeroContent() {
         <motion.div variants={item} className="mt-4">
           <OpenNow />
         </motion.div>
+
+        <motion.div variants={item} className="mt-6">
+          <PrimaryButton href="/get-quote">Get Your Cash Offer</PrimaryButton>
+        </motion.div>
       </div>
 
-      <motion.div variants={item} className="mt-6">
-        <PrimaryButton href="/get-quote">Get Your Cash Offer</PrimaryButton>
+      <motion.div variants={item} className="w-full max-w-sm justify-self-center lg:max-w-none lg:justify-self-end">
+        <QuoteForm />
       </motion.div>
     </motion.div>
   );

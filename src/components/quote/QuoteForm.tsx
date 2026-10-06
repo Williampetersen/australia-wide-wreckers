@@ -28,7 +28,7 @@ const emptyForm: FormState = {
 };
 
 const inputClass =
-  "h-10 w-full rounded-md border border-white/30 bg-white/15 px-3 text-sm text-white placeholder:text-white/70 backdrop-blur-sm focus:border-sky-300 focus:bg-white/20 focus:outline-none focus:ring-2 focus:ring-sky-300/40 [color-scheme:dark]";
+  "h-10 w-full rounded-md border border-white/35 bg-white/15 px-3 text-sm text-white placeholder:text-white/80 backdrop-blur-sm focus:border-sky-300 focus:bg-white/20 focus:outline-none focus:ring-2 focus:ring-sky-300/40 [color-scheme:dark]";
 
 function validate(form: FormState): string | null {
   if (!form.name.trim()) return "Please enter your name.";
@@ -176,7 +176,7 @@ export function QuoteForm() {
 
 function Card({ children }: { children: ReactNode }) {
   return (
-    <div className="w-full rounded-2xl border border-white/25 bg-white/10 p-4 shadow-[0_20px_60px_rgba(0,0,0,0.25)] backdrop-blur-xl sm:p-5">
+    <div className="w-full rounded-2xl border border-white/25 bg-navy/45 p-4 shadow-[0_20px_60px_rgba(0,0,0,0.3)] backdrop-blur-xl sm:p-5">
       {children}
     </div>
   );
