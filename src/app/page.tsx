@@ -16,12 +16,12 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <VehiclePicker />
       <DamagedCars />
       <TrustBadges />
       <GoogleReviews />
       <BrandStrip />
       <ServicesSection />
-      <VehiclePicker />
       <ProcessSteps />
       <RealPickups />
       <WhyChooseUs />

@@ -21,14 +21,14 @@ export function DamagedCars() {
       <Container>
         <FadeIn className="text-center">
           <span className="inline-flex items-center rounded-full bg-brand/20 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-ink-soft">
-            Damaged, broken or not running? We still buy it
+            Any condition, any make
           </span>
           <h2 className="font-display text-balance mx-auto mt-4 max-w-3xl text-3xl font-bold text-ink sm:text-4xl">
-            We buy damaged, non-running and faulty cars for cash
+            Crashed, broken down or not worth fixing? We still buy it
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg">
-            Crashed, flooded, rusted, broken down or just not worth fixing. Whatever its condition, we make you a cash
-            offer and tow it away for free.
+            Accident damage, flood, hail, fire, rust or a failed engine. Whatever its condition, we make you a cash offer
+            and tow it away for free.
           </p>
         </FadeIn>
 

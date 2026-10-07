@@ -6,13 +6,13 @@ import { vehicleTypes } from "@/lib/quote";
 
 export function VehiclePicker() {
   return (
-    <section className="bg-zinc-50 py-16 sm:py-24">
+    <section className="relative z-10 -mt-6 pb-6 sm:-mt-10">
       <Container>
         <div className="rounded-3xl border border-[#d9e3ee] bg-white p-6 shadow-[0_24px_80px_rgba(0,35,80,0.14)] sm:p-9">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-blue">Step 1 of 5</p>
-              <h2 className="font-display mt-2 text-2xl font-bold text-ink sm:text-3xl">We buy all types of vehicles</h2>
+              <h2 className="font-display mt-2 text-2xl font-bold text-ink sm:text-3xl">We buy damaged, non-running and faulty cars for cash</h2>
               <p className="mt-1 text-base text-zinc-600">Choose what you want to sell and get your cash offer.</p>
             </div>
           </div>
