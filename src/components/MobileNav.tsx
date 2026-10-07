@@ -1,12 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X, PhoneCall } from "./Icons";
 import { NAV_LINKS, site } from "@/lib/site";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
+
+  // Lets other fixed UI (the chat launcher) get out of the way while the menu is open.
+  useEffect(() => {
+    document.documentElement.dataset.mobileNav = open ? "1" : "0";
+    return () => {
+      delete document.documentElement.dataset.mobileNav;
+    };
+  }, [open]);
 
   return (
     <div className="xl:hidden">

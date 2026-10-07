@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { StickyCallBar } from "@/components/StickyCallBar";
 import { JsonLd } from "@/components/JsonLd";
 import { MetaPixel } from "@/components/MetaPixel";
+import { ChatLauncher } from "@/components/chat/ChatLauncher";
 import { organizationSchema } from "@/lib/schema";
 
 const gaId = process.env.NEXT_PUBLIC_GA_ID;
@@ -17,6 +18,7 @@ export default function SiteLayout({ children }: LayoutProps<"/">) {
       <Footer />
       <StickyCallBar />
       <MetaPixel />
+      <ChatLauncher />
       {gaId && <GoogleAnalytics gaId={gaId} />}
     </>
   );

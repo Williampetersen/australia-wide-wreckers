@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { site } from "@/lib/site";
+import { getServiceClient } from "@/lib/supabase/admin";
 
 const REQUIRED_FIELDS = ["name", "phone", "email", "suburb", "postalCode"] as const;
 
@@ -140,6 +141,31 @@ export async function POST(request: Request) {
     if (error) {
       console.error("Resend error:", error);
       return NextResponse.json({ ok: false, error: "Failed to send email." }, { status: 502 });
+    }
+
+    // Keep a copy for the admin Leads page. Never let this affect the email flow.
+    try {
+      const supabase = getServiceClient();
+      if (supabase) {
+        await supabase.from("quote_requests").insert({
+          vehicle_type: fields.vehicleType,
+          condition: fields.condition,
+          make: fields.make,
+          model: fields.model,
+          car_model: fields.carModel,
+          car_year: fields.carYear,
+          rego: fields.rego,
+          suburb: fields.suburb,
+          postal_code: fields.postalCode,
+          name: fields.name,
+          phone: fields.phone,
+          email: fields.email,
+          note: fields.note,
+          raw: fields,
+        });
+      }
+    } catch (dbError) {
+      console.error("Could not save quote request to Supabase:", dbError);
     }
 
     return NextResponse.json({ ok: true });

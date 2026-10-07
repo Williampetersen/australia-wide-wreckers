@@ -120,3 +120,8 @@ body {
     display: none;
   }
 }
+
+/* Chat launcher steps aside while the mobile menu is open */
+html[data-mobile-nav="1"] .chat-launcher {
+  display: none;
+}
