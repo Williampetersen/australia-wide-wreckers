@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 import { CtaBand } from "@/components/CtaBand";
@@ -56,35 +55,19 @@ export default function LocationsPage() {
                   <p className="text-sm text-zinc-600">{region.blurb}</p>
                 </div>
               </div>
-              <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+              <ul className="mt-5 grid grid-cols-2 gap-x-4 gap-y-1 sm:grid-cols-3 lg:grid-cols-4">
                 {region.locations.map((loc) => (
-                  <Link
-                    key={loc.slug}
-                    href={`/locations/${loc.slug}`}
-                    className="group overflow-hidden rounded-2xl border border-ink/8 bg-zinc-50 transition-colors hover:border-brand"
-                  >
-                    {loc.heroImage && (
-                      <div className="relative h-24 w-full overflow-hidden bg-zinc-100">
-                        <Image
-                          src={loc.heroImage}
-                          alt={`Cash for cars ${loc.name}`}
-                          fill
-                          className="object-cover object-[50%_20%] transition-transform group-hover:scale-105"
-                          sizes="240px"
-                        />
-                      </div>
-                    )}
-                    <div className="p-5">
-                      <p className="font-display font-bold text-ink">
-                        {loc.name}
-                      </p>
-                      <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-zinc-500">
-                        {loc.region}
-                      </p>
-                    </div>
-                  </Link>
+                  <li key={loc.slug}>
+                    <Link
+                      href={`/locations/${loc.slug}`}
+                      className="flex items-center gap-2 rounded-lg px-2 py-1.5 text-sm font-medium text-ink transition-colors hover:bg-brand/15 hover:text-navy"
+                    >
+                      <MapPin className="h-3.5 w-3.5 shrink-0 text-brand-dark" aria-hidden />
+                      {loc.name}
+                    </Link>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           ))}
         </Container>
