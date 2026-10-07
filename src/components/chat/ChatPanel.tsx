@@ -63,7 +63,10 @@ export default function ChatPanel({ open, onClose, onUnread }: Props) {
   const textRef = useRef<HTMLTextAreaElement>(null);
 
   const settings = config?.settings;
-  const live = Boolean(config?.live);
+  // Always present the widget as open, so visitors never see an "offline" state and can
+  // always send a message. The team is still emailed when nobody is actually online
+  // (see /api/chat/events) — that notification is server-side and independent of this.
+  const live = true;
   const closed = conversation?.status === "closed";
   const hasConversation = Boolean(conversation);
   const agentList = useMemo(() => Object.values(agents).slice(0, 3), [agents]);
