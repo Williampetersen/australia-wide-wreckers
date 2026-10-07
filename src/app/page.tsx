@@ -1,5 +1,6 @@
 import { Hero } from "@/components/home/Hero";
 import { VehiclePicker } from "@/components/home/VehiclePicker";
+import { DamagedCars } from "@/components/home/DamagedCars";
 import { TrustBadges } from "@/components/home/TrustBadges";
 import { GoogleReviews } from "@/components/home/GoogleReviews";
 import { BrandStrip } from "@/components/home/BrandStrip";
@@ -17,6 +18,7 @@ export default function Home() {
     <>
       <Hero />
       <VehiclePicker />
+      <DamagedCars />
       <TrustBadges />
       <GoogleReviews />
       <BrandStrip />
