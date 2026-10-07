@@ -1,8 +1,14 @@
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { StickyCallBar } from "@/components/StickyCallBar";
 import { Container } from "@/components/Container";
 import { PrimaryButton, CallButton } from "@/components/Buttons";
 
 export default function NotFound() {
   return (
+    <>
+      <Header />
+      <main className="flex-1 pb-16 lg:pb-0">
     <section className="flex min-h-[70vh] items-center bg-ink">
       <Container className="flex flex-col items-center py-24 text-center">
         <p className="font-display text-7xl font-bold text-brand">404</p>
@@ -19,5 +25,9 @@ export default function NotFound() {
         </div>
       </Container>
     </section>
+      </main>
+      <Footer />
+      <StickyCallBar />
+    </>
   );
 }

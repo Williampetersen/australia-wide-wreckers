@@ -1,14 +1,7 @@
 import type { Metadata } from "next";
 import { Lexend } from "next/font/google";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { StickyCallBar } from "@/components/StickyCallBar";
-import { JsonLd } from "@/components/JsonLd";
-import { MetaPixel } from "@/components/MetaPixel";
 import { site } from "@/lib/site";
-import { organizationSchema } from "@/lib/schema";
 
 const lexend = Lexend({
   variable: "--font-lexend",
@@ -41,8 +34,6 @@ export const metadata: Metadata = {
   },
 };
 
-const gaId = process.env.NEXT_PUBLIC_GA_ID;
-
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
@@ -50,13 +41,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${lexend.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-white text-ink">
-        <JsonLd data={organizationSchema()} />
-        <Header />
-        <main className="flex-1 pb-16 lg:pb-0">{children}</main>
-        <Footer />
-        <StickyCallBar />
-        <MetaPixel />
-        {gaId && <GoogleAnalytics gaId={gaId} />}
+        {children}
       </body>
     </html>
   );
