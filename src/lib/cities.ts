@@ -936,6 +936,631 @@ export const cities: City[] = [
       "lng": 151.1667
     }
   }
+,
+  {
+    "slug": "port-stephens",
+    "name": "Port Stephens",
+    "area": "Port Stephens",
+    "metaTitle": "Cash for Cars Port Stephens NSW | Free Car Removal & Top Cash Offers",
+    "description": "Sell your car for cash in Port Stephens NSW. We buy cars, utes, vans, 4x4s and motorbikes in any condition, tow for free and pay on pick-up. Get a fast cash offer.",
+    "keywords": [
+      "cash for cars Port Stephens",
+      "car removal Port Stephens",
+      "sell my car Port Stephens",
+      "car wreckers Port Stephens",
+      "scrap car removal Port Stephens",
+      "we buy cars Port Stephens NSW",
+      "damaged car buyers Port Stephens"
+    ],
+    "h1": "Cash for Cars in Port Stephens: Free Removal, Fast Cash Offer",
+    "intro": "Port Stephens owners can sell an unwanted car without driving it anywhere. We buy cars, utes, vans, 4x4s, boat-tow vehicles and motorbikes in any condition across the Port Stephens coastline, tow them for free and pay on pick-up.",
+    "suburbs": [
+      "Raymond Terrace",
+      "Medowie",
+      "Karuah",
+      "Nelson Bay",
+      "Anna Bay",
+      "Tanilba Bay",
+      "Salamander Bay",
+      "Corlette",
+      "Fingal Bay",
+      "Tea Gardens"
+    ],
+    "localNote": {
+      "heading": "From Raymond Terrace to Tea Gardens",
+      "text": "Port Stephens covers a long stretch of coast and bush. Tell us your suburb and the access details, and we will confirm the pick-up. We collect from homes, caravan parks, holiday houses and roadsides."
+    },
+    "pickup": "Tell us your Port Stephens address and the best time when you request a quote, and we will confirm pick-up. In many cases it can be the same day or the next day.",
+    "depot": "Port Stephens jobs are coordinated from our Morisset depot. Call to confirm timing for your suburb.",
+    "faqs": [
+      {
+        "question": "Do you service all of Port Stephens, including Tea Gardens?",
+        "answer": "We service Port Stephens suburbs including Raymond Terrace, Medowie, Karuah, Nelson Bay, Anna Bay, Tanilba Bay and Tea Gardens. Call to confirm timing for your address."
+      },
+      {
+        "question": "How much can I get for my car in Port Stephens?",
+        "answer": "The offer depends on the make, model, year, condition and the value of parts and metal. Request a free no-obligation quote and we will confirm the final price when we inspect the vehicle."
+      },
+      {
+        "question": "Is car removal in Port Stephens free?",
+        "answer": "Yes. Towing is free within our service area. Call us to confirm pick-up for your address."
+      },
+      {
+        "question": "Do you buy damaged or non-running cars in Port Stephens?",
+        "answer": "Yes. We buy accident-damaged, flooded, hail-damaged, mechanically failed and unregistered vehicles."
+      }
+    ],
+    "nearby": [
+      "raymond-terrace",
+      "nelson-bay",
+      "newcastle"
+    ],
+    "locationHref": "/locations#port-stephens",
+    "geo": {
+      "lat": -32.7167,
+      "lng": 152.0667
+    }
+  },
+  {
+    "slug": "raymond-terrace",
+    "name": "Raymond Terrace",
+    "area": "Raymond Terrace and the Williams River area",
+    "metaTitle": "Cash for Cars Raymond Terrace NSW | Free Car Removal & Top Cash Offers",
+    "description": "Sell your car for cash in Raymond Terrace NSW. We buy cars, utes, vans, 4x4s and motorbikes in any condition, tow for free and pay on pick-up. Get a fast cash offer.",
+    "keywords": [
+      "cash for cars Raymond Terrace",
+      "car removal Raymond Terrace",
+      "sell my car Raymond Terrace",
+      "car wreckers Raymond Terrace",
+      "scrap car removal Raymond Terrace",
+      "we buy cars Raymond Terrace NSW",
+      "damaged car buyers Raymond Terrace"
+    ],
+    "h1": "Cash for Cars in Raymond Terrace: Free Removal, Fast Cash Offer",
+    "intro": "Raymond Terrace sits at the gateway between Newcastle and Port Stephens. We buy cars, utes and work vehicles in any condition around Raymond Terrace, tow them away for free and pay on pick-up.",
+    "suburbs": [
+      "Raymond Terrace",
+      "Medowie",
+      "Heatherbrae",
+      "Williamtown",
+      "Seahampton",
+      "Millers Forest",
+      "Woodville",
+      "Karuah"
+    ],
+    "localNote": {
+      "heading": "Gateway to Port Stephens",
+      "text": "From Medowie and Williamtown to Heatherbrae and Karuah, we collect from homes, rural properties, work yards and roadsides. We can usually plan a pick-up around your schedule."
+    },
+    "pickup": "Tell us your Raymond Terrace address and the best time when you request a quote, and we will confirm pick-up. In many cases it can be the same day or the next day.",
+    "depot": "Raymond Terrace jobs are coordinated from our Morisset depot. Call to confirm timing.",
+    "faqs": [
+      {
+        "question": "Can you collect a car from Medowie or Williamtown?",
+        "answer": "Yes. We service Raymond Terrace, Medowie, Williamtown, Heatherbrae and nearby areas. Call us to confirm timing for your address."
+      },
+      {
+        "question": "How much can I get for my car in Raymond Terrace?",
+        "answer": "The offer depends on the make, model, year, condition and the value of parts and metal. Request a free no-obligation quote and we will confirm the final price when we inspect the vehicle."
+      },
+      {
+        "question": "Is car removal in Raymond Terrace free?",
+        "answer": "Yes. Towing is free within our service area. Call us to confirm pick-up for your address."
+      },
+      {
+        "question": "Do you buy damaged or non-running cars in Raymond Terrace?",
+        "answer": "Yes. We buy accident-damaged, flooded, hail-damaged, mechanically failed and unregistered vehicles."
+      }
+    ],
+    "nearby": [
+      "port-stephens",
+      "newcastle",
+      "maitland"
+    ],
+    "locationHref": "/locations/raymond-terrace",
+    "geo": {
+      "lat": -32.7667,
+      "lng": 151.7467
+    }
+  },
+  {
+    "slug": "nelson-bay",
+    "name": "Nelson Bay",
+    "area": "Nelson Bay and the Tomaree Peninsula",
+    "metaTitle": "Cash for Cars Nelson Bay NSW | Free Car Removal & Top Cash Offers",
+    "description": "Sell your car for cash in Nelson Bay NSW. We buy cars, utes, vans, 4x4s and motorbikes in any condition, tow for free and pay on pick-up. Get a fast cash offer.",
+    "keywords": [
+      "cash for cars Nelson Bay",
+      "car removal Nelson Bay",
+      "sell my car Nelson Bay",
+      "car wreckers Nelson Bay",
+      "scrap car removal Nelson Bay",
+      "we buy cars Nelson Bay NSW",
+      "damaged car buyers Nelson Bay"
+    ],
+    "h1": "Cash for Cars in Nelson Bay: Free Removal, Fast Cash Offer",
+    "intro": "Nelson Bay and the Tomaree Peninsula have plenty of holiday cars, boat-tow vehicles and older daily drivers. We buy vehicles in any condition, collect them for free and pay on pick-up.",
+    "suburbs": [
+      "Nelson Bay",
+      "Salamander Bay",
+      "Soldiers Point",
+      "Corlette",
+      "Shoal Bay",
+      "Fingal Bay",
+      "Anna Bay",
+      "Boat Harbour"
+    ],
+    "localNote": {
+      "heading": "Peninsula pick-ups, any condition",
+      "text": "Coastal living is hard on cars: salt, sun and rust all take their toll. We buy rusty, faded and high-kilometre vehicles in Nelson Bay, Shoal Bay, Fingal Bay and Salamander Bay, and we plan the pick-up around narrow streets and steep driveways."
+    },
+    "pickup": "Tell us your Nelson Bay address and the best time when you request a quote, and we will confirm pick-up. In many cases it can be the same day or the next day.",
+    "depot": "Nelson Bay jobs are coordinated from our Morisset depot. Call to confirm timing.",
+    "faqs": [
+      {
+        "question": "Do you buy rusty or sun-damaged cars in Nelson Bay?",
+        "answer": "Yes. Rust, faded paint and age affect the offer but do not stop us buying. We give a free no-obligation quote and confirm the price on inspection."
+      },
+      {
+        "question": "How much can I get for my car in Nelson Bay?",
+        "answer": "The offer depends on the make, model, year, condition and the value of parts and metal. Request a free no-obligation quote and we will confirm the final price when we inspect the vehicle."
+      },
+      {
+        "question": "Is car removal in Nelson Bay free?",
+        "answer": "Yes. Towing is free within our service area. Call us to confirm pick-up for your address."
+      },
+      {
+        "question": "Do you buy damaged or non-running cars in Nelson Bay?",
+        "answer": "Yes. We buy accident-damaged, flooded, hail-damaged, mechanically failed and unregistered vehicles."
+      }
+    ],
+    "nearby": [
+      "port-stephens",
+      "raymond-terrace",
+      "newcastle"
+    ],
+    "locationHref": "/locations/nelson-bay",
+    "geo": {
+      "lat": -32.7167,
+      "lng": 152.15
+    }
+  },
+  {
+    "slug": "charlestown",
+    "name": "Charlestown",
+    "area": "Charlestown and the Lake Macquarie northern suburbs",
+    "metaTitle": "Cash for Cars Charlestown NSW | Free Car Removal & Top Cash Offers",
+    "description": "Sell your car for cash in Charlestown NSW. We buy cars, utes, vans, 4x4s and motorbikes in any condition, tow for free and pay on pick-up. Get a fast cash offer.",
+    "keywords": [
+      "cash for cars Charlestown",
+      "car removal Charlestown",
+      "sell my car Charlestown",
+      "car wreckers Charlestown",
+      "scrap car removal Charlestown",
+      "we buy cars Charlestown NSW",
+      "damaged car buyers Charlestown"
+    ],
+    "h1": "Cash for Cars in Charlestown: Free Removal, Fast Cash Offer",
+    "intro": "Charlestown is one of Lake Macquarie's busiest hubs. We buy cars, utes, vans and bikes in any condition around Charlestown and the northern suburbs, tow for free and pay cash on pick-up.",
+    "suburbs": [
+      "Charlestown",
+      "Kotara",
+      "Dudley",
+      "Whitebridge",
+      "Gateshead",
+      "Windale",
+      "Tingira Heights",
+      "Jewells",
+      "Redhead"
+    ],
+    "localNote": {
+      "heading": "Close to Charlestown, Gateshead and Kotara",
+      "text": "Between the shops, the highway and the suburbs, there are always cars that have reached the end of the line. We collect from houses, units and car parks in Charlestown, Gateshead, Whitebridge and Dudley."
+    },
+    "pickup": "Tell us your Charlestown address and the best time when you request a quote, and we will confirm pick-up. In many cases it can be the same day or the next day.",
+    "depot": "Charlestown jobs are coordinated from our Morisset depot. Call to confirm timing.",
+    "faqs": [
+      {
+        "question": "Do you pick up from units and apartment car parks in Charlestown?",
+        "answer": "Yes. Tell us about access when you call or request a quote, and we will send the right tow truck."
+      },
+      {
+        "question": "How much can I get for my car in Charlestown?",
+        "answer": "The offer depends on the make, model, year, condition and the value of parts and metal. Request a free no-obligation quote and we will confirm the final price when we inspect the vehicle."
+      },
+      {
+        "question": "Is car removal in Charlestown free?",
+        "answer": "Yes. Towing is free within our service area. Call us to confirm pick-up for your address."
+      },
+      {
+        "question": "Do you buy damaged or non-running cars in Charlestown?",
+        "answer": "Yes. We buy accident-damaged, flooded, hail-damaged, mechanically failed and unregistered vehicles."
+      }
+    ],
+    "nearby": [
+      "warners-bay",
+      "newcastle",
+      "belmont"
+    ],
+    "locationHref": "/locations/charlestown",
+    "geo": {
+      "lat": -32.9667,
+      "lng": 151.6928
+    }
+  },
+  {
+    "slug": "belmont",
+    "name": "Belmont",
+    "area": "Belmont and the Lake Macquarie lakeside",
+    "metaTitle": "Cash for Cars Belmont NSW | Free Car Removal & Top Cash Offers",
+    "description": "Sell your car for cash in Belmont NSW. We buy cars, utes, vans, 4x4s and motorbikes in any condition, tow for free and pay on pick-up. Get a fast cash offer.",
+    "keywords": [
+      "cash for cars Belmont",
+      "car removal Belmont",
+      "sell my car Belmont",
+      "car wreckers Belmont",
+      "scrap car removal Belmont",
+      "we buy cars Belmont NSW",
+      "damaged car buyers Belmont"
+    ],
+    "h1": "Cash for Cars in Belmont: Free Removal, Fast Cash Offer",
+    "intro": "Belmont and the lakeside suburbs are covered by our free car removal service. We buy cars, utes, vans and motorbikes in any condition and pay cash when we collect.",
+    "suburbs": [
+      "Belmont",
+      "Belmont North",
+      "Belmont South",
+      "Jewells",
+      "Floraville",
+      "Croudace Bay",
+      "Valentine",
+      "Eleebana"
+    ],
+    "localNote": {
+      "heading": "Belmont, Croudace Bay and the lake",
+      "text": "We collect from driveways, boat ramps, units and roadsides around Belmont and the southern lake. Give us the address and the best time and we will confirm."
+    },
+    "pickup": "Tell us your Belmont address and the best time when you request a quote, and we will confirm pick-up. In many cases it can be the same day or the next day.",
+    "depot": "Belmont jobs are coordinated from our Morisset depot. Call to confirm timing.",
+    "faqs": [
+      {
+        "question": "Can you collect a car from Belmont North or Croudace Bay?",
+        "answer": "Yes. We service Belmont, Belmont North, Croudace Bay, Jewells and nearby suburbs. Call us to confirm timing for your address."
+      },
+      {
+        "question": "How much can I get for my car in Belmont?",
+        "answer": "The offer depends on the make, model, year, condition and the value of parts and metal. Request a free no-obligation quote and we will confirm the final price when we inspect the vehicle."
+      },
+      {
+        "question": "Is car removal in Belmont free?",
+        "answer": "Yes. Towing is free within our service area. Call us to confirm pick-up for your address."
+      },
+      {
+        "question": "Do you buy damaged or non-running cars in Belmont?",
+        "answer": "Yes. We buy accident-damaged, flooded, hail-damaged, mechanically failed and unregistered vehicles."
+      }
+    ],
+    "nearby": [
+      "swansea",
+      "charlestown",
+      "lake-macquarie"
+    ],
+    "locationHref": "/locations/belmont",
+    "geo": {
+      "lat": -33.0333,
+      "lng": 151.6667
+    }
+  },
+  {
+    "slug": "morisset",
+    "name": "Morisset",
+    "area": "Morisset and the southern Lake Macquarie area",
+    "metaTitle": "Cash for Cars Morisset NSW | Free Car Removal & Top Cash Offers",
+    "description": "Sell your car for cash in Morisset NSW. We buy cars, utes, vans, 4x4s and motorbikes in any condition, tow for free and pay on pick-up. Get a fast cash offer.",
+    "keywords": [
+      "cash for cars Morisset",
+      "car removal Morisset",
+      "sell my car Morisset",
+      "car wreckers Morisset",
+      "scrap car removal Morisset",
+      "we buy cars Morisset NSW",
+      "damaged car buyers Morisset"
+    ],
+    "h1": "Cash for Cars in Morisset: Free Removal, Fast Cash Offer",
+    "intro": "Our M1 Car Removal depot is in Morisset, so we are a truly local buyer. Sell your car, ute, van, truck or motorbike in any condition for cash, with free pick-up or drop it at the depot.",
+    "suburbs": [
+      "Morisset",
+      "Morisset Park",
+      "Cooranbong",
+      "Dora Creek",
+      "Wyee",
+      "Bonnells Bay",
+      "Mandalong",
+      "Brightwaters"
+    ],
+    "localNote": {
+      "heading": "Visit our Morisset depot or we come to you",
+      "text": "You can bring your vehicle to 139 Moira Park Rd, Morisset NSW 2264, or we can collect it from Morisset, Cooranbong, Dora Creek, Wyee and nearby areas. Please call first so we can confirm times."
+    },
+    "pickup": "Tell us your Morisset address and the best time when you request a quote, and we will confirm pick-up. In many cases it can be the same day or the next day.",
+    "depot": "M1 Car Removal, 139 Moira Park Rd, Morisset NSW 2264.",
+    "faqs": [
+      {
+        "question": "Where is your Morisset depot?",
+        "answer": "139 Moira Park Rd, Morisset NSW 2264. Please call before visiting."
+      },
+      {
+        "question": "How much can I get for my car in Morisset?",
+        "answer": "The offer depends on the make, model, year, condition and the value of parts and metal. Request a free no-obligation quote and we will confirm the final price when we inspect the vehicle."
+      },
+      {
+        "question": "Is car removal in Morisset free?",
+        "answer": "Yes. Towing is free within our service area. Call us to confirm pick-up for your address."
+      },
+      {
+        "question": "Do you buy damaged or non-running cars in Morisset?",
+        "answer": "Yes. We buy accident-damaged, flooded, hail-damaged, mechanically failed and unregistered vehicles."
+      }
+    ],
+    "nearby": [
+      "toronto",
+      "lake-macquarie",
+      "wyong"
+    ],
+    "locationHref": "/locations/morisset",
+    "geo": {
+      "lat": -33.1058,
+      "lng": 151.4861
+    }
+  },
+  {
+    "slug": "kurri-kurri",
+    "name": "Kurri Kurri",
+    "area": "Kurri Kurri and the Cessnock district",
+    "metaTitle": "Cash for Cars Kurri Kurri NSW | Free Car Removal & Top Cash Offers",
+    "description": "Sell your car for cash in Kurri Kurri NSW. We buy cars, utes, vans, 4x4s and motorbikes in any condition, tow for free and pay on pick-up. Get a fast cash offer.",
+    "keywords": [
+      "cash for cars Kurri Kurri",
+      "car removal Kurri Kurri",
+      "sell my car Kurri Kurri",
+      "car wreckers Kurri Kurri",
+      "scrap car removal Kurri Kurri",
+      "we buy cars Kurri Kurri NSW",
+      "damaged car buyers Kurri Kurri"
+    ],
+    "h1": "Cash for Cars in Kurri Kurri: Free Removal, Fast Cash Offer",
+    "intro": "Kurri Kurri and the surrounding district are home to work utes, family cars and older vehicles that have seen better days. We buy them in any condition, collect for free and pay on pick-up.",
+    "suburbs": [
+      "Kurri Kurri",
+      "Weston",
+      "Abermain",
+      "Heddon Greta",
+      "Pelaw Main",
+      "Neath",
+      "Bellbird",
+      "Stanford Merthyr"
+    ],
+    "localNote": {
+      "heading": "Kurri Kurri, Weston and Abermain",
+      "text": "We collect from houses, sheds, farm blocks and roadsides throughout the district. Let us know about access and we will plan the pick-up."
+    },
+    "pickup": "Tell us your Kurri Kurri address and the best time when you request a quote, and we will confirm pick-up. In many cases it can be the same day or the next day.",
+    "depot": "Kurri Kurri jobs are coordinated from our Morisset and Muswellbrook depots. Call to confirm timing.",
+    "faqs": [
+      {
+        "question": "Do you service Weston, Abermain and Heddon Greta?",
+        "answer": "Yes. We service Kurri Kurri, Weston, Abermain, Heddon Greta and nearby areas. Call us to confirm timing for your address."
+      },
+      {
+        "question": "How much can I get for my car in Kurri Kurri?",
+        "answer": "The offer depends on the make, model, year, condition and the value of parts and metal. Request a free no-obligation quote and we will confirm the final price when we inspect the vehicle."
+      },
+      {
+        "question": "Is car removal in Kurri Kurri free?",
+        "answer": "Yes. Towing is free within our service area. Call us to confirm pick-up for your address."
+      },
+      {
+        "question": "Do you buy damaged or non-running cars in Kurri Kurri?",
+        "answer": "Yes. We buy accident-damaged, flooded, hail-damaged, mechanically failed and unregistered vehicles."
+      }
+    ],
+    "nearby": [
+      "cessnock",
+      "maitland",
+      "newcastle"
+    ],
+    "locationHref": "/locations/kurri-kurri",
+    "geo": {
+      "lat": -32.8167,
+      "lng": 151.4833
+    }
+  },
+  {
+    "slug": "warners-bay",
+    "name": "Warners Bay",
+    "area": "Warners Bay and the eastern shore of Lake Macquarie",
+    "metaTitle": "Cash for Cars Warners Bay NSW | Free Car Removal & Top Cash Offers",
+    "description": "Sell your car for cash in Warners Bay NSW. We buy cars, utes, vans, 4x4s and motorbikes in any condition, tow for free and pay on pick-up. Get a fast cash offer.",
+    "keywords": [
+      "cash for cars Warners Bay",
+      "car removal Warners Bay",
+      "sell my car Warners Bay",
+      "car wreckers Warners Bay",
+      "scrap car removal Warners Bay",
+      "we buy cars Warners Bay NSW",
+      "damaged car buyers Warners Bay"
+    ],
+    "h1": "Cash for Cars in Warners Bay: Free Removal, Fast Cash Offer",
+    "intro": "Warners Bay and the northern lakeside suburbs are on our service map. We buy cars, utes, vans and bikes in any condition, tow them for free and pay cash on pick-up.",
+    "suburbs": [
+      "Warners Bay",
+      "Speers Point",
+      "Boolaroo",
+      "Teralba",
+      "Eleebana",
+      "Valentine",
+      "Bolton Point",
+      "Macquarie Hills"
+    ],
+    "localNote": {
+      "heading": "The north-eastern shore of the lake",
+      "text": "From Speers Point and Boolaroo to Eleebana and Valentine, we collect from homes, units and roadsides. If your vehicle is hard to reach, tell us and we will plan ahead."
+    },
+    "pickup": "Tell us your Warners Bay address and the best time when you request a quote, and we will confirm pick-up. In many cases it can be the same day or the next day.",
+    "depot": "Warners Bay jobs are coordinated from our Morisset depot. Call to confirm timing.",
+    "faqs": [
+      {
+        "question": "Do you pick up from Speers Point and Boolaroo?",
+        "answer": "Yes. We service Warners Bay, Speers Point, Boolaroo, Teralba, Eleebana and nearby suburbs. Call us to confirm timing for your address."
+      },
+      {
+        "question": "How much can I get for my car in Warners Bay?",
+        "answer": "The offer depends on the make, model, year, condition and the value of parts and metal. Request a free no-obligation quote and we will confirm the final price when we inspect the vehicle."
+      },
+      {
+        "question": "Is car removal in Warners Bay free?",
+        "answer": "Yes. Towing is free within our service area. Call us to confirm pick-up for your address."
+      },
+      {
+        "question": "Do you buy damaged or non-running cars in Warners Bay?",
+        "answer": "Yes. We buy accident-damaged, flooded, hail-damaged, mechanically failed and unregistered vehicles."
+      }
+    ],
+    "nearby": [
+      "charlestown",
+      "toronto",
+      "newcastle"
+    ],
+    "locationHref": "/locations/warners-bay",
+    "geo": {
+      "lat": -32.9667,
+      "lng": 151.6333
+    }
+  },
+  {
+    "slug": "swansea",
+    "name": "Swansea",
+    "area": "Swansea and the southern Lake Macquarie coast",
+    "metaTitle": "Cash for Cars Swansea NSW | Free Car Removal & Top Cash Offers",
+    "description": "Sell your car for cash in Swansea NSW. We buy cars, utes, vans, 4x4s and motorbikes in any condition, tow for free and pay on pick-up. Get a fast cash offer.",
+    "keywords": [
+      "cash for cars Swansea",
+      "car removal Swansea",
+      "sell my car Swansea",
+      "car wreckers Swansea",
+      "scrap car removal Swansea",
+      "we buy cars Swansea NSW",
+      "damaged car buyers Swansea"
+    ],
+    "h1": "Cash for Cars in Swansea: Free Removal, Fast Cash Offer",
+    "intro": "Swansea, Caves Beach and Blacksmiths have plenty of older cars, utes and holiday vehicles. We buy them in any condition, tow them away for free and pay on pick-up.",
+    "suburbs": [
+      "Swansea",
+      "Swansea Heads",
+      "Caves Beach",
+      "Blacksmiths",
+      "Pelican",
+      "Dudley",
+      "Catherine Hill Bay",
+      "Murrays Beach"
+    ],
+    "localNote": {
+      "heading": "Swansea, Caves Beach and Blacksmiths",
+      "text": "We collect from homes, caravan parks, boat ramps and roadsides along the southern lake and coast. Tell us your street and we will confirm the pick-up."
+    },
+    "pickup": "Tell us your Swansea address and the best time when you request a quote, and we will confirm pick-up. In many cases it can be the same day or the next day.",
+    "depot": "Swansea jobs are coordinated from our Morisset depot. Call to confirm timing.",
+    "faqs": [
+      {
+        "question": "Can you collect from Caves Beach and Blacksmiths?",
+        "answer": "Yes. We service Swansea, Caves Beach, Blacksmiths, Pelican and nearby suburbs. Call us to confirm timing for your address."
+      },
+      {
+        "question": "How much can I get for my car in Swansea?",
+        "answer": "The offer depends on the make, model, year, condition and the value of parts and metal. Request a free no-obligation quote and we will confirm the final price when we inspect the vehicle."
+      },
+      {
+        "question": "Is car removal in Swansea free?",
+        "answer": "Yes. Towing is free within our service area. Call us to confirm pick-up for your address."
+      },
+      {
+        "question": "Do you buy damaged or non-running cars in Swansea?",
+        "answer": "Yes. We buy accident-damaged, flooded, hail-damaged, mechanically failed and unregistered vehicles."
+      }
+    ],
+    "nearby": [
+      "belmont",
+      "charlestown",
+      "lake-macquarie"
+    ],
+    "locationHref": "/locations/swansea",
+    "geo": {
+      "lat": -33.0833,
+      "lng": 151.6333
+    }
+  },
+  {
+    "slug": "wallsend",
+    "name": "Wallsend",
+    "area": "Wallsend and the western Newcastle suburbs",
+    "metaTitle": "Cash for Cars Wallsend NSW | Free Car Removal & Top Cash Offers",
+    "description": "Sell your car for cash in Wallsend NSW. We buy cars, utes, vans, 4x4s and motorbikes in any condition, tow for free and pay on pick-up. Get a fast cash offer.",
+    "keywords": [
+      "cash for cars Wallsend",
+      "car removal Wallsend",
+      "sell my car Wallsend",
+      "car wreckers Wallsend",
+      "scrap car removal Wallsend",
+      "we buy cars Wallsend NSW",
+      "damaged car buyers Wallsend"
+    ],
+    "h1": "Cash for Cars in Wallsend: Free Removal, Fast Cash Offer",
+    "intro": "Wallsend and the western Newcastle suburbs are well covered by our free car removal. We buy cars, utes, vans and motorbikes in any condition and pay cash on pick-up.",
+    "suburbs": [
+      "Wallsend",
+      "Wallsend South",
+      "Elermore Vale",
+      "Maryland",
+      "Fletcher",
+      "Shortland",
+      "Jesmond",
+      "Minmi",
+      "Birmingham Gardens"
+    ],
+    "localNote": {
+      "heading": "Wallsend, Elermore Vale and Fletcher",
+      "text": "We collect from houses, units and work yards in Wallsend, Maryland, Fletcher, Shortland and Jesmond. We can usually fit around your schedule."
+    },
+    "pickup": "Tell us your Wallsend address and the best time when you request a quote, and we will confirm pick-up. In many cases it can be the same day or the next day.",
+    "depot": "Wallsend jobs are coordinated from our Morisset and Muswellbrook depots. Call to confirm timing.",
+    "faqs": [
+      {
+        "question": "Do you service Maryland, Fletcher and Minmi?",
+        "answer": "Yes. We service Wallsend, Maryland, Fletcher, Shortland, Jesmond, Minmi and nearby suburbs. Call us to confirm timing for your address."
+      },
+      {
+        "question": "How much can I get for my car in Wallsend?",
+        "answer": "The offer depends on the make, model, year, condition and the value of parts and metal. Request a free no-obligation quote and we will confirm the final price when we inspect the vehicle."
+      },
+      {
+        "question": "Is car removal in Wallsend free?",
+        "answer": "Yes. Towing is free within our service area. Call us to confirm pick-up for your address."
+      },
+      {
+        "question": "Do you buy damaged or non-running cars in Wallsend?",
+        "answer": "Yes. We buy accident-damaged, flooded, hail-damaged, mechanically failed and unregistered vehicles."
+      }
+    ],
+    "nearby": [
+      "newcastle",
+      "charlestown",
+      "maitland"
+    ],
+    "locationHref": "/locations/wallsend",
+    "geo": {
+      "lat": -32.9,
+      "lng": 151.6667
+    }
+  }
 ];
 
 export function getCityBySlug(slug: string): City | undefined {
