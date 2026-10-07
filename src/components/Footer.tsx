@@ -88,7 +88,7 @@ export function Footer() {
                 </Link>
               </li>
             ))}
-            {cities.map((c) => (
+            {cities.slice(0, 5).map((c) => (
               <li key={c.slug}>
                 <Link
                   href={`/cash-for-cars/${c.slug}`}

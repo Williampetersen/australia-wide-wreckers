@@ -168,7 +168,14 @@ export function cityServiceSchema(city: City) {
     description: city.description,
     url,
     areaServed: [
-      { "@type": "City", name: city.name, containedInPlace: { "@type": "State", name: "New South Wales" } },
+      {
+        "@type": "City",
+        name: city.name,
+        containedInPlace: { "@type": "State", name: "New South Wales" },
+        ...(city.geo
+          ? { geo: { "@type": "GeoCoordinates", latitude: city.geo.lat, longitude: city.geo.lng } }
+          : {}),
+      },
       ...city.suburbs.map((suburb) => ({ "@type": "Place", name: suburb })),
     ],
     provider: { "@id": `${site.url}/#organization` },
