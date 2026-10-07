@@ -69,6 +69,24 @@ export default function PrivacyPolicyPage() {
 
             <div>
               <h2 className="font-display text-xl font-bold text-ink">
+                Live chat
+              </h2>
+              <p className="mt-3">
+                If you use the live chat on our website, we store the
+                messages and photos you send, any name, phone number or email
+                you give us, the page you started the chat from, and basic
+                technical details such as your approximate location (city),
+                device and browser. Chats are answered by our team and are
+                kept in a secure database operated by our service provider
+                (Supabase). We use this information to reply to you, to give
+                you a cash offer and to improve our service. Closed chats are
+                deleted after a retention period, and you can ask us to delete
+                your chat at any time by contacting us.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="font-display text-xl font-bold text-ink">
                 Cookies and analytics
               </h2>
               <p className="mt-3">

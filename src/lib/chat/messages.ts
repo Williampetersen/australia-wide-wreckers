@@ -10,6 +10,7 @@ export type ChatMessage = {
   payload: Record<string, unknown>;
   is_internal: boolean;
   created_at: string;
+  deleted_at?: string | null;
   /** client-only state */
   status?: "sending" | "sent" | "failed";
 };

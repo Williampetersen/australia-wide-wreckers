@@ -72,3 +72,52 @@ npm run lint     # eslint
 Deploys cleanly to [Vercel](https://vercel.com/new) or any Node hosting that
 supports Next.js. Set the environment variables above in your hosting
 provider's dashboard.
+
+## Live chat
+
+Real people answer every chat. There is no bot: the only automatic text is the welcome message, the offline message and system notices. Visitors chat from a small widget on the public site; the team answers from `/admin` (an installable app).
+
+How it fits together: the website stays on Vercel. Chat data lives in Supabase (Postgres). Messages move **browser to Supabase directly** over Realtime Broadcast on private channels, because serverless functions cannot hold WebSocket connections. If the Supabase variables are not set, the launcher does not render and the site and `/api/quote` behave exactly as before.
+
+### Set it up
+
+1. **Create a Supabase project** (https://supabase.com). Pick a region close to NSW (Sydney).
+2. **Run the migration and seed.** In the SQL editor run `supabase/migrations/20261007120000_live_chat.sql`, then `supabase/seed.sql` (or use the Supabase CLI: `supabase link` then `supabase db push`).
+3. **Enable anonymous sign-ins:** Authentication, Sign In / Providers, turn on *Allow anonymous sign-ins*.
+4. **Optional Turnstile:** Authentication, Attack Protection, Captcha, choose Cloudflare Turnstile and paste the secret key. Put the *site key* in `NEXT_PUBLIC_TURNSTILE_SITE_KEY` and tick the option in the admin Settings. It must also be enabled in Settings before the widget uses it.
+5. **Extensions:** the migration enables `pg_cron`, `pg_net` and `pg_trgm`. If your project blocks that from SQL, enable them under Database, Extensions first.
+6. **Store two secrets in Vault** so Postgres can call the site (Database, Vault, or SQL):
+   ```sql
+   select vault.create_secret('https://YOUR-SITE.example', 'chat_site_url');
+   select vault.create_secret('THE-SAME-VALUE-AS-CHAT_WEBHOOK_SECRET', 'chat_webhook_secret');
+   ```
+   Until both exist, notifications and the scheduled jobs are silently skipped.
+7. **Storage:** the migration creates the private `chat-uploads` bucket (8 MB limit, JPEG/PNG/WebP/HEIC). Check it under Storage.
+8. **Vercel environment variables:** copy everything under "Live chat" from `.env.example`. `SUPABASE_SECRET_KEY` and `VAPID_PRIVATE_KEY` are server-only. Redeploy after adding them (NEXT_PUBLIC values are baked in at build time).
+9. **VAPID keys:** `npx web-push generate-vapid-keys`, then set `NEXT_PUBLIC_VAPID_PUBLIC_KEY` and `VAPID_PRIVATE_KEY`.
+10. **Create the first owner:**
+    ```bash
+    node --env-file=.env.local scripts/create-chat-owner.mjs --email you@example.com --name "Your Name"
+    ```
+    They receive an email to choose a password, then sign in at `/admin/login`.
+11. **Install the admin app on a phone:** open `/admin` in Chrome (Android: menu, Install app) or Safari (iPhone: Share, Add to Home Screen; push needs iOS 16.4 or later and the app added to the Home Screen). Then Settings, My profile, *Enable notifications*, and *Send test notification*.
+
+### Day to day
+
+- Set yourself **Online** at the top of the admin. The widget shows "Online" only while at least one agent is online (and, by default, inside business hours, Mon to Sat 9am to 5pm Sydney time).
+- Outside those hours the widget takes a name, mobile or email plus a message, and the team is emailed straight away.
+- Cash offers sent from a chat appear as a card with Accept, Call me and No thanks. Accepting notifies everyone.
+- Every `/api/quote` submission is also saved to the Leads page (the email flow is unchanged).
+
+### Tests and checks
+
+- `npm test` runs the unit tests (phone normalisation, Sydney business hours including daylight saving, message grouping, canned variables, link detection).
+- `supabase/tests/rls.sql` proves the security rules (visitors cannot see each other's chats or internal notes, cannot write as agents, cannot join the inbox topic, and so on). Run it against a scratch database: `psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f supabase/tests/rls.sql`. It rolls back everything it creates.
+- `npm run lint` and `npm run build` must pass (CI runs both).
+
+### Privacy and data
+
+Chats are stored in Supabase until they are closed and older than the retention period (24 months by default, change it in Settings). Admins can delete a conversation and its photos at any time from the conversation header. A note about chat data is on the Privacy Policy page; have it checked by your solicitor.
+
+To back up chat data, use Supabase's database backups (Project Settings, Database, Backups) or export tables from the Table editor. The Leads page exports CSV.
+
