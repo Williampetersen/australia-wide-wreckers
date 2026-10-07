@@ -5,7 +5,6 @@ import { TrustBadges } from "@/components/home/TrustBadges";
 import { GoogleReviews } from "@/components/home/GoogleReviews";
 import { BrandStrip } from "@/components/home/BrandStrip";
 import { ServicesSection } from "@/components/home/ServicesSection";
-import { VehicleTypes } from "@/components/home/VehicleTypes";
 import { ProcessSteps } from "@/components/home/ProcessSteps";
 import { RealPickups } from "@/components/home/RealPickups";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
@@ -17,13 +16,12 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <VehiclePicker />
       <DamagedCars />
       <TrustBadges />
       <GoogleReviews />
       <BrandStrip />
       <ServicesSection />
-      <VehicleTypes />
+      <VehiclePicker />
       <ProcessSteps />
       <RealPickups />
       <WhyChooseUs />

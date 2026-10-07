@@ -6,7 +6,7 @@ import { vehicleTypes } from "@/lib/quote";
 
 export function VehiclePicker() {
   return (
-    <section className="relative z-10 -mt-6 pb-6 sm:-mt-10">
+    <section className="bg-zinc-50 py-16 sm:py-24">
       <Container>
         <div className="rounded-3xl border border-[#d9e3ee] bg-white p-6 shadow-[0_24px_80px_rgba(0,35,80,0.14)] sm:p-9">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
