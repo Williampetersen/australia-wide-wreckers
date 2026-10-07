@@ -99,3 +99,24 @@ body {
     animation: none;
   }
 }
+
+/* Little tow truck driving across the road divider */
+@keyframes tow-drive {
+  0% { left: -3rem; }
+  100% { left: 100%; }
+}
+
+.tow-drive {
+  animation: tow-drive 14s linear infinite;
+}
+
+/* Hero background video: show the poster image instead for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .tow-drive {
+    animation: none;
+    left: 50%;
+  }
+  .hero-video {
+    display: none;
+  }
+}

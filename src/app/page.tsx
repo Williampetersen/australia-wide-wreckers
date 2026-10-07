@@ -6,6 +6,7 @@ import { BrandStrip } from "@/components/home/BrandStrip";
 import { ServicesSection } from "@/components/home/ServicesSection";
 import { VehicleTypes } from "@/components/home/VehicleTypes";
 import { ProcessSteps } from "@/components/home/ProcessSteps";
+import { RealPickups } from "@/components/home/RealPickups";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { ServiceAreas } from "@/components/home/ServiceAreas";
 import { CtaBand } from "@/components/CtaBand";
@@ -22,6 +23,7 @@ export default function Home() {
       <ServicesSection />
       <VehicleTypes />
       <ProcessSteps />
+      <RealPickups />
       <WhyChooseUs />
       <ServiceAreas />
       <div id="locations">

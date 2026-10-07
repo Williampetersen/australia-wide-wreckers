@@ -1,26 +1,30 @@
 import { Container } from "../Container";
 import { SectionHeading } from "../SectionHeading";
-import { CheckCircle2 } from "../Icons";
+import { Banknote, Clock, Recycle, ShieldCheck } from "lucide-react";
 import { FadeIn } from "../motion/FadeIn";
 import { Stagger, StaggerItem } from "../motion/Stagger";
 
 const reasons = [
   {
+    icon: ShieldCheck,
     title: "Fair, transparent quotes",
     description:
       "No lowball tactics. We assess your vehicle honestly and explain exactly how we arrived at your offer.",
   },
   {
+    icon: Banknote,
     title: "Zero cost to you",
     description:
       "Free towing, free paperwork assistance and no hidden fees, ever. What we quote is what you get.",
   },
   {
+    icon: Clock,
     title: "Fast, flexible scheduling",
     description:
       "We work around your availability, with same-day and after-hours pickups available across our service area.",
   },
   {
+    icon: Recycle,
     title: "Responsible recycling",
     description:
       "Vehicles are dismantled at a licensed facility, with usable parts resold and materials recycled properly.",
@@ -39,13 +43,15 @@ export function WhyChooseUs() {
           />
         </FadeIn>
         <Stagger className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {reasons.map((reason) => (
+          {reasons.map((reason) => {
+            const Icon = reason.icon;
+            return (
             <StaggerItem
               key={reason.title}
               className="flex gap-3 rounded-2xl border border-ink/8 bg-zinc-50 p-5 transition-transform hover:-translate-y-1"
             >
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cash/15 text-cash-dark">
-                <CheckCircle2 className="h-5 w-5" aria-hidden />
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-cash/15 text-cash-dark">
+                <Icon className="h-5 w-5" aria-hidden />
               </span>
               <div>
                 <h3 className="font-display text-base font-bold text-ink">
@@ -56,7 +62,8 @@ export function WhyChooseUs() {
                 </p>
               </div>
             </StaggerItem>
-          ))}
+            );
+          })}
         </Stagger>
       </Container>
     </section>
