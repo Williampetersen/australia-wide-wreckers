@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import { Menu, X, PhoneCall } from "./Icons";
 import { NAV_LINKS, site } from "@/lib/site";
@@ -27,8 +28,10 @@ export function MobileNav() {
         <Menu className="h-5 w-5" aria-hidden />
       </button>
 
-      {open && (
-        <div className="fixed inset-0 z-50 flex">
+      {/* Portaled to <body>: the header's backdrop-blur would otherwise become the
+          containing block for this fixed overlay and clip it to the header strip. */}
+      {open && createPortal(
+        <div className="fixed inset-0 z-[100] flex">
           <div
             className="absolute inset-0 bg-ink/60 backdrop-blur-sm"
             onClick={() => setOpen(false)}
@@ -67,7 +70,8 @@ export function MobileNav() {
               Call {site.phoneDisplay}
             </a>
           </div>
-        </div>
+        </div>,
+        document.body,
       )}
     </div>
   );
