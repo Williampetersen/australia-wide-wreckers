@@ -312,7 +312,20 @@ export function useChat(open: boolean, onUnread: (count: number) => void) {
 
   /** Sends a text message, starting the conversation (and the anonymous session) on the first one. */
   const send = useCallback(
-    async (text: string, contact?: { name?: string; phone?: string; email?: string }, existingId?: string) => {
+    async (
+      text: string,
+      contact?: {
+        name?: string;
+        phone?: string;
+        email?: string;
+        vehicle_make?: string;
+        vehicle_model?: string;
+        vehicle_year?: string;
+        suburb?: string;
+        postcode?: string;
+      },
+      existingId?: string
+    ) => {
       const body = text.trim();
       if (!body) return;
       setError(null);

@@ -74,6 +74,11 @@ export async function POST(request: Request) {
   const phone = typeof body.phone === "string" ? normaliseAuPhone(body.phone) : null;
   const email = clean(body.email, 254);
   const name = clean(body.name, 120);
+  const vehicleMake = clean(body.vehicle_make, 80);
+  const vehicleModel = clean(body.vehicle_model, 80);
+  const vehicleYear = clean(body.vehicle_year, 4);
+  const suburb = clean(body.suburb, 120);
+  const postcode = clean(body.postcode, 10);
   const now = new Date().toISOString();
 
   if (!existingVisitor) {
@@ -121,7 +126,15 @@ export async function POST(request: Request) {
   if (!conversationId) {
     const { data: created, error } = await supabase
       .from("conversations")
-      .insert({ visitor_id: user.id, source_page: clean(ctx.current_page, 500) || clean(ctx.landing_page, 500) || null })
+      .insert({
+        visitor_id: user.id,
+        source_page: clean(ctx.current_page, 500) || clean(ctx.landing_page, 500) || null,
+        vehicle_make: vehicleMake || null,
+        vehicle_model: vehicleModel || null,
+        vehicle_year: vehicleYear || null,
+        suburb: suburb || null,
+        postcode: postcode || null,
+      })
       .select("id")
       .single();
     if (error || !created) {

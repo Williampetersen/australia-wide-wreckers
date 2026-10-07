@@ -54,7 +54,8 @@ export default function ChatPanel({ open, onClose, onUnread }: Props) {
   const [text, setText] = useState("");
   const [urls, setUrls] = useState<Record<string, string>>({});
   const [contactSkipped, setContactSkipped] = useState(false);
-  const [offline, setOffline] = useState({ name: "", phone: "", email: "" });
+  const [intake, setIntake] = useState({ name: "", phone: "", make: "", model: "", year: "", suburb: "", postcode: "", note: "" });
+  const [intakeError, setIntakeError] = useState<string | null>(null);
   const [lightbox, setLightbox] = useState<string | null>(null);
   const [kbOffset, setKbOffset] = useState(0);
   const listRef = useRef<HTMLDivElement>(null);
@@ -135,10 +136,34 @@ export default function ChatPanel({ open, onClose, onUnread }: Props) {
       const body = text.trim();
       if (!body) return;
       setText("");
-      const contact = !hasConversation && !live ? offline : undefined;
-      await send(body, contact);
+      await send(body);
     },
-    [text, hasConversation, live, offline, send]
+    [text, send]
+  );
+
+  const startChat = useCallback(
+    async (e?: FormEvent) => {
+      e?.preventDefault();
+      if (!intake.name.trim()) return setIntakeError("Please enter your name.");
+      if (intake.phone.replace(/\D/g, "").length < 8) return setIntakeError("Please enter a phone number we can call you on.");
+      if (!intake.make.trim() || !intake.model.trim()) return setIntakeError("Please enter the car make and model.");
+      if (!intake.year) return setIntakeError("Please choose the car year.");
+      if (!intake.suburb.trim()) return setIntakeError("Please enter your suburb.");
+      if (!/^\d{4}$/.test(intake.postcode.trim())) return setIntakeError("Please enter a 4-digit postcode.");
+      setIntakeError(null);
+
+      const summary = `Hi, I'd like a quote for my ${intake.year} ${intake.make.trim()} ${intake.model.trim()} in ${intake.suburb.trim()} ${intake.postcode.trim()}.${intake.note.trim() ? ` ${intake.note.trim()}` : ""}`;
+      await send(summary, {
+        name: intake.name.trim(),
+        phone: intake.phone.trim(),
+        vehicle_make: intake.make.trim(),
+        vehicle_model: intake.model.trim(),
+        vehicle_year: intake.year,
+        suburb: intake.suburb.trim(),
+        postcode: intake.postcode.trim(),
+      });
+    },
+    [intake, send]
   );
 
   const onKeyDown = (e: KeyboardEvent<HTMLTextAreaElement>) => {
@@ -157,7 +182,6 @@ export default function ChatPanel({ open, onClose, onUnread }: Props) {
   }, [messages, conversation]);
 
   const accent = settings?.accent_colour ?? "#feba02";
-  const offlineNeedsContact = !hasConversation && !live && !offline.phone.trim() && !offline.email.trim();
 
   return (
     <div
@@ -218,33 +242,37 @@ export default function ChatPanel({ open, onClose, onUnread }: Props) {
           <div className="space-y-3">
             <div className="rounded-2xl rounded-bl-md bg-white p-3.5 text-sm leading-relaxed text-ink shadow-sm">
               <p className="font-bold">{settings?.welcome_title}</p>
-              <p className="mt-1 text-zinc-700">{live ? settings?.welcome_text : settings?.offline_message}</p>
-              {!live && config?.next_open_text && (
-                <p className="mt-2 font-semibold text-navy">We&apos;re back {config.next_open_text}.</p>
-              )}
+              <p className="mt-1 text-zinc-700">{settings?.welcome_text}</p>
             </div>
-            {live && settings?.quick_chips?.length ? (
-              <div className="flex flex-wrap gap-2">
-                {settings.quick_chips.map((chip) => (
-                  <button
-                    key={chip}
-                    type="button"
-                    onClick={() => void send(chip)}
-                    className="rounded-full border border-blue/30 bg-white px-3.5 py-2 text-sm font-semibold text-navy hover:bg-blue/10"
-                  >
-                    {chip}
-                  </button>
+
+            <form onSubmit={startChat} className="space-y-2.5 rounded-2xl bg-white p-3.5 shadow-sm">
+              <p className="text-xs font-bold uppercase tracking-wide text-zinc-500">
+                Tell us about your car so we can help faster
+              </p>
+              <input className={fieldClass} placeholder="Your name" autoComplete="name" value={intake.name} onChange={(e) => setIntake({ ...intake, name: e.target.value })} />
+              <input className={fieldClass} placeholder="Phone number" inputMode="tel" autoComplete="tel" value={intake.phone} onChange={(e) => setIntake({ ...intake, phone: e.target.value })} />
+              <div className="grid grid-cols-2 gap-2.5">
+                <input className={fieldClass} placeholder="Car make" autoComplete="off" value={intake.make} onChange={(e) => setIntake({ ...intake, make: e.target.value })} />
+                <input className={fieldClass} placeholder="Car model" autoComplete="off" value={intake.model} onChange={(e) => setIntake({ ...intake, model: e.target.value })} />
+              </div>
+              <select className={fieldClass} value={intake.year} onChange={(e) => setIntake({ ...intake, year: e.target.value })}>
+                <option value="">Car year</option>
+                {vehicleYears.map((y) => (
+                  <option key={y} value={y}>{y}</option>
                 ))}
+              </select>
+              <div className="grid grid-cols-2 gap-2.5">
+                <input className={fieldClass} placeholder="Suburb" autoComplete="address-level2" value={intake.suburb} onChange={(e) => setIntake({ ...intake, suburb: e.target.value })} />
+                <input className={fieldClass} placeholder="Postcode" inputMode="numeric" maxLength={4} autoComplete="postal-code" value={intake.postcode} onChange={(e) => setIntake({ ...intake, postcode: e.target.value })} />
               </div>
-            ) : null}
-            {!live && (
-              <div className="space-y-2 rounded-2xl bg-white p-3.5 shadow-sm">
-                <p className="text-xs font-bold uppercase tracking-wide text-zinc-500">So we can call you back</p>
-                <input className={fieldClass} placeholder="Your name" autoComplete="name" value={offline.name} onChange={(e) => setOffline({ ...offline, name: e.target.value })} />
-                <input className={fieldClass} placeholder="Mobile number" inputMode="tel" autoComplete="tel" value={offline.phone} onChange={(e) => setOffline({ ...offline, phone: e.target.value })} />
-                <input className={fieldClass} placeholder="Email (optional)" inputMode="email" autoComplete="email" value={offline.email} onChange={(e) => setOffline({ ...offline, email: e.target.value })} />
-              </div>
-            )}
+              <textarea className={`${fieldClass} min-h-16 resize-none`} placeholder="Anything else? (optional)" value={intake.note} onChange={(e) => setIntake({ ...intake, note: e.target.value })} />
+              {intakeError && (
+                <p role="alert" className="rounded-lg bg-red-50 px-3 py-2 text-xs font-medium text-red-700">{intakeError}</p>
+              )}
+              <button type="submit" className="w-full rounded-full bg-brand px-4 py-2.5 text-sm font-bold text-ink shadow hover:brightness-105">
+                Start chat
+              </button>
+            </form>
           </div>
         )}
 
@@ -316,7 +344,7 @@ export default function ChatPanel({ open, onClose, onUnread }: Props) {
           Chat unavailable. Please call us on <a className="font-bold text-navy" href={site.phoneHref}>{site.phoneDisplay}</a>.
         </div>
       ) : (
-        !closed && (
+        hasConversation && !closed && (
           <form onSubmit={submit} className="border-t border-ink/10 bg-white p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
             {error && (
               <p className="mb-2 rounded-lg bg-red-50 px-3 py-2 text-xs font-medium text-red-700" role="alert">
@@ -353,7 +381,7 @@ export default function ChatPanel({ open, onClose, onUnread }: Props) {
                 value={text}
                 rows={1}
                 maxLength={4000}
-                placeholder={live || hasConversation ? "Type your message…" : "Type your message and we'll call you back"}
+                placeholder="Type your message…"
                 aria-label="Message"
                 onChange={(e) => {
                   setText(e.target.value);
@@ -366,7 +394,7 @@ export default function ChatPanel({ open, onClose, onUnread }: Props) {
               />
               <button
                 type="submit"
-                disabled={!text.trim() || offlineNeedsContact}
+                disabled={!text.trim()}
                 aria-label="Send message"
                 className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand text-ink shadow disabled:cursor-not-allowed disabled:opacity-40"
               >
